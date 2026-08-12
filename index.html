@@ -2,49 +2,59 @@
 <html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
+<meta charset="UTF-8">
 
-    <meta
-        name="description"
-        content="Emmanuel Kuh is an applied economist and data scientist specializing in causal inference, econometrics, machine learning, health economics, public policy, and decision analytics."
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
-    <meta name="theme-color" content="#070A12">
+<meta
+    name="description"
+    content="Emmanuel Kuh is an applied economist and data scientist focused on causal inference, econometrics, machine learning, health economics, and policy evaluation."
+>
 
-    <title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
+<meta name="theme-color" content="#070A12">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
 
-    <script>
-        (function () {
-            const saved = localStorage.getItem("ek-theme") || "system";
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-            const systemDark = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            ).matches;
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-            const actual =
-                saved === "system"
-                    ? (systemDark ? "dark" : "light")
-                    : saved;
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-            document.documentElement.setAttribute(
-                "data-theme",
-                actual
-            );
-        })();
-    </script>
+
+<script>
+
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("ek-theme") || "system";
+
+    const systemDark =
+        window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+
+    const activeTheme =
+        savedTheme === "system"
+            ? (systemDark ? "dark" : "light")
+            : savedTheme;
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        activeTheme
+    );
+
+})();
+
+</script>
 
 
 <style>
@@ -57,27 +67,26 @@
 
     color-scheme: light;
 
-    --bg: #f6f8fc;
-    --bg2: #ffffff;
-    --bg3: #eef2f8;
+    --bg: #f7f8fc;
+    --bg-secondary: #ffffff;
 
-    --surface: rgba(255,255,255,.72);
-    --surface-strong: rgba(255,255,255,.94);
+    --surface: rgba(255,255,255,.74);
+    --surface-strong: rgba(255,255,255,.96);
 
-    --text: #09111f;
-    --text2: #445169;
-    --muted: #718096;
+    --text: #0a1020;
+    --text-secondary: #48556d;
+    --muted: #748096;
 
     --blue: #2563eb;
     --cyan: #0891b2;
     --violet: #7c3aed;
 
-    --soft-blue: rgba(37,99,235,.09);
+    --blue-soft: rgba(37,99,235,.09);
 
     --border: rgba(15,23,42,.09);
-    --border-blue: rgba(37,99,235,.28);
+    --border-accent: rgba(37,99,235,.28);
 
-    --nav: rgba(246,248,252,.78);
+    --nav: rgba(247,248,252,.82);
 
     --grid: rgba(15,23,42,.035);
 
@@ -93,27 +102,26 @@ html[data-theme="dark"] {
 
     color-scheme: dark;
 
-    --bg: #060a12;
-    --bg2: #090f1a;
-    --bg3: #0c1422;
+    --bg: #070a12;
+    --bg-secondary: #0a101b;
 
     --surface: rgba(13,20,34,.68);
-    --surface-strong: rgba(15,23,42,.94);
+    --surface-strong: rgba(15,23,42,.96);
 
     --text: #f8fafc;
-    --text2: #b6c1d2;
-    --muted: #8290a6;
+    --text-secondary: #b6c1d2;
+    --muted: #8390a5;
 
     --blue: #5b8cff;
     --cyan: #38bdf8;
     --violet: #9b7cff;
 
-    --soft-blue: rgba(91,140,255,.11);
+    --blue-soft: rgba(91,140,255,.11);
 
     --border: rgba(148,163,184,.13);
-    --border-blue: rgba(91,140,255,.35);
+    --border-accent: rgba(91,140,255,.36);
 
-    --nav: rgba(6,10,18,.77);
+    --nav: rgba(7,10,18,.80);
 
     --grid: rgba(255,255,255,.026);
 
@@ -130,15 +138,19 @@ html[data-theme="dark"] {
 ========================================================= */
 
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 
 html {
+
     scroll-behavior: smooth;
     scroll-padding-top: 110px;
+
 }
 
 
@@ -161,6 +173,7 @@ body {
     transition:
         background .35s ease,
         color .35s ease;
+
 }
 
 
@@ -169,15 +182,20 @@ body::before {
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     pointer-events: none;
 
+    z-index: -3;
+
     background-image:
+
         linear-gradient(
             var(--grid) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             var(--grid) 1px,
@@ -187,13 +205,13 @@ body::before {
     background-size: 64px 64px;
 
     mask-image:
+
         linear-gradient(
             to bottom,
             black,
             transparent 90%
         );
 
-    z-index: -3;
 }
 
 
@@ -206,12 +224,17 @@ body::after {
     width: 900px;
     height: 900px;
 
-    right: -320px;
+    right: -330px;
     top: -430px;
 
     border-radius: 50%;
 
+    pointer-events: none;
+
+    z-index: -2;
+
     background:
+
         radial-gradient(
             circle,
             rgba(59,130,246,.18),
@@ -219,31 +242,36 @@ body::after {
             transparent 70%
         );
 
-    pointer-events: none;
-
-    z-index: -2;
 }
 
 
 a {
+
     color: inherit;
-}
 
-
-img {
-    display: block;
-    max-width: 100%;
 }
 
 
 button {
+
     font: inherit;
+
+}
+
+
+img {
+
+    display: block;
+    max-width: 100%;
+
 }
 
 
 ::selection {
+
     background: var(--blue);
     color: white;
+
 }
 
 
@@ -256,6 +284,7 @@ button {
         );
 
     margin-inline: auto;
+
 }
 
 
@@ -274,6 +303,7 @@ button {
     z-index: 1000;
 
     pointer-events: none;
+
 }
 
 
@@ -292,13 +322,13 @@ button {
     padding: 9px 11px;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
     gap: 20px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 18px;
 
@@ -310,12 +340,14 @@ button {
     box-shadow: var(--shadow);
 
     pointer-events: auto;
+
 }
 
 
 .brand {
 
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -324,6 +356,7 @@ button {
 
     font-size: 13px;
     font-weight: 800;
+
 }
 
 
@@ -333,7 +366,10 @@ button {
     height: 39px;
 
     display: grid;
+
     place-items: center;
+
+    flex-shrink: 0;
 
     border-radius: 11px;
 
@@ -342,6 +378,7 @@ button {
     font-size: 12px;
 
     background:
+
         linear-gradient(
             135deg,
             var(--blue),
@@ -349,41 +386,49 @@ button {
         );
 
     box-shadow:
+
         0 10px 30px
         rgba(37,99,235,.24);
+
 }
 
 
-.brand span:last-child span {
+.brand-dot {
+
     color: var(--blue);
+
 }
 
 
 .nav-right {
 
     display: flex;
+
     align-items: center;
 
     gap: 18px;
+
 }
 
 
 .nav-links {
 
     display: flex;
+
     align-items: center;
 
-    gap: 2px;
+    gap: 3px;
+
 }
 
 
-.nav-links a {
+.nav-link {
 
-    padding: 9px 9px;
+    padding: 9px 10px;
 
     border-radius: 8px;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     text-decoration: none;
 
@@ -391,20 +436,22 @@ button {
     font-weight: 600;
 
     transition: .2s ease;
+
 }
 
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-link:hover,
+.nav-link.active {
 
     color: var(--text);
 
-    background: var(--soft-blue);
+    background: var(--blue-soft);
+
 }
 
 
 /* =========================================================
-   THEME
+   THEME SWITCHER
 ========================================================= */
 
 .theme-switcher {
@@ -413,12 +460,12 @@ button {
 
     padding: 3px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 11px;
 
     background: var(--surface);
+
 }
 
 
@@ -428,6 +475,7 @@ button {
     height: 31px;
 
     display: grid;
+
     place-items: center;
 
     border: 0;
@@ -439,6 +487,16 @@ button {
     color: var(--muted);
 
     cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+.theme-btn:hover {
+
+    color: var(--text);
+
 }
 
 
@@ -449,8 +507,10 @@ button {
     background: var(--surface-strong);
 
     box-shadow:
+
         0 4px 12px
         rgba(15,23,42,.08);
+
 }
 
 
@@ -463,11 +523,13 @@ button {
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
 
     padding:
         145px 0
         90px;
+
 }
 
 
@@ -482,12 +544,14 @@ button {
     gap: 85px;
 
     align-items: center;
+
 }
 
 
 .status {
 
     display: inline-flex;
+
     align-items: center;
 
     gap: 9px;
@@ -496,19 +560,19 @@ button {
 
     padding: 8px 13px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 999px;
 
     background: var(--surface);
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 11px;
     font-weight: 700;
 
     box-shadow: var(--shadow);
+
 }
 
 
@@ -522,12 +586,14 @@ button {
     background: #22c55e;
 
     box-shadow:
+
         0 0 0 5px
-        rgba(34,197,94,.1);
+        rgba(34,197,94,.10);
+
 }
 
 
-.overline {
+.hero-overline {
 
     margin-bottom: 13px;
 
@@ -539,6 +605,7 @@ button {
     letter-spacing: 2px;
 
     text-transform: uppercase;
+
 }
 
 
@@ -556,12 +623,14 @@ button {
     line-height: .92;
 
     letter-spacing: -5px;
+
 }
 
 
-.gradient {
+.gradient-text {
 
     background:
+
         linear-gradient(
             100deg,
             var(--blue),
@@ -573,6 +642,7 @@ button {
     background-clip: text;
 
     color: transparent;
+
 }
 
 
@@ -580,7 +650,7 @@ button {
 
     margin-bottom: 23px;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size:
         clamp(
@@ -591,7 +661,10 @@ button {
 
     font-weight: 600;
 
+    line-height: 1.35;
+
     letter-spacing: -.7px;
+
 }
 
 
@@ -606,11 +679,14 @@ button {
     font-size: 15px;
 
     line-height: 1.9;
+
 }
 
 
 .hero-description strong {
+
     color: var(--text);
+
 }
 
 
@@ -621,9 +697,11 @@ button {
 .actions {
 
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 10px;
+
 }
 
 
@@ -632,6 +710,7 @@ button {
     min-height: 49px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -646,12 +725,19 @@ button {
     font-size: 12px;
     font-weight: 700;
 
-    transition: .25s ease;
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
 }
 
 
 .btn:hover {
+
     transform: translateY(-3px);
+
 }
 
 
@@ -660,6 +746,7 @@ button {
     color: white;
 
     background:
+
         linear-gradient(
             135deg,
             var(--blue),
@@ -667,8 +754,20 @@ button {
         );
 
     box-shadow:
+
         0 15px 35px
         rgba(37,99,235,.24);
+
+}
+
+
+.btn-primary:hover {
+
+    box-shadow:
+
+        0 20px 45px
+        rgba(37,99,235,.32);
+
 }
 
 
@@ -676,20 +775,19 @@ button {
 
     color: var(--text);
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     background: var(--surface);
+
 }
 
 
 .btn-secondary:hover {
 
-    border-color:
-        var(--border-blue);
+    border-color: var(--border-accent);
 
-    background:
-        var(--surface-strong);
+    background: var(--surface-strong);
+
 }
 
 
@@ -698,7 +796,9 @@ button {
 ========================================================= */
 
 .profile-area {
+
     position: relative;
+
 }
 
 
@@ -717,7 +817,10 @@ button {
 
     border-radius: 50%;
 
+    pointer-events: none;
+
     background:
+
         radial-gradient(
             circle,
             rgba(59,130,246,.21),
@@ -726,6 +829,7 @@ button {
         );
 
     filter: blur(18px);
+
 }
 
 
@@ -739,16 +843,19 @@ button {
 
     padding: 12px;
 
-    border:
-        1px solid var(--border);
+    overflow: hidden;
+
+    border: 1px solid var(--border);
 
     border-radius: 29px;
 
     background: var(--surface);
 
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     box-shadow: var(--shadow-large);
+
 }
 
 
@@ -760,7 +867,19 @@ button {
 
     object-fit: cover;
 
+    object-position: center;
+
     border-radius: 20px;
+
+    transition: transform .5s ease;
+
+}
+
+
+.profile-card:hover .profile-image {
+
+    transform: scale(1.02);
+
 }
 
 
@@ -769,6 +888,7 @@ button {
     padding:
         20px 9px
         8px;
+
 }
 
 
@@ -777,6 +897,7 @@ button {
     margin-bottom: 4px;
 
     font-size: 15px;
+
 }
 
 
@@ -785,6 +906,9 @@ button {
     color: var(--muted);
 
     font-size: 12px;
+
+    line-height: 1.65;
+
 }
 
 
@@ -799,8 +923,8 @@ button {
 
     padding-top: 15px;
 
-    border-top:
-        1px solid var(--border);
+    border-top: 1px solid var(--border);
+
 }
 
 
@@ -808,17 +932,19 @@ button {
 
     text-align: center;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 10px;
 
-    border-right:
-        1px solid var(--border);
+    border-right: 1px solid var(--border);
+
 }
 
 
 .profile-tags span:last-child {
-    border: 0;
+
+    border-right: 0;
+
 }
 
 
@@ -828,11 +954,10 @@ button {
 
 .focus-strip {
 
-    border-top:
-        1px solid var(--border);
+    border-top: 1px solid var(--border);
 
-    border-bottom:
-        1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
 }
 
 
@@ -842,6 +967,7 @@ button {
 
     grid-template-columns:
         repeat(5,1fr);
+
 }
 
 
@@ -851,22 +977,22 @@ button {
 
     text-align: center;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 9px;
     font-weight: 800;
 
     letter-spacing: 1px;
 
-    border-right:
-        1px solid var(--border);
+    border-right: 1px solid var(--border);
+
 }
 
 
 .focus:first-child {
 
-    border-left:
-        1px solid var(--border);
+    border-left: 1px solid var(--border);
+
 }
 
 
@@ -875,12 +1001,16 @@ button {
 ========================================================= */
 
 .section {
+
     padding: 115px 0;
+
 }
 
 
 .section-alt {
-    background: var(--bg2);
+
+    background: var(--bg-secondary);
+
 }
 
 
@@ -896,6 +1026,7 @@ button {
     align-items: end;
 
     margin-bottom: 52px;
+
 }
 
 
@@ -911,6 +1042,7 @@ button {
     letter-spacing: 2px;
 
     text-transform: uppercase;
+
 }
 
 
@@ -928,6 +1060,7 @@ button {
     line-height: 1.04;
 
     letter-spacing: -2.8px;
+
 }
 
 
@@ -938,6 +1071,7 @@ button {
     font-size: 13px;
 
     line-height: 1.85;
+
 }
 
 
@@ -953,10 +1087,14 @@ button {
         repeat(12,1fr);
 
     gap: 20px;
+
 }
 
 
 .project {
+
+    --mx: 50%;
+    --my: 50%;
 
     position: relative;
 
@@ -969,8 +1107,7 @@ button {
 
     overflow: hidden;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 23px;
 
@@ -978,50 +1115,95 @@ button {
 
     box-shadow: var(--shadow);
 
-    transition: .3s ease;
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.project::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            420px circle
+            at var(--mx) var(--my),
+            rgba(91,140,255,.13),
+            transparent 45%
+        );
+
+    transition: opacity .3s ease;
+
 }
 
 
 .project:hover {
 
-    transform:
-        translateY(-6px);
+    transform: translateY(-6px);
 
-    border-color:
-        var(--border-blue);
+    border-color: var(--border-accent);
 
-    box-shadow:
-        var(--shadow-large);
+    box-shadow: var(--shadow-large);
+
+}
+
+
+.project:hover::before {
+
+    opacity: 1;
+
 }
 
 
 .project:nth-child(1) {
+
     grid-column: span 7;
+
 }
 
 
 .project:nth-child(2) {
+
     grid-column: span 5;
+
 }
 
 
-.project:nth-child(3),
-.project:nth-child(4) {
+.project:nth-child(3) {
 
-    grid-column: span 6;
+    grid-column: span 12;
 
-    min-height: 330px;
+    min-height: 320px;
+
 }
 
 
 .project-top {
 
+    position: relative;
+
+    z-index: 2;
+
     display: flex;
+
     justify-content: space-between;
 
     gap: 20px;
 
     margin-bottom: 48px;
+
 }
 
 
@@ -1033,6 +1215,7 @@ button {
     font-weight: 800;
 
     letter-spacing: 1.3px;
+
 }
 
 
@@ -1040,14 +1223,29 @@ button {
 
     padding: 6px 9px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 999px;
 
     color: var(--muted);
 
     font-size: 9px;
+
+}
+
+
+.project-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
 }
 
 
@@ -1065,6 +1263,7 @@ button {
     line-height: 1.15;
 
     letter-spacing: -1.3px;
+
 }
 
 
@@ -1074,22 +1273,25 @@ button {
 
     margin-bottom: 25px;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 13px;
 
     line-height: 1.8;
+
 }
 
 
 .tags {
 
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 7px;
 
     margin-top: auto;
+
 }
 
 
@@ -1099,13 +1301,87 @@ button {
 
     border-radius: 7px;
 
-    background:
-        var(--soft-blue);
+    background: var(--blue-soft);
 
     color: var(--blue);
 
     font-size: 9px;
     font-weight: 800;
+
+}
+
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.expertise-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    border-top: 1px solid var(--border);
+
+    border-left: 1px solid var(--border);
+
+}
+
+
+.expertise-card {
+
+    min-height: 255px;
+
+    padding: 33px;
+
+    border-right: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+
+    transition: background .25s ease;
+
+}
+
+
+.expertise-card:hover {
+
+    background: var(--surface);
+
+}
+
+
+.expertise-number {
+
+    margin-bottom: 38px;
+
+    color: var(--blue);
+
+    font-size: 9px;
+    font-weight: 800;
+
+}
+
+
+.expertise-card h3 {
+
+    margin-bottom: 10px;
+
+    font-size: 19px;
+
+}
+
+
+.expertise-card p {
+
+    max-width: 480px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
 }
 
 
@@ -1121,22 +1397,21 @@ button {
         repeat(3,1fr);
 
     gap: 18px;
+
 }
 
 
 .education-card {
 
-    position: relative;
+    min-height: 315px;
 
-    min-height: 340px;
-
-    padding: 28px;
+    padding: 27px;
 
     display: flex;
+
     flex-direction: column;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 20px;
 
@@ -1144,7 +1419,10 @@ button {
 
     box-shadow: var(--shadow);
 
-    transition: .3s ease;
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+
 }
 
 
@@ -1152,21 +1430,22 @@ button {
 
     transform: translateY(-5px);
 
-    border-color:
-        var(--border-blue);
+    border-color: var(--border-accent);
+
 }
 
 
 .education-date {
 
-    margin-bottom: 38px;
+    margin-bottom: 35px;
 
     color: var(--blue);
 
     font-size: 9px;
     font-weight: 800;
 
-    letter-spacing: 1.3px;
+    letter-spacing: 1.2px;
+
 }
 
 
@@ -1174,11 +1453,12 @@ button {
 
     margin-bottom: 10px;
 
-    font-size: 21px;
+    font-size: 20px;
 
     line-height: 1.3;
 
-    letter-spacing: -.6px;
+    letter-spacing: -.5px;
+
 }
 
 
@@ -1186,11 +1466,12 @@ button {
 
     margin-bottom: 14px;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 13px;
 
     line-height: 1.7;
+
 }
 
 
@@ -1201,12 +1482,11 @@ button {
     font-size: 12px;
 
     line-height: 1.7;
+
 }
 
 
 .education-badge {
-
-    display: inline-flex;
 
     width: fit-content;
 
@@ -1216,249 +1496,13 @@ button {
 
     border-radius: 999px;
 
-    background: var(--soft-blue);
-
-    color: var(--blue);
-
-    font-size: 9px;
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   EXPERTISE
-========================================================= */
-
-.expertise-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    border-top:
-        1px solid var(--border);
-
-    border-left:
-        1px solid var(--border);
-}
-
-
-.expertise {
-
-    min-height: 255px;
-
-    padding: 33px;
-
-    border-right:
-        1px solid var(--border);
-
-    border-bottom:
-        1px solid var(--border);
-}
-
-
-.expertise-number {
-
-    margin-bottom: 38px;
-
-    color: var(--blue);
-
-    font-size: 9px;
-    font-weight: 800;
-}
-
-
-.expertise h3 {
-
-    margin-bottom: 10px;
-
-    font-size: 19px;
-}
-
-
-.expertise p {
-
-    max-width: 480px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   EXPERIENCE
-========================================================= */
-
-.timeline {
-
-    position: relative;
-
-    max-width: 900px;
-
-    margin-inline: auto;
-}
-
-
-.timeline::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: 14px;
-
-    width: 1px;
-
-    background: var(--border);
-}
-
-
-.timeline-item {
-
-    position: relative;
-
-    padding:
-        0 0
-        48px 55px;
-}
-
-
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-
-
-.timeline-dot {
-
-    position: absolute;
-
-    left: 9px;
-    top: 7px;
-
-    width: 11px;
-    height: 11px;
-
-    border-radius: 50%;
-
-    background: var(--blue);
-
-    box-shadow:
-        0 0 0 6px
-        var(--soft-blue);
-}
-
-
-.timeline-date {
-
-    margin-bottom: 6px;
+    background: var(--blue-soft);
 
     color: var(--blue);
 
     font-size: 9px;
     font-weight: 800;
 
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-}
-
-
-.timeline-item h3 {
-
-    margin-bottom: 4px;
-
-    font-size: 19px;
-}
-
-
-.timeline-org {
-
-    margin-bottom: 10px;
-
-    color: var(--text2);
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-
-.timeline-item p {
-
-    max-width: 720px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skill-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 14px;
-}
-
-
-.skill-card {
-
-    padding: 25px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 17px;
-
-    background: var(--surface);
-}
-
-
-.skill-label {
-
-    margin-bottom: 20px;
-
-    color: var(--blue);
-
-    font-size: 9px;
-    font-weight: 800;
-
-    letter-spacing: 1.2px;
-
-    text-transform: uppercase;
-}
-
-
-.skill-card h3 {
-
-    margin-bottom: 9px;
-
-    font-size: 17px;
-}
-
-
-.skill-card p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.8;
 }
 
 
@@ -1466,52 +1510,86 @@ button {
    AWARDS
 ========================================================= */
 
-.awards {
+.awards-grid {
 
     display: grid;
 
     grid-template-columns:
         repeat(2,1fr);
 
-    gap: 12px;
+    gap: 14px;
+
 }
 
 
-.award {
+.award-card {
 
-    display: flex;
+    position: relative;
+
+    padding: 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        65px 1fr;
 
     gap: 18px;
 
-    padding: 20px 22px;
+    align-items: start;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
-    border-radius: 14px;
+    border-radius: 17px;
 
     background: var(--surface);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+
+}
+
+
+.award-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--border-accent);
+
 }
 
 
 .award-year {
 
-    min-width: 45px;
-
     color: var(--blue);
 
     font-size: 10px;
     font-weight: 800;
+
+    letter-spacing: 1px;
+
 }
 
 
-.award-name {
+.award-content h3 {
 
-    color: var(--text2);
+    margin-bottom: 6px;
 
-    font-size: 13px;
+    font-size: 15px;
+
+    line-height: 1.4;
+
+}
+
+
+.award-content p {
+
+    color: var(--muted);
+
+    font-size: 11px;
 
     line-height: 1.6;
+
 }
 
 
@@ -1524,33 +1602,39 @@ button {
     display: grid;
 
     grid-template-columns:
-        1.05fr .95fr;
+        1.08fr .92fr;
 
     gap: 85px;
+
+    align-items: start;
+
 }
 
 
 .about-copy {
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 15px;
 
     line-height: 1.95;
+
 }
 
 
 .about-copy p {
+
     margin-bottom: 20px;
+
 }
 
 
-.about-details {
-
-    border-left:
-        1px solid var(--border);
+.about-side {
 
     padding-left: 30px;
+
+    border-left: 1px solid var(--border);
+
 }
 
 
@@ -1558,7 +1642,15 @@ button {
 
     position: relative;
 
-    padding-bottom: 30px;
+    padding-bottom: 31px;
+
+}
+
+
+.about-item:last-child {
+
+    padding-bottom: 0;
+
 }
 
 
@@ -1579,8 +1671,10 @@ button {
     background: var(--blue);
 
     box-shadow:
+
         0 0 0 5px
-        var(--soft-blue);
+        var(--blue-soft);
+
 }
 
 
@@ -1596,6 +1690,7 @@ button {
     letter-spacing: 1px;
 
     text-transform: uppercase;
+
 }
 
 
@@ -1604,6 +1699,7 @@ button {
     margin-bottom: 4px;
 
     font-size: 15px;
+
 }
 
 
@@ -1614,6 +1710,7 @@ button {
     font-size: 12px;
 
     line-height: 1.7;
+
 }
 
 
@@ -1629,15 +1726,14 @@ button {
 
     padding: 65px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 28px;
 
     background: var(--surface);
 
-    box-shadow:
-        var(--shadow-large);
+    box-shadow: var(--shadow-large);
+
 }
 
 
@@ -1655,13 +1751,17 @@ button {
 
     border-radius: 50%;
 
+    pointer-events: none;
+
     background:
+
         radial-gradient(
             circle,
-            rgba(91,140,255,.2),
+            rgba(91,140,255,.20),
             rgba(124,58,237,.07),
             transparent 70%
         );
+
 }
 
 
@@ -1670,6 +1770,7 @@ button {
     position: relative;
 
     z-index: 2;
+
 }
 
 
@@ -1687,24 +1788,26 @@ button {
     line-height: 1.03;
 
     letter-spacing: -3px;
+
 }
 
 
-.contact-panel > .contact-content > p {
+.contact-copy {
 
     max-width: 650px;
 
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 
-    color: var(--text2);
+    color: var(--text-secondary);
 
     font-size: 14px;
 
     line-height: 1.85;
+
 }
 
 
-.contact-details {
+.contact-grid {
 
     display: grid;
 
@@ -1713,16 +1816,16 @@ button {
 
     gap: 12px;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+
 }
 
 
-.contact-link {
+.contact-card {
 
     padding: 18px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 13px;
 
@@ -1730,21 +1833,23 @@ button {
 
     text-decoration: none;
 
-    transition: .25s ease;
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+
 }
 
 
-.contact-link:hover {
+.contact-card:hover {
 
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 
-    border-color:
-        var(--border-blue);
+    border-color: var(--border-accent);
+
 }
 
 
-.contact-link span {
+.contact-card span {
 
     display: block;
 
@@ -1755,21 +1860,22 @@ button {
     font-size: 9px;
     font-weight: 800;
 
+    letter-spacing: 1px;
+
     text-transform: uppercase;
 
-    letter-spacing: 1px;
 }
 
 
-.contact-link strong {
+.contact-card strong {
 
     color: var(--text);
 
     font-size: 12px;
-
     font-weight: 600;
 
     word-break: break-word;
+
 }
 
 
@@ -1786,21 +1892,24 @@ footer {
             + env(safe-area-inset-bottom)
         );
 
-    border-top:
-        1px solid var(--border);
+    border-top: 1px solid var(--border);
 
     color: var(--muted);
 
     font-size: 11px;
+
 }
 
 
-.footer {
+.footer-inner {
 
     display: flex;
+
     justify-content: space-between;
+    align-items: center;
 
     gap: 20px;
+
 }
 
 
@@ -1809,11 +1918,21 @@ footer {
     display: flex;
 
     gap: 18px;
+
 }
 
 
 .footer-links a {
+
     text-decoration: none;
+
+}
+
+
+.footer-links a:hover {
+
+    color: var(--blue);
+
 }
 
 
@@ -1825,12 +1944,12 @@ footer {
 
     opacity: 0;
 
-    transform:
-        translateY(22px);
+    transform: translateY(22px);
 
     transition:
         opacity .7s ease,
         transform .7s ease;
+
 }
 
 
@@ -1839,6 +1958,7 @@ footer {
     opacity: 1;
 
     transform: none;
+
 }
 
 
@@ -1853,27 +1973,37 @@ footer {
         grid-template-columns: 1fr;
 
         gap: 55px;
+
     }
 
 
     .hero-text {
+
         text-align: center;
+
     }
 
 
     .status {
+
         margin-inline: auto;
+
     }
 
 
     .hero-description {
+
         margin-inline: auto;
+
         margin-bottom: 32px;
+
     }
 
 
     .actions {
+
         justify-content: center;
+
     }
 
 
@@ -1882,6 +2012,7 @@ footer {
         width: min(430px,100%);
 
         margin-inline: auto;
+
     }
 
 
@@ -1890,30 +2021,28 @@ footer {
         grid-template-columns: 1fr;
 
         gap: 20px;
+
     }
 
 
     .projects {
 
         grid-template-columns: 1fr;
+
     }
 
 
     .project:nth-child(n) {
+
         grid-column: auto;
+
     }
 
 
     .education-grid {
 
         grid-template-columns: 1fr;
-    }
 
-
-    .skill-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
     }
 
 
@@ -1922,25 +2051,29 @@ footer {
         grid-template-columns: 1fr;
 
         gap: 50px;
+
     }
 
 
-    .contact-details {
+    .contact-grid {
 
         grid-template-columns: 1fr;
+
     }
 
 }
 
 
 /* =========================================================
-   MOBILE NAV
+   MOBILE NAVIGATION
 ========================================================= */
 
 @media(max-width:820px) {
 
     .nav-links {
+
         display: none;
+
     }
 
 
@@ -1948,21 +2081,28 @@ footer {
 
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
 
     .focus:last-child {
+
         grid-column: span 2;
+
     }
 
 
     .expertise-grid {
+
         grid-template-columns: 1fr;
+
     }
 
 
-    .awards {
+    .awards-grid {
+
         grid-template-columns: 1fr;
+
     }
 
 }
@@ -1981,27 +2121,40 @@ footer {
                 100% - 30px,
                 1200px
             );
+
     }
 
 
     .nav-shell {
+
         top: 10px;
+
     }
 
 
     .navbar {
 
-        width:
-            calc(100% - 20px);
+        width: calc(100% - 20px);
 
         min-height: 60px;
 
         border-radius: 15px;
+
     }
 
 
-    .brand > span:last-child {
+    .brand-name {
+
         display: none;
+
+    }
+
+
+    .theme-btn {
+
+        width: 32px;
+        height: 30px;
+
     }
 
 
@@ -2012,6 +2165,7 @@ footer {
         padding:
             120px 0
             75px;
+
     }
 
 
@@ -2025,16 +2179,21 @@ footer {
             );
 
         letter-spacing: -3.5px;
+
     }
 
 
     .hero-role {
+
         font-size: 20px;
+
     }
 
 
     .hero-description {
+
         font-size: 14px;
+
     }
 
 
@@ -2046,13 +2205,14 @@ footer {
             1fr 1fr;
 
         width: 100%;
+
     }
 
 
     .actions .btn:first-child {
 
-        grid-column:
-            1 / -1;
+        grid-column: 1 / -1;
+
     }
 
 
@@ -2061,11 +2221,14 @@ footer {
         width: 100%;
 
         padding: 0 12px;
+
     }
 
 
     .section {
+
         padding: 82px 0;
+
     }
 
 
@@ -2079,6 +2242,7 @@ footer {
             );
 
         letter-spacing: -2px;
+
     }
 
 
@@ -2087,25 +2251,32 @@ footer {
         min-height: 330px;
 
         padding: 24px;
+
     }
 
 
     .education-card {
 
-        min-height: 310px;
+        min-height: 285px;
 
         padding: 24px;
+
     }
 
 
-    .skill-grid {
-        grid-template-columns: 1fr;
+    .award-card {
+
+        grid-template-columns: 52px 1fr;
+
+        padding: 20px;
+
     }
 
 
-    .timeline-item {
+    .about-copy {
 
-        padding-left: 45px;
+        font-size: 14px;
+
     }
 
 
@@ -2113,6 +2284,7 @@ footer {
 
         padding:
             40px 22px;
+
     }
 
 
@@ -2126,12 +2298,14 @@ footer {
             );
 
         letter-spacing: -2px;
+
     }
 
 
     .contact-panel .actions {
 
         grid-template-columns: 1fr;
+
     }
 
 
@@ -2140,16 +2314,16 @@ footer {
     .btn:first-child {
 
         grid-column: auto;
+
     }
 
 
-    .footer {
+    .footer-inner {
 
         flex-direction: column;
 
         text-align: center;
 
-        align-items: center;
     }
 
 
@@ -2158,6 +2332,7 @@ footer {
         flex-wrap: wrap;
 
         justify-content: center;
+
     }
 
 }
@@ -2174,6 +2349,7 @@ footer {
         rgba(59,130,246,.55);
 
     outline-offset: 4px;
+
 }
 
 
@@ -2182,7 +2358,9 @@ footer {
 ) {
 
     html {
+
         scroll-behavior: auto;
+
     }
 
 
@@ -2195,6 +2373,7 @@ footer {
 
         animation-duration:
             .01ms !important;
+
     }
 
 
@@ -2203,6 +2382,7 @@ footer {
         opacity: 1;
 
         transform: none;
+
     }
 
 }
@@ -2221,88 +2401,122 @@ footer {
 
 <div class="nav-shell">
 
-<nav class="navbar">
+<nav
+    class="navbar"
+    aria-label="Main navigation"
+>
+
+
+<a
+    href="#home"
+    class="brand"
+    aria-label="Emmanuel Kuh home"
+>
+
+    <span class="brand-mark">
+        EK
+    </span>
+
+    <span class="brand-name">
+
+        Emmanuel Kuh<span class="brand-dot">.</span>
+
+    </span>
+
+</a>
+
+
+<div class="nav-right">
+
+
+<div class="nav-links">
 
     <a
-        href="#home"
-        class="brand"
-        aria-label="Emmanuel Kuh home"
+        href="#work"
+        class="nav-link"
     >
-
-        <span class="brand-mark">
-            EK
-        </span>
-
-        <span>
-            Emmanuel Kuh<span>.</span>
-        </span>
-
+        Work
     </a>
 
+    <a
+        href="#expertise"
+        class="nav-link"
+    >
+        Expertise
+    </a>
 
-    <div class="nav-right">
+    <a
+        href="#education"
+        class="nav-link"
+    >
+        Education
+    </a>
 
-        <div class="nav-links">
+    <a
+        href="#awards"
+        class="nav-link"
+    >
+        Awards
+    </a>
 
-            <a href="#work">
-                Work
-            </a>
+    <a
+        href="#about"
+        class="nav-link"
+    >
+        About
+    </a>
 
-            <a href="#education">
-                Education
-            </a>
+    <a
+        href="#contact"
+        class="nav-link"
+    >
+        Contact
+    </a>
 
-            <a href="#expertise">
-                Expertise
-            </a>
-
-            <a href="#experience">
-                Experience
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
+</div>
 
 
-        <div class="theme-switcher">
+<div
+    class="theme-switcher"
+    aria-label="Choose website theme"
+>
 
-            <button
-                class="theme-btn"
-                data-theme-choice="light"
-                aria-label="Light mode"
-                title="Light mode"
-            >
-                ☀
-            </button>
+    <button
+        type="button"
+        class="theme-btn"
+        data-theme-choice="light"
+        aria-label="Use light mode"
+        title="Light mode"
+    >
+        ☀
+    </button>
 
-            <button
-                class="theme-btn"
-                data-theme-choice="system"
-                aria-label="System theme"
-                title="System theme"
-            >
-                ◐
-            </button>
 
-            <button
-                class="theme-btn"
-                data-theme-choice="dark"
-                aria-label="Dark mode"
-                title="Dark mode"
-            >
-                ☾
-            </button>
+    <button
+        type="button"
+        class="theme-btn"
+        data-theme-choice="system"
+        aria-label="Use system theme"
+        title="System theme"
+    >
+        ◐
+    </button>
 
-        </div>
 
-    </div>
+    <button
+        type="button"
+        class="theme-btn"
+        data-theme-choice="dark"
+        aria-label="Use dark mode"
+        title="Dark mode"
+    >
+        ☾
+    </button>
+
+</div>
+
+
+</div>
 
 </nav>
 
@@ -2325,149 +2539,164 @@ footer {
 <div class="container hero-grid">
 
 
-    <div class="hero-text reveal">
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            Economic Analytics & Data Science
-
-        </div>
+<div class="hero-text reveal">
 
 
-        <div class="overline">
+<div class="status">
 
-            Applied Economics · Research · Data Science
+    <span class="status-dot"></span>
 
-        </div>
+    Economic Analytics & Data Science
 
-
-        <h1>
-
-            Emmanuel
-
-            <span class="gradient">
-                Kuh.
-            </span>
-
-        </h1>
+</div>
 
 
-        <div class="hero-role">
+<div class="hero-overline">
 
-            Applied Economist & Data Scientist
+    Applied Economics · Research · Data Science
 
-        </div>
-
-
-        <p class="hero-description">
-
-            <strong>
-                Graduate Assistant and M.S. Economic Analytics
-                student at Towson University.
-            </strong>
-
-            I work at the intersection of applied economics,
-            causal inference, machine learning, health data,
-            and public policy. My research uses quantitative
-            methods to study real-world questions and communicate
-            evidence in a clear and practical way.
-
-        </p>
+</div>
 
 
-        <div class="actions">
+<h1>
 
-            <a
-                href="#work"
-                class="btn btn-primary"
-            >
-                Explore My Work →
-            </a>
+    Emmanuel
 
+    <span class="gradient-text">
+        Kuh.
+    </span>
 
-            <a
-                href="CV_Resume_EK.pdf"
-                target="_blank"
-                class="btn btn-secondary"
-            >
-                Résumé ↗
-            </a>
+</h1>
 
 
-            <a
-                href="https://www.linkedin.com/in/emmanuel-kuh45"
-                target="_blank"
-                class="btn btn-secondary"
-            >
-                LinkedIn
-            </a>
+<div class="hero-role">
+
+    Applied Economist & Data Scientist
+
+</div>
 
 
-            <a
-                href="https://github.com/kuhemmanuel9-sudo"
-                target="_blank"
-                class="btn btn-secondary"
-            >
-                GitHub
-            </a>
+<p class="hero-description">
 
-        </div>
+    <strong>
 
-    </div>
+        Graduate Assistant and M.S. Economic Analytics
+        student at Towson University.
 
+    </strong>
 
+    My work focuses on causal inference,
+    econometrics, machine learning,
+    health economics, and policy evaluation.
+    I use quantitative methods to study
+    real world questions and communicate
+    evidence in a clear and practical way.
 
-    <div class="profile-area reveal">
-
-        <div class="profile-aura"></div>
-
-
-        <div class="profile-card">
-
-            <img
-                src="image.png"
-                alt="Portrait of Emmanuel Kuh"
-                class="profile-image"
-            >
+</p>
 
 
-            <div class="profile-content">
-
-                <h3>
-                    Graduate Assistant
-                </h3>
-
-                <p>
-
-                    M.S. Economic Analytics<br>
-                    Towson University
-
-                </p>
+<div class="actions">
 
 
-                <div class="profile-tags">
+<a
+    href="#work"
+    class="btn btn-primary"
+>
+    Explore My Work →
+</a>
 
-                    <span>
-                        Economics
-                    </span>
 
-                    <span>
-                        Data Science
-                    </span>
+<a
+    href="CV_Resume_EK.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-secondary"
+>
+    Résumé ↗
+</a>
 
-                    <span>
-                        Research
-                    </span>
 
-                </div>
+<a
+    href="https://www.linkedin.com/in/emmanuel-kuh45"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-secondary"
+>
+    LinkedIn
+</a>
 
-            </div>
 
-        </div>
+<a
+    href="https://github.com/kuhemmanuel9-sudo"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-secondary"
+>
+    GitHub
+</a>
 
-    </div>
+
+</div>
+
+</div>
+
+
+
+<div class="profile-area reveal">
+
+
+<div class="profile-aura"></div>
+
+
+<div class="profile-card">
+
+
+<img
+    src="image.png"
+    alt="Portrait of Emmanuel Kuh"
+    class="profile-image"
+>
+
+
+<div class="profile-content">
+
+
+<h3>
+    Graduate Assistant
+</h3>
+
+
+<p>
+
+    M.S. Economic Analytics<br>
+    Towson University
+
+</p>
+
+
+<div class="profile-tags">
+
+    <span>
+        Economics
+    </span>
+
+    <span>
+        Data Science
+    </span>
+
+    <span>
+        Research
+    </span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -2479,7 +2708,10 @@ footer {
      FOCUS
 ========================================================= -->
 
-<section class="focus-strip">
+<section
+    class="focus-strip"
+    aria-label="Research areas"
+>
 
 <div class="container focus-grid">
 
@@ -2510,7 +2742,7 @@ footer {
 
 
 <!-- =========================================================
-     PROJECTS
+     SELECTED WORK
 ========================================================= -->
 
 <section
@@ -2521,408 +2753,233 @@ footer {
 <div class="container">
 
 
-    <header class="section-header reveal">
+<header class="section-header reveal">
 
-        <div>
 
-            <div class="section-label">
-                Selected Work
-            </div>
+<div>
 
-            <h2 class="section-title">
-                Research & Projects
-            </h2>
+    <div class="section-label">
+        Selected Work
+    </div>
 
-        </div>
+    <h2 class="section-title">
+        Research & Projects
+    </h2>
 
+</div>
 
-        <p class="section-intro">
 
-            Selected research and independent projects
-            in health economics, causal inference,
-            machine learning, forecasting, and
-            applied economic analysis.
+<p class="section-intro">
 
-        </p>
+    Selected work in health economics,
+    causal inference, forecasting,
+    and applied data science.
 
-    </header>
+</p>
 
 
+</header>
 
-    <div class="projects">
 
 
-        <article class="project reveal">
+<div class="projects">
 
-            <div class="project-top">
 
-                <div class="project-number">
-                    01 / HEALTH ECONOMICS
-                </div>
+<!-- PROJECT 1 -->
 
-                <div class="project-type">
-                    Working Paper
-                </div>
+<article class="project reveal">
 
-            </div>
 
+<div class="project-top">
 
-            <h3>
-                Medicare & Mental Health
-            </h3>
+    <div class="project-number">
+        01 / HEALTH ECONOMICS
+    </div>
 
-
-            <p>
-
-                Research using a fuzzy regression discontinuity
-                design around the age 65 Medicare eligibility
-                threshold to study mental health outcomes using
-                RAND Health and Retirement Study data.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    FUZZY RD
-                </span>
-
-                <span class="tag">
-                    IV / 2SLS
-                </span>
-
-                <span class="tag">
-                    HEALTH ECONOMICS
-                </span>
-
-                <span class="tag">
-                    CAUSAL INFERENCE
-                </span>
-
-            </div>
-
-        </article>
-
-
-
-        <article class="project reveal">
-
-            <div class="project-top">
-
-                <div class="project-number">
-                    02 / WEATHER INTELLIGENCE
-                </div>
-
-                <div class="project-type">
-                    Independent Project
-                </div>
-
-            </div>
-
-
-            <h3>
-                Weather Intelligence Platform
-            </h3>
-
-
-            <p>
-
-                A full-stack weather intelligence platform
-                integrating live weather and mapping APIs
-                with interactive maps, analytics dashboards,
-                location search, comparison tools, alerts,
-                and responsive visualizations.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    JAVASCRIPT
-                </span>
-
-                <span class="tag">
-                    HTML / CSS
-                </span>
-
-                <span class="tag">
-                    APIs
-                </span>
-
-                <span class="tag">
-                    ANALYTICS
-                </span>
-
-            </div>
-
-        </article>
-
-
-
-        <article class="project reveal">
-
-            <div class="project-top">
-
-                <div class="project-number">
-                    03 / LABOR ECONOMICS
-                </div>
-
-                <div class="project-type">
-                    Ongoing Research
-                </div>
-
-            </div>
-
-
-            <h3>
-                Labor Supply Effects of Spousal Long-Term Care Shocks
-            </h3>
-
-
-            <p>
-
-                Independent research examining employment,
-                work hours, caregiving, and paid-care outcomes
-                following spousal long-term care shocks using
-                staggered difference-in-differences methods.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    DID
-                </span>
-
-                <span class="tag">
-                    EVENT STUDIES
-                </span>
-
-                <span class="tag">
-                    PANEL DATA
-                </span>
-
-                <span class="tag">
-                    HRS
-                </span>
-
-            </div>
-
-        </article>
-
-
-
-        <article class="project reveal">
-
-            <div class="project-top">
-
-                <div class="project-number">
-                    04 / MACHINE LEARNING
-                </div>
-
-                <div class="project-type">
-                    Independent Project
-                </div>
-
-            </div>
-
-
-            <h3>
-                Credit Default Prediction
-            </h3>
-
-
-            <p>
-
-                An end-to-end machine learning project
-                comparing logistic regression and neural
-                networks for credit default prediction
-                using ROC-AUC, precision, recall, and
-                F1 evaluation metrics.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    PYTHON
-                </span>
-
-                <span class="tag">
-                    SCIKIT-LEARN
-                </span>
-
-                <span class="tag">
-                    MACHINE LEARNING
-                </span>
-
-                <span class="tag">
-                    CLASSIFICATION
-                </span>
-
-            </div>
-
-        </article>
-
+    <div class="project-type">
+        Working Paper
     </div>
 
 </div>
 
-</section>
 
+<div class="project-content">
 
 
-<!-- =========================================================
-     EDUCATION
-========================================================= -->
+<h3>
+    Medicare & Mental Health
+</h3>
 
-<section
-    class="section section-alt"
-    id="education"
->
 
-<div class="container">
+<p>
 
+    Research using a fuzzy regression
+    discontinuity design around the age 65
+    Medicare eligibility threshold to study
+    mental health outcomes using RAND Health
+    and Retirement Study data.
 
-    <header class="section-header reveal">
+</p>
 
-        <div>
 
-            <div class="section-label">
-                Education
-            </div>
+<div class="tags">
 
+    <span class="tag">
+        FUZZY RD
+    </span>
 
-            <h2 class="section-title">
-                Academic Background
-            </h2>
+    <span class="tag">
+        IV / 2SLS
+    </span>
 
-        </div>
+    <span class="tag">
+        HEALTH ECONOMICS
+    </span>
 
+    <span class="tag">
+        CAUSAL INFERENCE
+    </span>
 
-        <p class="section-intro">
+</div>
 
-            Academic training across economic analytics,
-            public administration, economics, and
-            political science.
 
-        </p>
+</div>
 
-    </header>
+</article>
 
 
 
-    <div class="education-grid">
+<!-- PROJECT 2 -->
 
+<article class="project reveal">
 
-        <article class="education-card reveal">
 
-            <div class="education-date">
-                2025 · PRESENT
-            </div>
+<div class="project-top">
 
-
-            <h3>
-                Towson University
-            </h3>
-
-
-            <div class="education-degree">
-
-                M.S. Econometrics and Quantitative Economics
-                (Economic Analytics)
-
-            </div>
-
-
-            <p>
-
-                Towson, Maryland<br>
-                Expected December 2026
-
-            </p>
-
-
-            <div class="education-badge">
-                CURRENT
-            </div>
-
-        </article>
-
-
-
-        <article class="education-card reveal">
-
-            <div class="education-date">
-                SEP 2024 · AUG 2025
-            </div>
-
-
-            <h3>
-                University of Maryland, College Park
-            </h3>
-
-
-            <div class="education-degree">
-
-                Graduate Studies in Public Administration
-
-            </div>
-
-
-            <p>
-
-                College Park, Maryland<br>
-                Graduate studies paused
-
-            </p>
-
-
-            <div class="education-badge">
-                GRADUATE STUDIES
-            </div>
-
-        </article>
-
-
-
-        <article class="education-card reveal">
-
-            <div class="education-date">
-                COMPLETED JULY 2020
-            </div>
-
-
-            <h3>
-                University of Education, Winneba
-            </h3>
-
-
-            <div class="education-degree">
-
-                B.A. Political Science Education and Economics
-
-            </div>
-
-
-            <p>
-
-                Winneba, Ghana
-
-            </p>
-
-
-            <div class="education-badge">
-                BACHELOR'S DEGREE
-            </div>
-
-        </article>
-
+    <div class="project-number">
+        02 / WEATHER INTELLIGENCE
     </div>
+
+    <div class="project-type">
+        Independent Project
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+    Weather Intelligence Platform
+</h3>
+
+
+<p>
+
+    A full stack weather intelligence platform
+    integrating live weather and mapping APIs
+    with interactive maps, analytics dashboards,
+    location search, comparison tools, alerts,
+    and responsive visualizations.
+
+</p>
+
+
+<div class="tags">
+
+    <span class="tag">
+        JAVASCRIPT
+    </span>
+
+    <span class="tag">
+        APIs
+    </span>
+
+    <span class="tag">
+        ANALYTICS
+    </span>
+
+    <span class="tag">
+        VISUALIZATION
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+
+<!-- PROJECT 3 -->
+
+<article class="project reveal">
+
+
+<div class="project-top">
+
+    <div class="project-number">
+        03 / APPLIED RESEARCH
+    </div>
+
+    <div class="project-type">
+        Ongoing Research
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+
+    Labor Supply Effects of
+    Spousal Long Term Care Shocks
+
+</h3>
+
+
+<p>
+
+    Independent research examining employment,
+    work hours, caregiving, and paid care outcomes
+    following spousal long term care shocks using
+    staggered difference in differences methods
+    and longitudinal HRS data.
+
+</p>
+
+
+<div class="tags">
+
+    <span class="tag">
+        DID
+    </span>
+
+    <span class="tag">
+        EVENT STUDIES
+    </span>
+
+    <span class="tag">
+        PANEL DATA
+    </span>
+
+    <span class="tag">
+        HRS
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+</div>
 
 </div>
 
@@ -2935,137 +2992,137 @@ footer {
 ========================================================= -->
 
 <section
-    class="section"
+    class="section section-alt"
     id="expertise"
 >
 
 <div class="container">
 
 
-    <header class="section-header reveal">
-
-        <div>
-
-            <div class="section-label">
-                Expertise
-            </div>
+<header class="section-header reveal">
 
 
-            <h2 class="section-title">
-                Areas of Focus
-            </h2>
+<div>
 
-        </div>
-
-
-        <p class="section-intro">
-
-            My research interests combine causal
-            inference, applied econometrics,
-            statistical machine learning,
-            health data science, and policy evaluation.
-
-        </p>
-
-    </header>
-
-
-
-    <div class="expertise-grid">
-
-
-        <article class="expertise reveal">
-
-            <div class="expertise-number">
-                01
-            </div>
-
-            <h3>
-                Causal Inference
-            </h3>
-
-            <p>
-
-                Regression discontinuity,
-                instrumental variables,
-                difference-in-differences,
-                event studies, and treatment
-                effect heterogeneity.
-
-            </p>
-
-        </article>
-
-
-
-        <article class="expertise reveal">
-
-            <div class="expertise-number">
-                02
-            </div>
-
-            <h3>
-                Econometrics
-            </h3>
-
-            <p>
-
-                Applied regression, fixed effects,
-                panel data, survey-weighted estimation,
-                causal identification, and empirical
-                economic research.
-
-            </p>
-
-        </article>
-
-
-
-        <article class="expertise reveal">
-
-            <div class="expertise-number">
-                03
-            </div>
-
-            <h3>
-                Machine Learning
-            </h3>
-
-            <p>
-
-                Causal forests, random forests,
-                gradient boosting, neural networks,
-                logistic regression, PCA, and
-                cross-validation.
-
-            </p>
-
-        </article>
-
-
-
-        <article class="expertise reveal">
-
-            <div class="expertise-number">
-                04
-            </div>
-
-            <h3>
-                Health & Policy Analytics
-            </h3>
-
-            <p>
-
-                Quantitative research focused on
-                health outcomes, public policy,
-                longitudinal data, program evaluation,
-                and evidence-based decision-making.
-
-            </p>
-
-        </article>
-
+    <div class="section-label">
+        Expertise
     </div>
+
+    <h2 class="section-title">
+        Areas of Focus
+    </h2>
+
+</div>
+
+
+<p class="section-intro">
+
+    My work combines economic reasoning,
+    causal identification, statistical methods,
+    and modern data science.
+
+</p>
+
+
+</header>
+
+
+
+<div class="expertise-grid">
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        01
+    </div>
+
+    <h3>
+        Causal Inference
+    </h3>
+
+    <p>
+
+        Regression discontinuity,
+        instrumental variables,
+        difference in differences,
+        event studies, and
+        treatment effect estimation.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        02
+    </div>
+
+    <h3>
+        Applied Econometrics
+    </h3>
+
+    <p>
+
+        Regression analysis, panel data,
+        fixed effects, longitudinal data,
+        empirical research, and
+        policy evaluation.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        03
+    </div>
+
+    <h3>
+        Machine Learning
+    </h3>
+
+    <p>
+
+        Statistical and causal machine learning,
+        predictive modeling, model evaluation,
+        and computational analysis.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        04
+    </div>
+
+    <h3>
+        Health & Policy Analytics
+    </h3>
+
+    <p>
+
+        Quantitative research focused on
+        health outcomes, public policy,
+        program evaluation, and
+        evidence based decision making.
+
+    </p>
+
+</article>
+
+
+</div>
 
 </div>
 
@@ -3074,326 +3131,162 @@ footer {
 
 
 <!-- =========================================================
-     EXPERIENCE
+     EDUCATION
 ========================================================= -->
 
 <section
-    class="section section-alt"
-    id="experience"
+    class="section"
+    id="education"
 >
 
 <div class="container">
 
 
-    <header class="section-header reveal">
+<header class="section-header reveal">
 
-        <div>
 
-            <div class="section-label">
-                Experience
-            </div>
+<div>
 
-            <h2 class="section-title">
-                Research & Professional Experience
-            </h2>
-
-        </div>
-
-
-        <p class="section-intro">
-
-            Experience across academic research,
-            policy analysis, program development,
-            institutional leadership, and education.
-
-        </p>
-
-    </header>
-
-
-
-    <div class="timeline">
-
-
-        <div class="timeline-item reveal">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                2025 · PRESENT
-            </div>
-
-            <h3>
-                Economic Researcher & Graduate Assistant
-            </h3>
-
-            <div class="timeline-org">
-                Towson University, Department of Economics
-            </div>
-
-            <p>
-
-                Conduct faculty-supervised and independent
-                empirical research using causal identification
-                strategies and large longitudinal health datasets.
-                Build reproducible research workflows in R,
-                Python, Stata, and SQL.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="timeline-item reveal">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                AUG 2025 · PRESENT
-            </div>
-
-            <h3>
-                Graduate Assistant
-            </h3>
-
-            <div class="timeline-org">
-                Towson University, M.S. Economic Analytics Program
-            </div>
-
-            <p>
-
-                Support recruitment analytics, analyze
-                student feedback, and translate findings
-                into recommendations for program leadership.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="timeline-item reveal">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                MAY 2025 · AUG 2025
-            </div>
-
-            <h3>
-                Thurgood Marshall Research Fellow
-            </h3>
-
-            <div class="timeline-org">
-                University of Maryland School of Public Policy
-            </div>
-
-            <p>
-
-                Conducted policy research on racial and
-                social equity and synthesized evidence
-                to support recommendations for public leadership.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="timeline-item reveal">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                MAY 2025 · JUN 2025
-            </div>
-
-            <h3>
-                HR & Program Development Assistant
-            </h3>
-
-            <div class="timeline-org">
-                University of Maryland Facilities Management
-            </div>
-
-            <p>
-
-                Analyzed workforce data supporting
-                reporting, compliance, and organizational
-                planning across a large university operation.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="timeline-item reveal">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                2019 · 2024
-            </div>
-
-            <h3>
-                Professional Teacher
-            </h3>
-
-            <div class="timeline-org">
-                Ghana Education Service
-            </div>
-
-            <p>
-
-                Taught Economics and Government,
-                supported student academic development,
-                and mentored students preparing for
-                university admission.
-
-            </p>
-
-        </div>
-
+    <div class="section-label">
+        Education
     </div>
+
+    <h2 class="section-title">
+        Academic Background
+    </h2>
 
 </div>
 
-</section>
+
+<p class="section-intro">
+
+    Academic training across economic analytics,
+    public administration, economics,
+    and political science.
+
+</p>
+
+
+</header>
 
 
 
-<!-- =========================================================
-     METHODS AND TOOLS
-========================================================= -->
-
-<section class="section">
-
-<div class="container">
+<div class="education-grid">
 
 
-    <header class="section-header reveal">
+<!-- TOWSON -->
 
-        <div>
-
-            <div class="section-label">
-                Technical Toolkit
-            </div>
-
-            <h2 class="section-title">
-                Methods & Tools
-            </h2>
-
-        </div>
+<article class="education-card reveal">
 
 
-        <p class="section-intro">
-
-            Quantitative methods, programming languages,
-            statistical tools, and visualization platforms
-            used across my research and analytical work.
-
-        </p>
-
-    </header>
+<div class="education-date">
+    2025 · PRESENT
+</div>
 
 
+<h3>
+    Towson University
+</h3>
 
-    <div class="skill-grid">
+
+<div class="education-degree">
+
+    M.S. Econometrics and Quantitative Economics
+    (Economic Analytics)
+
+</div>
 
 
-        <article class="skill-card reveal">
+<p>
 
-            <div class="skill-label">
-                Programming
-            </div>
+    Towson, Maryland<br>
+    Expected December 2026
 
-            <h3>
-                R · Python · SQL · Stata
-            </h3>
+</p>
 
-            <p>
 
-                Reproducible data analysis,
-                econometric estimation,
-                statistical modeling,
-                and research workflows.
+<div class="education-badge">
+    CURRENT
+</div>
 
-            </p>
 
-        </article>
+</article>
 
 
 
-        <article class="skill-card reveal">
+<!-- UMD -->
 
-            <div class="skill-label">
-                Causal Methods
-            </div>
-
-            <h3>
-                RD · IV · DiD
-            </h3>
-
-            <p>
-
-                Regression discontinuity,
-                instrumental variables,
-                staggered difference-in-differences,
-                event studies, and fixed effects.
-
-            </p>
-
-        </article>
+<article class="education-card reveal">
 
 
+<div class="education-date">
+    SEP 2024 · AUG 2025
+</div>
 
-        <article class="skill-card reveal">
 
-            <div class="skill-label">
-                Machine Learning
-            </div>
+<h3>
+    University of Maryland, College Park
+</h3>
 
-            <h3>
-                Statistical ML
-            </h3>
 
-            <p>
+<div class="education-degree">
 
-                Causal forests, gradient boosting,
-                random forests, neural networks,
-                logistic regression, PCA,
-                and cross-validation.
+    Graduate Studies in Public Administration
 
-            </p>
+</div>
 
-        </article>
+
+<p>
+    College Park, Maryland
+</p>
+
+
+<div class="education-badge">
+    GRADUATE STUDIES
+</div>
+
+
+</article>
 
 
 
-        <article class="skill-card reveal">
+<!-- UNDERGRAD -->
 
-            <div class="skill-label">
-                Visualization
-            </div>
+<article class="education-card reveal">
 
-            <h3>
-                Tableau · Power BI
-            </h3>
 
-            <p>
+<div class="education-date">
+    COMPLETED 2020
+</div>
 
-                Excel, Git, Jupyter Notebook,
-                RStudio, dashboards,
-                visual analysis, and
-                research communication.
 
-            </p>
+<h3>
+    University of Education, Winneba
+</h3>
 
-        </article>
 
-    </div>
+<div class="education-degree">
+
+    B.A. Political Science Education
+    and Economics
+
+</div>
+
+
+<p>
+    Winneba, Ghana
+</p>
+
+
+<div class="education-badge">
+    BACHELOR'S DEGREE
+</div>
+
+
+</article>
+
+
+</div>
 
 </div>
 
@@ -3405,116 +3298,178 @@ footer {
      AWARDS
 ========================================================= -->
 
-<section class="section section-alt">
+<section
+    class="section section-alt"
+    id="awards"
+>
 
 <div class="container">
 
 
-    <header class="section-header reveal">
-
-        <div>
-
-            <div class="section-label">
-                Recognition
-            </div>
-
-            <h2 class="section-title">
-                Awards & Honors
-            </h2>
-
-        </div>
-
-    </header>
+<header class="section-header reveal">
 
 
+<div>
 
-    <div class="awards">
+    <div class="section-label">
+        Recognition
+    </div>
 
+    <h2 class="section-title">
+        Awards & Honors
+    </h2>
 
-        <div class="award reveal">
-
-            <div class="award-year">
-                2026
-            </div>
-
-            <div class="award-name">
-                Summer Research Grant, Economics,
-                Towson University
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="award reveal">
+<p class="section-intro">
 
-            <div class="award-year">
-                2025
-            </div>
+    Selected academic and research recognition
+    from Towson University and the
+    University of Maryland.
 
-            <div class="award-name">
-                Thurgood Marshall Research Fellowship,
-                University of Maryland School of Public Policy
-            </div>
-
-        </div>
+</p>
 
 
-        <div class="award reveal">
-
-            <div class="award-year">
-                2025
-            </div>
-
-            <div class="award-name">
-                Distinguished Public Administration
-                Graduate Student, University of Maryland
-            </div>
-
-        </div>
+</header>
 
 
-        <div class="award reveal">
 
-            <div class="award-year">
-                2025
-            </div>
-
-            <div class="award-name">
-                John J. Sexton Fellowship Award,
-                University of Maryland
-            </div>
-
-        </div>
+<div class="awards-grid">
 
 
-        <div class="award reveal">
+<article class="award-card reveal">
 
-            <div class="award-year">
-                2024
-            </div>
+    <div class="award-year">
+        2026
+    </div>
 
-            <div class="award-name">
-                Dean's Fellowship Award,
-                University of Maryland
-            </div>
+    <div class="award-content">
 
-        </div>
+        <h3>
+            Summer Research Grant
+        </h3>
 
-
-        <div class="award reveal">
-
-            <div class="award-year">
-                2024
-            </div>
-
-            <div class="award-name">
-                Willard Hackerman Fellowship Award,
-                University of Maryland
-            </div>
-
-        </div>
+        <p>
+            Economics, Towson University
+        </p>
 
     </div>
+
+</article>
+
+
+
+<article class="award-card reveal">
+
+    <div class="award-year">
+        2025
+    </div>
+
+    <div class="award-content">
+
+        <h3>
+            Thurgood Marshall Research Fellowship
+        </h3>
+
+        <p>
+            University of Maryland School of Public Policy
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="award-card reveal">
+
+    <div class="award-year">
+        2025
+    </div>
+
+    <div class="award-content">
+
+        <h3>
+            Distinguished Public Administration Graduate Student
+        </h3>
+
+        <p>
+            University of Maryland
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="award-card reveal">
+
+    <div class="award-year">
+        2025
+    </div>
+
+    <div class="award-content">
+
+        <h3>
+            John J. Sexton Fellowship Award
+        </h3>
+
+        <p>
+            University of Maryland
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="award-card reveal">
+
+    <div class="award-year">
+        2024
+    </div>
+
+    <div class="award-content">
+
+        <h3>
+            Dean's Fellowship Award
+        </h3>
+
+        <p>
+            University of Maryland
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="award-card reveal">
+
+    <div class="award-year">
+        2024
+    </div>
+
+    <div class="award-content">
+
+        <h3>
+            Willard Hackerman Fellowship Award
+        </h3>
+
+        <p>
+            University of Maryland
+        </p>
+
+    </div>
+
+</article>
+
+
+</div>
 
 </div>
 
@@ -3534,156 +3489,144 @@ footer {
 <div class="container">
 
 
-    <header class="section-header reveal">
-
-        <div>
-
-            <div class="section-label">
-                About
-            </div>
-
-            <h2 class="section-title">
-                About Me
-            </h2>
-
-        </div>
-
-    </header>
+<header class="section-header reveal">
 
 
+<div>
 
-    <div class="about-grid">
-
-
-        <div class="about-copy reveal">
-
-            <p>
-
-                I am a graduate student in Economic Analytics
-                at Towson University, where I also serve as a
-                Graduate Assistant and conduct applied economic
-                research.
-
-            </p>
-
-
-            <p>
-
-                My research interests include causal inference,
-                causal machine learning, health data science,
-                applied econometrics, computational social science,
-                and data-driven policy evaluation.
-
-            </p>
-
-
-            <p>
-
-                Before Towson, I pursued graduate studies in
-                Public Administration at the University of Maryland,
-                College Park from September 2024 through August 2025.
-                Those studies are currently paused.
-
-            </p>
-
-
-            <p>
-
-                Alongside my research, I serve as Vice President
-                of the Graduate Student Association for Towson
-                University's College of Business and Economics.
-                I am interested in opportunities that combine
-                economic reasoning, rigorous quantitative analysis,
-                research, and practical problem-solving.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="about-details reveal">
-
-
-            <div class="about-item">
-
-                <div class="about-label">
-                    Current Program
-                </div>
-
-                <h3>
-                    M.S. Economic Analytics
-                </h3>
-
-                <p>
-                    Towson University
-                </p>
-
-            </div>
-
-
-
-            <div class="about-item">
-
-                <div class="about-label">
-                    Leadership
-                </div>
-
-                <h3>
-                    Vice President
-                </h3>
-
-                <p>
-
-                    Graduate Student Association,
-                    College of Business and Economics
-
-                </p>
-
-            </div>
-
-
-
-            <div class="about-item">
-
-                <div class="about-label">
-                    Research
-                </div>
-
-                <h3>
-                    Applied Economics & Causal Inference
-                </h3>
-
-                <p>
-
-                    Health economics, causal machine learning,
-                    policy evaluation, and longitudinal data.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="about-item">
-
-                <div class="about-label">
-                    Location
-                </div>
-
-                <h3>
-                    Baltimore, Maryland
-                </h3>
-
-                <p>
-                    United States
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="section-label">
+        About
     </div>
+
+    <h2 class="section-title">
+        About Me
+    </h2>
+
+</div>
+
+
+<p class="section-intro">
+
+    I am interested in research and analytical
+    work where careful evidence can improve
+    understanding and decision making.
+
+</p>
+
+
+</header>
+
+
+
+<div class="about-grid">
+
+
+<div class="about-copy reveal">
+
+
+<p>
+
+    I am an applied economist and graduate
+    researcher at Towson University. My interests
+    include causal inference, health economics,
+    applied econometrics, machine learning,
+    and public policy.
+
+</p>
+
+
+<p>
+
+    I enjoy working with complex data to answer
+    economic and policy questions, particularly
+    when rigorous empirical analysis can help
+    explain what is happening, why it matters,
+    and what the evidence suggests.
+
+</p>
+
+
+<p>
+
+    Alongside my academic work, I serve as
+    Vice President of the Graduate Student
+    Association for Towson University's
+    College of Business and Economics.
+
+</p>
+
+
+</div>
+
+
+
+<div class="about-side reveal">
+
+
+<div class="about-item">
+
+    <div class="about-label">
+        Current Program
+    </div>
+
+    <h3>
+        M.S. Economic Analytics
+    </h3>
+
+    <p>
+        Towson University
+    </p>
+
+</div>
+
+
+
+<div class="about-item">
+
+    <div class="about-label">
+        Research
+    </div>
+
+    <h3>
+        Applied Economics & Causal Inference
+    </h3>
+
+    <p>
+
+        Health economics,
+        machine learning,
+        and policy evaluation
+
+    </p>
+
+</div>
+
+
+
+<div class="about-item">
+
+    <div class="about-label">
+        Leadership
+    </div>
+
+    <h3>
+        Vice President
+    </h3>
+
+    <p>
+
+        Graduate Student Association,
+        College of Business and Economics
+
+    </p>
+
+</div>
+
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -3703,115 +3646,123 @@ footer {
 <div class="container">
 
 
-    <div class="contact-panel reveal">
-
-        <div class="contact-content">
+<div class="contact-panel reveal">
 
 
-            <div class="section-label">
-                Contact
-            </div>
+<div class="contact-content">
 
 
-            <h2>
-                Let's Connect.
-            </h2>
+<div class="section-label">
+    Contact
+</div>
 
 
-            <p>
-
-                I am interested in connecting with people
-                working in economics, data science,
-                causal inference, research, consulting,
-                health analytics, and public policy.
-
-            </p>
+<h2>
+    Let's Connect.
+</h2>
 
 
+<p class="contact-copy">
 
-            <div class="contact-details">
+    I am interested in connecting with people
+    working in economics, data science,
+    research, consulting, health analytics,
+    and public policy.
 
-
-                <a
-                    href="mailto:kuhemmanuel9@gmail.com"
-                    class="contact-link"
-                >
-
-                    <span>
-                        Email
-                    </span>
-
-                    <strong>
-                        kuhemmanuel9@gmail.com
-                    </strong>
-
-                </a>
+</p>
 
 
 
-                <a
-                    href="tel:+12408867181"
-                    class="contact-link"
-                >
-
-                    <span>
-                        Phone
-                    </span>
-
-                    <strong>
-                        (240) 886-7181
-                    </strong>
-
-                </a>
+<div class="contact-grid">
 
 
+<a
+    href="kuhemmanuel9@gmail.com"
+    class="contact-card"
+>
 
-                <a
-                    href="https://www.linkedin.com/in/emmanuel-kuh45"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-link"
-                >
+    <span>
+        Email
+    </span>
 
-                    <span>
-                        LinkedIn
-                    </span>
+    <strong>
+        kuhemmanuel9@gmail.com
+    </strong>
 
-                    <strong>
-                        linkedin.com/in/emmanuel-kuh45
-                    </strong>
-
-                </a>
-
-            </div>
+</a>
 
 
 
-            <div class="actions">
+<a
+    href="https://www.linkedin.com/in/emmanuel-kuh45"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="contact-card"
+>
+
+    <span>
+        LinkedIn
+    </span>
+
+    <strong>
+        Connect on LinkedIn
+    </strong>
+
+</a>
 
 
-                <a
-                    href="CV_Resume_EK.pdf"
-                    target="_blank"
-                    class="btn btn-primary"
-                >
-                    View Résumé ↗
-                </a>
+
+<a
+    href="https://github.com/kuhemmanuel9-sudo"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="contact-card"
+>
+
+    <span>
+        GitHub
+    </span>
+
+    <strong>
+        Explore My Code
+    </strong>
+
+</a>
 
 
-                <a
-                    href="https://github.com/kuhemmanuel9-sudo"
-                    target="_blank"
-                    class="btn btn-secondary"
-                >
-                    View GitHub
-                </a>
+</div>
 
-            </div>
 
-        </div>
 
-    </div>
+<div class="actions">
+
+
+<a
+    href="CV_Resume_EK.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-primary"
+>
+    View Full Résumé ↗
+</a>
+
+
+<a
+    href="https://www.linkedin.com/in/emmanuel-kuh45"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-secondary"
+>
+    LinkedIn
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
 
 </div>
 
@@ -3828,37 +3779,57 @@ footer {
 
 <footer>
 
-<div class="container footer">
+
+<div class="container footer-inner">
 
 
-    <div>
-        © 2026 Emmanuel Kuh. All rights reserved.
-    </div>
+<div>
 
-
-    <div class="footer-links">
-
-        <a
-            href="https://www.linkedin.com/in/emmanuel-kuh45"
-            target="_blank"
-        >
-            LinkedIn
-        </a>
-
-        <a
-            href="https://github.com/kuhemmanuel9-sudo"
-            target="_blank"
-        >
-            GitHub
-        </a>
-
-        <a href="#home">
-            Back to top ↑
-        </a>
-
-    </div>
+    © 2026 Emmanuel Kuh. All rights reserved.
 
 </div>
+
+
+<div class="footer-links">
+
+
+<a
+    href="CV_Resume_EK.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Résumé
+</a>
+
+
+<a
+    href="https://www.linkedin.com/in/emmanuel-kuh45"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    LinkedIn
+</a>
+
+
+<a
+    href="https://github.com/kuhemmanuel9-sudo"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    GitHub
+</a>
+
+
+<a href="#home">
+    Back to top ↑
+</a>
+
+
+</div>
+
+
+</div>
+
 
 </footer>
 
@@ -3867,14 +3838,14 @@ footer {
 <script>
 
 /* =========================================================
-   THEME
+   THEME SYSTEM
 ========================================================= */
 
 const root =
     document.documentElement;
 
 
-const buttons =
+const themeButtons =
     document.querySelectorAll(
         "[data-theme-choice]"
     );
@@ -3895,7 +3866,7 @@ function getSystemTheme() {
 }
 
 
-function getChoice() {
+function getThemeChoice() {
 
     return localStorage.getItem(
         "ek-theme"
@@ -3918,7 +3889,7 @@ function applyTheme(choice) {
     );
 
 
-    buttons.forEach(
+    themeButtons.forEach(
         button => {
 
             button.classList.toggle(
@@ -3938,14 +3909,14 @@ function applyTheme(choice) {
         .setAttribute(
             "content",
             actual === "dark"
-                ? "#060A12"
-                : "#F6F8FC"
+                ? "#070A12"
+                : "#F7F8FC"
         );
 
 }
 
 
-buttons.forEach(
+themeButtons.forEach(
     button => {
 
         button.addEventListener(
@@ -3976,10 +3947,13 @@ systemPreference.addEventListener(
     () => {
 
         if (
-            getChoice() === "system"
+            getThemeChoice()
+            === "system"
         ) {
 
-            applyTheme("system");
+            applyTheme(
+                "system"
+            );
 
         }
 
@@ -3988,7 +3962,7 @@ systemPreference.addEventListener(
 
 
 applyTheme(
-    getChoice()
+    getThemeChoice()
 );
 
 
@@ -4008,7 +3982,7 @@ if (
     in window
 ) {
 
-    const observer =
+    const revealObserver =
         new IntersectionObserver(
 
             entries => {
@@ -4022,10 +3996,12 @@ if (
 
                             entry.target
                                 .classList
-                                .add("visible");
+                                .add(
+                                    "visible"
+                                );
 
 
-                            observer
+                            revealObserver
                                 .unobserve(
                                     entry.target
                                 );
@@ -4047,7 +4023,7 @@ if (
     revealElements.forEach(
         element => {
 
-            observer.observe(
+            revealObserver.observe(
                 element
             );
 
@@ -4061,7 +4037,9 @@ if (
 
             element
                 .classList
-                .add("visible");
+                .add(
+                    "visible"
+                );
 
         }
     );
@@ -4071,7 +4049,7 @@ if (
 
 
 /* =========================================================
-   ACTIVE NAV
+   ACTIVE NAVIGATION
 ========================================================= */
 
 const sections =
@@ -4080,9 +4058,9 @@ const sections =
     );
 
 
-const links =
+const navLinks =
     document.querySelectorAll(
-        ".nav-links a"
+        ".nav-link"
     );
 
 
@@ -4091,7 +4069,7 @@ if (
     in window
 ) {
 
-    const sectionObserver =
+    const navigationObserver =
         new IntersectionObserver(
 
             entries => {
@@ -4103,7 +4081,7 @@ if (
                             entry.isIntersecting
                         ) {
 
-                            links.forEach(
+                            navLinks.forEach(
                                 link => {
 
                                     link
@@ -4138,7 +4116,7 @@ if (
     sections.forEach(
         section => {
 
-            sectionObserver
+            navigationObserver
                 .observe(
                     section
                 );
@@ -4148,8 +4126,70 @@ if (
 
 }
 
+
+
+/* =========================================================
+   PROJECT POINTER EFFECT
+========================================================= */
+
+const canHover =
+    window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+    ).matches;
+
+
+if (canHover) {
+
+    document
+        .querySelectorAll(
+            ".project"
+        )
+        .forEach(
+            card => {
+
+                card.addEventListener(
+                    "pointermove",
+                    event => {
+
+                        const rect =
+                            card
+                                .getBoundingClientRect();
+
+
+                        const x =
+                            event.clientX
+                            - rect.left;
+
+
+                        const y =
+                            event.clientY
+                            - rect.top;
+
+
+                        card.style
+                            .setProperty(
+                                "--mx",
+                                x + "px"
+                            );
+
+
+                        card.style
+                            .setProperty(
+                                "--my",
+                                y + "px"
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
 </script>
 
 
 </body>
+
 </html>
