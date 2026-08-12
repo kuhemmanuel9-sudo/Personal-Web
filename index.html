@@ -12,7 +12,7 @@
 
 <meta
     name="description"
-    content="Emmanuel Kuh is an applied economist and data scientist focused on causal inference, econometrics, machine learning, health economics, and policy evaluation."
+    content="Emmanuel Kuh is an applied economist and data scientist focused on causal inference, econometrics, machine learning, financial analytics, health economics, policy evaluation, and decision support products."
 >
 
 <meta name="theme-color" content="#070A12">
@@ -80,8 +80,12 @@
     --blue: #2563eb;
     --cyan: #0891b2;
     --violet: #7c3aed;
+    --green: #16a34a;
+    --amber: #d97706;
 
     --blue-soft: rgba(37,99,235,.09);
+    --green-soft: rgba(22,163,74,.10);
+    --amber-soft: rgba(217,119,6,.10);
 
     --border: rgba(15,23,42,.09);
     --border-accent: rgba(37,99,235,.28);
@@ -115,8 +119,12 @@ html[data-theme="dark"] {
     --blue: #5b8cff;
     --cyan: #38bdf8;
     --violet: #9b7cff;
+    --green: #28d17c;
+    --amber: #f7b955;
 
     --blue-soft: rgba(91,140,255,.11);
+    --green-soft: rgba(40,209,124,.12);
+    --amber-soft: rgba(247,185,85,.12);
 
     --border: rgba(148,163,184,.13);
     --border-accent: rgba(91,140,255,.36);
@@ -613,16 +621,11 @@ img {
 
     margin-bottom: 22px;
 
-    font-size:
-        clamp(
-            58px,
-            7vw,
-            94px
-        );
+    font-size: 88px;
 
     line-height: .92;
 
-    letter-spacing: -5px;
+    letter-spacing: 0;
 
 }
 
@@ -652,18 +655,13 @@ img {
 
     color: var(--text-secondary);
 
-    font-size:
-        clamp(
-            21px,
-            2.5vw,
-            30px
-        );
+    font-size: 28px;
 
     font-weight: 600;
 
     line-height: 1.35;
 
-    letter-spacing: -.7px;
+    letter-spacing: 0;
 
 }
 
@@ -836,6 +834,7 @@ img {
 .profile-card {
 
     position: relative;
+    isolation: isolate;
 
     max-width: 410px;
 
@@ -859,11 +858,55 @@ img {
 }
 
 
-.profile-image {
+.profile-photo-wrap {
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
 
     width: 100%;
 
     aspect-ratio: 1 / 1.07;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-soft),
+            var(--surface-strong)
+        );
+
+}
+
+
+.profile-fallback {
+
+    display: grid;
+    place-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--blue);
+
+    font-size: 54px;
+    font-weight: 800;
+
+}
+
+
+.profile-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
 
     object-fit: cover;
 
@@ -872,6 +915,13 @@ img {
     border-radius: 20px;
 
     transition: transform .5s ease;
+
+}
+
+
+.profile-photo-wrap.image-error .profile-image {
+
+    display: none;
 
 }
 
@@ -966,7 +1016,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(5,1fr);
+        repeat(6,1fr);
 
 }
 
@@ -1050,16 +1100,11 @@ img {
 
     max-width: 720px;
 
-    font-size:
-        clamp(
-            37px,
-            4.5vw,
-            55px
-        );
+    font-size: 52px;
 
     line-height: 1.04;
 
-    letter-spacing: -2.8px;
+    letter-spacing: 0;
 
 }
 
@@ -1183,9 +1228,38 @@ img {
 
 .project:nth-child(3) {
 
-    grid-column: span 12;
+    grid-column: span 6;
 
     min-height: 320px;
+
+}
+
+
+.project:nth-child(4) {
+
+    grid-column: span 6;
+
+    min-height: 320px;
+
+}
+
+
+.project-featured {
+
+    border-color: rgba(40,209,124,.34);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,209,124,.10),
+            transparent 38%
+        ),
+        linear-gradient(
+            235deg,
+            rgba(56,189,248,.09),
+            transparent 42%
+        ),
+        var(--surface);
 
 }
 
@@ -1253,16 +1327,11 @@ img {
 
     margin-bottom: 14px;
 
-    font-size:
-        clamp(
-            24px,
-            3vw,
-            34px
-        );
+    font-size: 32px;
 
     line-height: 1.15;
 
-    letter-spacing: -1.3px;
+    letter-spacing: 0;
 
 }
 
@@ -1278,6 +1347,194 @@ img {
     font-size: 13px;
 
     line-height: 1.8;
+
+}
+
+
+.project-dashboard-preview {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap: 8px;
+
+    margin:
+        0 0
+        18px;
+
+    padding: 12px;
+
+    border: 1px solid rgba(40,209,124,.22);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,209,124,.10),
+            transparent
+        ),
+        var(--surface-strong);
+
+}
+
+
+.preview-metric {
+
+    min-width: 0;
+
+}
+
+
+.preview-metric span {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+.preview-metric strong {
+
+    display: block;
+
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.project-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap: 8px;
+
+    margin:
+        0 0
+        18px;
+
+}
+
+
+.project-stat {
+
+    padding: 10px 0;
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+.project-stat span {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+.project-stat strong {
+
+    display: block;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 800;
+
+}
+
+
+.project-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin:
+        2px 0
+        18px;
+
+}
+
+
+.project-link {
+
+    min-height: 38px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+
+.project-link:hover {
+
+    transform: translateY(-2px);
+
+    border-color: var(--border-accent);
+
+    background: var(--surface-strong);
+
+}
+
+
+.project-link.primary {
+
+    border-color: rgba(40,209,124,.40);
+
+    background: var(--green-soft);
+
+    color: var(--green);
 
 }
 
@@ -1457,7 +1714,7 @@ img {
 
     line-height: 1.3;
 
-    letter-spacing: -.5px;
+    letter-spacing: 0;
 
 }
 
@@ -1778,16 +2035,11 @@ img {
 
     margin-bottom: 16px;
 
-    font-size:
-        clamp(
-            40px,
-            5vw,
-            60px
-        );
+    font-size: 58px;
 
     line-height: 1.03;
 
-    letter-spacing: -3px;
+    letter-spacing: 0;
 
 }
 
@@ -1879,6 +2131,169 @@ img {
 }
 
 
+.idea-form {
+
+    display: grid;
+
+    gap: 13px;
+
+    margin:
+        4px 0
+        28px;
+
+    padding:
+        18px 0
+        2px;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.idea-form h3 {
+
+    margin-bottom: 2px;
+
+    font-size: 20px;
+
+}
+
+
+.idea-form p {
+
+    max-width: 680px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.75;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap: 12px;
+
+}
+
+
+.form-field {
+
+    display: grid;
+
+    gap: 7px;
+
+}
+
+
+.form-field.full {
+
+    grid-column: 1 / -1;
+
+}
+
+
+.form-field label {
+
+    color: var(--blue);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+.form-field input,
+.form-field textarea {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--surface-strong);
+    color: var(--text);
+
+    font: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.form-field input {
+
+    min-height: 48px;
+
+    padding: 0 14px;
+
+}
+
+
+.form-field textarea {
+
+    min-height: 132px;
+
+    resize: vertical;
+
+    padding: 13px 14px;
+
+}
+
+
+.form-field input:focus,
+.form-field textarea:focus {
+
+    border-color: var(--border-accent);
+
+    box-shadow:
+        0 0 0 4px
+        var(--blue-soft);
+
+}
+
+
+.form-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.form-status {
+
+    min-height: 20px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1966,7 +2381,7 @@ footer {
    TABLET
 ========================================================= */
 
-@media(max-width:1000px) {
+@media(max-width:1180px) {
 
     .hero-grid {
 
@@ -2061,6 +2476,13 @@ footer {
 
     }
 
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
 }
 
 
@@ -2081,13 +2503,6 @@ footer {
 
         grid-template-columns:
             repeat(2,1fr);
-
-    }
-
-
-    .focus:last-child {
-
-        grid-column: span 2;
 
     }
 
@@ -2171,14 +2586,9 @@ footer {
 
     .hero h1 {
 
-        font-size:
-            clamp(
-                51px,
-                16vw,
-                70px
-            );
+        font-size: 58px;
 
-        letter-spacing: -3.5px;
+        letter-spacing: 0;
 
     }
 
@@ -2234,14 +2644,9 @@ footer {
 
     .section-title {
 
-        font-size:
-            clamp(
-                35px,
-                11vw,
-                46px
-            );
+        font-size: 42px;
 
-        letter-spacing: -2px;
+        letter-spacing: 0;
 
     }
 
@@ -2251,6 +2656,27 @@ footer {
         min-height: 330px;
 
         padding: 24px;
+
+    }
+
+
+    .project-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .project-links {
+
+        display: grid;
+
+    }
+
+
+    .form-actions {
+
+        display: grid;
 
     }
 
@@ -2290,14 +2716,9 @@ footer {
 
     .contact-panel h2 {
 
-        font-size:
-            clamp(
-                38px,
-                12vw,
-                50px
-            );
+        font-size: 42px;
 
-        letter-spacing: -2px;
+        letter-spacing: 0;
 
     }
 
@@ -2546,14 +2967,14 @@ footer {
 
     <span class="status-dot"></span>
 
-    Economic Analytics & Data Science
+    Economic Analytics, Data Science, and Decision Support
 
 </div>
 
 
 <div class="hero-overline">
 
-    Applied Economics · Research · Data Science
+    Applied Economics | Research | Data Science
 
 </div>
 
@@ -2587,10 +3008,12 @@ footer {
 
     My work focuses on causal inference,
     econometrics, machine learning,
-    health economics, and policy evaluation.
+    financial analytics, health economics,
+    and policy evaluation.
     I use quantitative methods to study
     real world questions and communicate
-    evidence in a clear and practical way.
+    evidence through clear research,
+    dashboards, and decision support tools.
 
 </p>
 
@@ -2602,17 +3025,17 @@ footer {
     href="#work"
     class="btn btn-primary"
 >
-    Explore My Work →
+    Explore My Work
 </a>
 
 
 <a
-    href="CV_Resume_EK.pdf"
+    href="https://kuhemmanuel9-sudo.github.io/Personal-Web/CV_Resume_EK.pdf"
     target="_blank"
     rel="noopener noreferrer"
     class="btn btn-secondary"
 >
-    Résumé ↗
+    Resume
 </a>
 
 
@@ -2651,11 +3074,22 @@ footer {
 <div class="profile-card">
 
 
-<img
-    src="image.png"
-    alt="Portrait of Emmanuel Kuh"
-    class="profile-image"
->
+<div class="profile-photo-wrap">
+
+    <div class="profile-fallback" aria-hidden="true">
+        EK
+    </div>
+
+    <img
+        src="https://kuhemmanuel9-sudo.github.io/Personal-Web/image.png"
+        alt="Portrait of Emmanuel Kuh"
+        class="profile-image"
+        loading="eager"
+        decoding="async"
+        onerror="this.closest('.profile-photo-wrap').classList.add('image-error')"
+    >
+
+</div>
 
 
 <div class="profile-content">
@@ -2735,6 +3169,10 @@ footer {
         POLICY EVALUATION
     </div>
 
+    <div class="focus">
+        FINANCIAL ANALYTICS
+    </div>
+
 </div>
 
 </section>
@@ -2773,7 +3211,8 @@ footer {
 
     Selected work in health economics,
     causal inference, forecasting,
-    and applied data science.
+    financial analytics,
+    and applied data science products.
 
 </p>
 
@@ -2886,6 +3325,20 @@ footer {
 </p>
 
 
+<div class="project-links">
+
+    <a
+        href="https://kuhemmanuel9-sudo.github.io/Weather-Intelligence-2.0-by-Emmanuel-Kuh-/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link primary"
+    >
+        Open Live Dashboard
+    </a>
+
+</div>
+
+
 <div class="tags">
 
     <span class="tag">
@@ -2969,6 +3422,137 @@ footer {
 
     <span class="tag">
         HRS
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+<!-- PROJECT 4 -->
+
+<article class="project project-featured reveal">
+
+
+<div class="project-top">
+
+    <div class="project-number">
+        04 / FINANCIAL ANALYTICS
+    </div>
+
+    <div class="project-type">
+        Interactive Dashboard
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+    Forex Pulse
+</h3>
+
+
+<p>
+
+    A foreign exchange analytics and decision support
+    dashboard integrating free FX APIs, cross-rate
+    calculations, historical trend analysis, volatility,
+    drawdown, momentum scoring, currency conversion,
+    market sessions, local storage, and browser voice
+    briefings.
+
+</p>
+
+
+<div class="project-dashboard-preview" aria-label="Forex Pulse dashboard preview">
+
+    <div class="preview-metric">
+        <span>Pair</span>
+        <strong>EUR/USD</strong>
+    </div>
+
+    <div class="preview-metric">
+        <span>Risk</span>
+        <strong>Measured score</strong>
+    </div>
+
+    <div class="preview-metric">
+        <span>Output</span>
+        <strong>Voice brief</strong>
+    </div>
+
+</div>
+
+
+<div class="project-stats" aria-label="Forex Pulse highlights">
+
+    <div class="project-stat">
+        <span>Data</span>
+        <strong>Live + reference FX</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Analytics</span>
+        <strong>Momentum + risk</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Interface</span>
+        <strong>Explain Mode</strong>
+    </div>
+
+</div>
+
+
+<div class="project-links">
+
+    <a
+        href="https://kuhemmanuel9-sudo.github.io/Forex-Pulse-by-Emmanuel/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link primary"
+    >
+        Open Live Dashboard
+    </a>
+
+    <a
+        href="https://github.com/kuhemmanuel9-sudo/Forex-Pulse-by-Emmanuel"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+    >
+        View GitHub
+    </a>
+
+</div>
+
+
+<div class="tags">
+
+    <span class="tag">
+        JAVASCRIPT
+    </span>
+
+    <span class="tag">
+        FX APIs
+    </span>
+
+    <span class="tag">
+        CHART.JS
+    </span>
+
+    <span class="tag">
+        TIME SERIES
+    </span>
+
+    <span class="tag">
+        VOICE UI
     </span>
 
 </div>
@@ -3677,7 +4261,7 @@ footer {
 
 
 <a
-    href="kuhemmanuel9@gmail.com"
+    href="mailto:kuhemmanuel9@gmail.com"
     class="contact-card"
 >
 
@@ -3733,17 +4317,102 @@ footer {
 </div>
 
 
+<form
+    class="idea-form"
+    id="ideaForm"
+    action="mailto:kuhemmanuel9@gmail.com"
+    method="post"
+    enctype="text/plain"
+>
+
+    <div>
+        <h3>
+            Got a question or idea?
+        </h3>
+
+        <p>
+            Send a note about research, dashboards,
+            consulting, data work, or a project you
+            would like to discuss.
+        </p>
+    </div>
+
+    <div class="form-grid">
+
+        <div class="form-field">
+            <label for="ideaName">
+                Name
+            </label>
+
+            <input
+                id="ideaName"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="ideaEmail">
+                Email
+            </label>
+
+            <input
+                id="ideaEmail"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+            >
+        </div>
+
+        <div class="form-field full">
+            <label for="ideaMessage">
+                Message
+            </label>
+
+            <textarea
+                id="ideaMessage"
+                name="message"
+                required
+            ></textarea>
+        </div>
+
+    </div>
+
+    <div class="form-actions">
+
+        <button
+            type="submit"
+            class="btn btn-primary"
+        >
+            Send Message
+        </button>
+
+        <span
+            class="form-status"
+            id="ideaStatus"
+            role="status"
+            aria-live="polite"
+        ></span>
+
+    </div>
+
+</form>
+
+
 
 <div class="actions">
 
 
 <a
-    href="CV_Resume_EK.pdf"
+    href="https://kuhemmanuel9-sudo.github.io/Personal-Web/CV_Resume_EK.pdf"
     target="_blank"
     rel="noopener noreferrer"
     class="btn btn-primary"
 >
-    View Full Résumé ↗
+    View Full Resume
 </a>
 
 
@@ -3794,11 +4463,11 @@ footer {
 
 
 <a
-    href="CV_Resume_EK.pdf"
+    href="https://kuhemmanuel9-sudo.github.io/Personal-Web/CV_Resume_EK.pdf"
     target="_blank"
     rel="noopener noreferrer"
 >
-    Résumé
+    Resume
 </a>
 
 
@@ -3964,6 +4633,100 @@ systemPreference.addEventListener(
 applyTheme(
     getThemeChoice()
 );
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const ideaForm =
+    document.getElementById(
+        "ideaForm"
+    );
+
+
+const ideaStatus =
+    document.getElementById(
+        "ideaStatus"
+    );
+
+
+if (ideaForm) {
+
+    ideaForm.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            if (!ideaForm.checkValidity()) {
+
+                ideaForm.reportValidity();
+
+                return;
+
+            }
+
+
+            const name =
+                document
+                    .getElementById(
+                        "ideaName"
+                    )
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById(
+                        "ideaEmail"
+                    )
+                    .value
+                    .trim();
+
+
+            const message =
+                document
+                    .getElementById(
+                        "ideaMessage"
+                    )
+                    .value
+                    .trim();
+
+
+            const subject =
+                encodeURIComponent(
+                    "Portfolio message from " + name
+                );
+
+
+            const body =
+                encodeURIComponent(
+                    "Name: " + name + "\n" +
+                    "Email: " + email + "\n\n" +
+                    "Message:\n" + message
+                );
+
+
+            if (ideaStatus) {
+
+                ideaStatus.textContent =
+                    "Opening your email app...";
+
+            }
+
+
+            window.location.href =
+                "mailto:kuhemmanuel9@gmail.com" +
+                "?subject=" + subject +
+                "&body=" + body;
+
+        }
+    );
+
+}
 
 
 
