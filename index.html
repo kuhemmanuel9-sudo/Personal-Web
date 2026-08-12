@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emmanuel Kuh | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,sans-serif;background:#08111f;color:#fff}
+.hero{display:grid;grid-template-columns:360px 1fr;gap:60px;align-items:center;max-width:1200px;margin:auto;padding:70px 30px;min-height:100vh}
+img{width:320px;height:320px;border-radius:50%;object-fit:cover;border:8px solid #fff;box-shadow:0 20px 60px rgba(37,99,235,.4)}
+h1{font-size:56px;margin:0}
+h2{color:#60a5fa;font-weight:600}
+p{color:#cbd5e1;font-size:18px;line-height:1.7}
+.btn{display:inline-block;margin:10px 10px 0 0;padding:14px 24px;background:#2563eb;color:#fff;text-decoration:none;border-radius:10px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.card{background:#111827;padding:20px;border-radius:14px}
+.section{max-width:1200px;margin:auto;padding:60px 30px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}.cards{grid-template-columns:repeat(2,1fr)}img{width:240px;height:240px}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div style="text-align:center">
+<img src="profile.jpg" alt="Emmanuel Kuh">
+</div>
+<div>
+<h1>Emmanuel Kuh</h1>
+<h2>Applied Economist • Data Scientist • Causal Inference • Consulting</h2>
+<p><strong>Graduate Assistant, M.S. Economic Analytics, Towson University</strong><br>
+Vice President, Graduate Student Association (College of Business and Economics)</p>
+<p>Applied economist specializing in causal inference, econometrics, machine learning, health economics, public policy, and decision analytics.</p>
+<a class="btn" href="resume.pdf">Download Resume</a>
+<a class="btn" href="https://www.linkedin.com/in/emmanuel-kuh45" target="_blank">LinkedIn</a>
+<a class="btn" href="https://github.com/kuhemmanuel9-sudo" target="_blank">GitHub</a>
+<div class="cards">
+<div class="card"><h3>Weather Intelligence</h3><p>Decision-grade weather analytics platform.</p></div>
+<div class="card"><h3>Medicare Research</h3><p>Regression discontinuity analysis.</p></div>
+<div class="card"><h3>Econometrics</h3><p>Causal inference and policy evaluation.</p></div>
+<div class="card"><h3>Consulting</h3><p>Data-driven decision support.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<h2>Featured Projects</h2>
+<ul>
+<li>Weather Intelligence Platform</li>
+<li>Medicare and Mental Health Research</li>
+<li>Applied Economics & Consulting Projects</li>
+</ul>
+</section>
+</body>
+</html>
