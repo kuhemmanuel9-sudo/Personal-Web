@@ -1,1398 +1,2966 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Emmanuel Kuh — Applied Economist, Data Scientist, and Economic Analytics researcher specializing in causal inference, econometrics, machine learning, health economics, and public policy.">
-
-<title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root {
-    --bg: #f8fafc;
-    --bg-secondary: #ffffff;
-    --surface: rgba(255,255,255,.78);
-    --surface-solid: #ffffff;
-
-    --text: #0f172a;
-    --text-secondary: #475569;
-    --muted: #64748b;
-
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --primary-soft: #eff6ff;
-
-    --border: #e2e8f0;
-
-    --shadow-sm: 0 8px 30px rgba(15,23,42,.06);
-    --shadow-lg: 0 25px 70px rgba(15,23,42,.12);
-
-    --nav-bg: rgba(248,250,252,.82);
-}
-
-[data-theme="dark"] {
-    --bg: #07101f;
-    --bg-secondary: #0b1424;
-    --surface: rgba(15,23,42,.72);
-    --surface-solid: #111c2e;
-
-    --text: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --muted: #94a3b8;
-
-    --primary: #60a5fa;
-    --primary-hover: #93c5fd;
-    --primary-soft: rgba(37,99,235,.12);
-
-    --border: #1e293b;
-
-    --shadow-sm: 0 8px 30px rgba(0,0,0,.18);
-    --shadow-lg: 0 30px 80px rgba(0,0,0,.35);
-
-    --nav-bg: rgba(7,16,31,.82);
-}
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Inter", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    transition: background .3s ease, color .3s ease;
-}
-
-a {
-    color: inherit;
-}
-
-button {
-    font: inherit;
-}
-
-.container {
-    width: min(1180px, calc(100% - 48px));
-    margin: auto;
-}
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-
-    background: var(--nav-bg);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-    height: 74px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    text-decoration: none;
-    letter-spacing: -.5px;
-}
-
-.logo span {
-    color: var(--primary);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
+    <meta
+        name="description"
+        content="Emmanuel Kuh is an applied economist and data scientist specializing in causal inference, econometrics, machine learning, health economics, public policy, and decision analytics."
+    >
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 600;
-    transition: .2s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
+    <title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
 
-.theme-toggle {
-    width: 42px;
-    height: 42px;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    display: grid;
-    place-items: center;
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
+    <style>
 
-    border-radius: 12px;
-    cursor: pointer;
+        /* =========================================================
+           COLOR SYSTEM
+        ========================================================= */
 
-    transition: .2s ease;
-}
+        :root {
+            --bg: #f6f8fc;
+            --bg-secondary: #ffffff;
 
-.theme-toggle:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary);
-}
+            --surface: rgba(255, 255, 255, 0.74);
+            --surface-solid: #ffffff;
+            --surface-hover: #ffffff;
 
-/* =========================================================
-   HERO
-========================================================= */
+            --text: #0b1220;
+            --text-secondary: #4b5870;
+            --muted: #748096;
 
-.hero {
-    min-height: 100vh;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-2: #0891b2;
+            --accent-3: #7c3aed;
 
-    display: flex;
-    align-items: center;
+            --accent-soft: rgba(37, 99, 235, 0.09);
 
-    padding: 135px 0 90px;
+            --border: rgba(15, 23, 42, 0.09);
+            --border-strong: rgba(37, 99, 235, 0.28);
 
-    position: relative;
-    overflow: hidden;
-}
+            --navbar: rgba(246, 248, 252, 0.80);
 
-.hero::before {
-    content: "";
-    position: absolute;
+            --shadow:
+                0 20px 60px rgba(15, 23, 42, 0.08);
 
-    width: 500px;
-    height: 500px;
+            --shadow-large:
+                0 35px 90px rgba(15, 23, 42, 0.14);
 
-    border-radius: 50%;
+            --grid: rgba(15, 23, 42, 0.035);
+        }
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(37,99,235,.18),
-            transparent 68%
-        );
 
-    top: 40px;
-    right: -150px;
+        html[data-theme="dark"] {
+            --bg: #070b14;
+            --bg-secondary: #0a101c;
 
-    pointer-events: none;
-}
+            --surface: rgba(15, 23, 42, 0.66);
+            --surface-solid: #0f172a;
+            --surface-hover: #131e32;
 
-.hero-grid {
-    width: 100%;
+            --text: #f8fafc;
+            --text-secondary: #b2bfd2;
+            --muted: #8491a6;
 
-    display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 75px;
+            --accent: #5b8cff;
+            --accent-hover: #7ca4ff;
+            --accent-2: #38bdf8;
+            --accent-3: #9b7cff;
 
-    align-items: center;
-}
+            --accent-soft: rgba(91, 140, 255, 0.10);
 
-/* PROFILE IMAGE */
+            --border: rgba(148, 163, 184, 0.13);
+            --border-strong: rgba(91, 140, 255, 0.36);
 
-.profile-wrap {
-    position: relative;
-    width: 320px;
-    margin: auto;
-}
+            --navbar: rgba(7, 11, 20, 0.78);
 
-.profile-wrap::before {
-    content: "";
-    position: absolute;
-    inset: -12px;
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.22);
 
-    border-radius: 50%;
+            --shadow-large:
+                0 40px 100px rgba(0, 0, 0, 0.38);
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            #8b5cf6
-        );
+            --grid: rgba(255, 255, 255, 0.025);
+        }
 
-    filter: blur(18px);
-    opacity: .28;
-}
 
-.profile-image {
-    position: relative;
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-    width: 320px;
-    height: 320px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    border-radius: 50%;
-    object-fit: cover;
 
-    border: 7px solid var(--surface-solid);
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
 
-    box-shadow: var(--shadow-lg);
-}
 
-/* HERO CONTENT */
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
 
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+            transition:
+                background 0.35s ease,
+                color 0.35s ease;
+        }
 
-    padding: 7px 12px;
 
-    background: var(--primary-soft);
-    color: var(--primary);
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
 
-    border-radius: 999px;
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
 
-    font-size: 13px;
-    font-weight: 700;
+            background-size: 55px 55px;
 
-    margin-bottom: 20px;
-}
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.75),
+                    transparent 80%
+                );
 
-.eyebrow-dot {
-    width: 7px;
-    height: 7px;
+            z-index: -2;
+        }
 
-    background: #22c55e;
-    border-radius: 50%;
-}
 
-.hero h1 {
-    font-size: clamp(48px, 7vw, 76px);
-    line-height: .98;
+        body::after {
+            content: "";
 
-    letter-spacing: -4px;
+            position: fixed;
 
-    margin-bottom: 20px;
-}
+            width: 900px;
+            height: 900px;
 
-.hero-title {
-    color: var(--primary);
+            top: -350px;
+            right: -300px;
 
-    font-size: clamp(19px, 2.5vw, 27px);
-    font-weight: 700;
+            border-radius: 50%;
 
-    margin-bottom: 24px;
-}
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(91, 140, 255, 0.14),
+                    rgba(124, 58, 237, 0.05) 40%,
+                    transparent 70%
+                );
 
-.hero-description {
-    max-width: 720px;
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    color: var(--text-secondary);
 
-    font-size: 18px;
-    line-height: 1.8;
+        a {
+            color: inherit;
+        }
 
-    margin-bottom: 14px;
-}
 
-.hero-description strong {
-    color: var(--text);
-}
+        button {
+            font: inherit;
+        }
 
-.hero-subtitle {
-    max-width: 720px;
 
-    color: var(--muted);
+        img {
+            display: block;
+            max-width: 100%;
+        }
 
-    font-size: 16px;
-    line-height: 1.8;
 
-    margin-bottom: 30px;
-}
+        .container {
+            width: min(1180px, calc(100% - 48px));
+            margin-inline: auto;
+        }
 
-/* BUTTONS */
 
-.actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
 
-    margin-bottom: 42px;
-}
+        .navbar {
+            position: fixed;
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+            top: 0;
+            left: 0;
+            right: 0;
 
-    min-height: 48px;
+            z-index: 1000;
 
-    padding: 0 21px;
+            background: var(--navbar);
 
-    border-radius: 11px;
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
 
-    text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
 
-    font-size: 14px;
-    font-weight: 700;
 
-    transition: .25s ease;
-}
+        .nav-inner {
+            height: 76px;
 
-.btn-primary {
-    background: var(--primary);
-    color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    box-shadow: 0 10px 30px rgba(37,99,235,.22);
-}
+            gap: 25px;
+        }
 
-[data-theme="dark"] .btn-primary {
-    color: #07101f;
-}
 
-.btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-2px);
-}
+        .brand {
+            display: flex;
+            align-items: center;
 
-.btn-secondary {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-}
+            gap: 11px;
 
-.btn-secondary:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-2px);
-}
+            text-decoration: none;
 
-/* HERO STATS */
+            font-weight: 800;
+            letter-spacing: -0.5px;
 
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 12px;
-}
+            white-space: nowrap;
+        }
 
-.stat {
-    padding: 18px;
 
-    border: 1px solid var(--border);
-    border-radius: 14px;
+        .brand-mark {
+            width: 38px;
+            height: 38px;
 
-    background: var(--surface);
+            display: grid;
+            place-items: center;
 
-    box-shadow: var(--shadow-sm);
-}
+            border-radius: 11px;
 
-.stat-value {
-    color: var(--primary);
-    font-weight: 800;
-    font-size: 17px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-3)
+                );
 
-    margin-bottom: 4px;
-}
+            color: white;
 
-.stat-label {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.5;
-}
+            font-size: 13px;
 
-/* =========================================================
-   SECTIONS
-========================================================= */
+            box-shadow:
+                0 10px 30px rgba(37, 99, 235, 0.24);
+        }
 
-.section {
-    padding: 100px 0;
-}
 
-.section-alt {
-    background: var(--bg-secondary);
-}
+        .brand-dot {
+            color: var(--accent);
+        }
 
-.section-heading {
-    max-width: 680px;
-    margin-bottom: 48px;
-}
 
-.section-label {
-    color: var(--primary);
+        .nav-right {
+            display: flex;
+            align-items: center;
 
-    font-size: 13px;
-    font-weight: 800;
+            gap: 28px;
+        }
 
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
 
-    margin-bottom: 10px;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
 
-.section-heading h2 {
-    font-size: clamp(32px,4vw,46px);
-    letter-spacing: -2px;
-    line-height: 1.15;
+            gap: 27px;
+        }
 
-    margin-bottom: 15px;
-}
 
-.section-heading p {
-    color: var(--text-secondary);
-    font-size: 17px;
-}
+        .nav-links a {
+            text-decoration: none;
 
-/* =========================================================
-   PROJECT CARDS
-========================================================= */
+            color: var(--text-secondary);
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-}
+            font-size: 13px;
+            font-weight: 600;
 
-.project-card {
-    display: flex;
-    flex-direction: column;
+            transition: 0.2s ease;
+        }
 
-    min-height: 310px;
 
-    padding: 28px;
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-    background: var(--surface);
 
-    border: 1px solid var(--border);
-    border-radius: 20px;
+        /* =========================================================
+           THEME SELECTOR
+        ========================================================= */
 
-    box-shadow: var(--shadow-sm);
+        .theme-switcher {
+            display: flex;
+            align-items: center;
 
-    transition: .3s ease;
-}
+            padding: 4px;
 
-.project-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(37,99,235,.45);
-    box-shadow: var(--shadow-lg);
-}
+            border: 1px solid var(--border);
 
-.project-number {
-    color: var(--primary);
+            border-radius: 12px;
 
-    font-size: 12px;
-    font-weight: 800;
+            background: var(--surface);
 
-    letter-spacing: 1px;
+            box-shadow: var(--shadow);
+        }
 
-    margin-bottom: 35px;
-}
 
-.project-card h3 {
-    font-size: 22px;
-    letter-spacing: -.6px;
+        .theme-button {
+            width: 35px;
+            height: 32px;
 
-    margin-bottom: 12px;
-}
+            display: grid;
+            place-items: center;
 
-.project-card p {
-    color: var(--text-secondary);
+            border: 0;
+            border-radius: 8px;
 
-    font-size: 15px;
-    line-height: 1.75;
+            background: transparent;
 
-    margin-bottom: 22px;
-}
+            color: var(--muted);
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
+            cursor: pointer;
 
-    margin-top: auto;
-}
+            transition: 0.2s ease;
+        }
 
-.tag {
-    padding: 6px 10px;
 
-    background: var(--primary-soft);
-    color: var(--primary);
+        .theme-button:hover {
+            color: var(--text);
+        }
 
-    border-radius: 7px;
 
-    font-size: 11px;
-    font-weight: 700;
-}
+        .theme-button.active {
+            background: var(--surface-solid);
+            color: var(--accent);
 
-/* =========================================================
-   EXPERTISE
-========================================================= */
+            box-shadow:
+                0 4px 14px rgba(15, 23, 42, 0.10);
+        }
 
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 20px;
-}
 
-.expertise-card {
-    padding: 28px;
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-    border: 1px solid var(--border);
-    border-radius: 18px;
+        .hero {
+            min-height: 100vh;
 
-    background: var(--surface);
+            display: flex;
+            align-items: center;
 
-    transition: .25s ease;
-}
+            padding: 140px 0 90px;
+        }
 
-.expertise-card:hover {
-    border-color: var(--primary);
-}
 
-.expertise-card h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
+        .hero-grid {
+            display: grid;
 
-.expertise-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.7;
-}
+            grid-template-columns:
+                minmax(0, 1.45fr)
+                minmax(300px, 0.65fr);
 
-/* =========================================================
-   ABOUT
-========================================================= */
+            gap: 80px;
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 65px;
-    align-items: start;
-}
+            align-items: center;
+        }
 
-.about-text p {
-    color: var(--text-secondary);
 
-    font-size: 17px;
-    line-height: 1.9;
+        .status {
+            display: inline-flex;
+            align-items: center;
 
-    margin-bottom: 18px;
-}
+            gap: 9px;
 
-.about-list {
-    list-style: none;
-}
+            padding: 8px 13px;
 
-.about-list li {
-    padding: 16px 0;
+            border: 1px solid var(--border);
 
-    border-bottom: 1px solid var(--border);
+            border-radius: 999px;
 
-    color: var(--text-secondary);
+            background: var(--surface);
 
-    font-size: 15px;
-}
+            color: var(--text-secondary);
 
-.about-list strong {
-    display: block;
-    color: var(--text);
+            font-size: 12px;
+            font-weight: 700;
 
-    margin-bottom: 3px;
-}
+            margin-bottom: 27px;
 
-/* =========================================================
-   CONTACT
-========================================================= */
+            box-shadow: var(--shadow);
+        }
 
-.contact-box {
-    padding: 55px;
 
-    border-radius: 24px;
+        .status-dot {
+            width: 7px;
+            height: 7px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary-soft),
-            var(--surface)
-        );
+            border-radius: 50%;
 
-    border: 1px solid var(--border);
+            background: #22c55e;
 
-    text-align: center;
-}
+            box-shadow:
+                0 0 0 5px rgba(34, 197, 94, 0.10);
+        }
 
-.contact-box h2 {
-    font-size: clamp(30px,4vw,44px);
-    letter-spacing: -1.5px;
 
-    margin-bottom: 14px;
-}
+        .hero-kicker {
+            color: var(--accent);
 
-.contact-box p {
-    color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 800;
 
-    max-width: 650px;
-    margin: 0 auto 28px;
+            letter-spacing: 2px;
 
-    font-size: 16px;
-}
+            text-transform: uppercase;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            margin-bottom: 14px;
+        }
 
-footer {
-    border-top: 1px solid var(--border);
 
-    padding: 30px 0;
+        .hero h1 {
+            max-width: 760px;
 
-    color: var(--muted);
+            font-size: clamp(55px, 7vw, 88px);
 
-    font-size: 13px;
-}
+            line-height: 0.94;
 
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
+            letter-spacing: -5px;
 
-.footer-links {
-    display: flex;
-    gap: 18px;
-}
+            margin-bottom: 24px;
+        }
 
-.footer-links a {
-    text-decoration: none;
-}
 
-.footer-links a:hover {
-    color: var(--primary);
-}
+        .gradient-text {
+            background:
+                linear-gradient(
+                    100deg,
+                    var(--accent),
+                    var(--accent-2),
+                    var(--accent-3)
+                );
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+            -webkit-background-clip: text;
+            background-clip: text;
 
-@media (max-width: 950px) {
+            color: transparent;
+        }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-        text-align: center;
-    }
 
-    .hero-description,
-    .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .hero-title {
+            font-size: clamp(21px, 2.4vw, 29px);
 
-    .actions {
-        justify-content: center;
-    }
+            line-height: 1.35;
 
-    .hero h1 {
-        letter-spacing: -2.5px;
-    }
+            font-weight: 600;
 
-    .projects-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+            letter-spacing: -0.7px;
 
-    .stats {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
+            color: var(--text-secondary);
 
-@media (max-width: 700px) {
+            margin-bottom: 26px;
 
-    .container {
-        width: min(100% - 32px,1180px);
-    }
+            max-width: 760px;
+        }
 
-    .nav-links a {
-        display: none;
-    }
 
-    .hero {
-        padding-top: 115px;
-    }
+        .hero-description {
+            max-width: 700px;
 
-    .profile-wrap,
-    .profile-image {
-        width: 235px;
-        height: 235px;
-    }
+            color: var(--muted);
 
-    .hero h1 {
-        font-size: 48px;
-    }
+            font-size: 16px;
 
-    .projects-grid,
-    .expertise-grid,
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
+            line-height: 1.85;
 
-    .section {
-        padding: 75px 0;
-    }
+            margin-bottom: 32px;
+        }
 
-    .contact-box {
-        padding: 38px 22px;
-    }
 
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-</style>
+        .hero-description strong {
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 11px;
+        }
+
+
+        .btn {
+            min-height: 49px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 0 21px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition:
+                transform 0.25s ease,
+                border 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        .btn-primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    #4f46e5
+                );
+
+            box-shadow:
+                0 15px 35px rgba(37, 99, 235, 0.23);
+        }
+
+
+        .btn-primary:hover {
+            box-shadow:
+                0 20px 45px rgba(37, 99, 235, 0.32);
+        }
+
+
+        .btn-secondary {
+            color: var(--text);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+        }
+
+
+        .btn-secondary:hover {
+            border-color: var(--border-strong);
+
+            background: var(--surface-hover);
+        }
+
+
+        /* =========================================================
+           PROFILE
+        ========================================================= */
+
+        .profile-column {
+            position: relative;
+        }
+
+
+        .profile-glow {
+            position: absolute;
+
+            width: 320px;
+            height: 320px;
+
+            border-radius: 50%;
+
+            top: -30px;
+            left: -30px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(91, 140, 255, 0.23),
+                    transparent 65%
+                );
+
+            filter: blur(15px);
+
+            pointer-events: none;
+        }
+
+
+        .profile-card {
+            position: relative;
+
+            padding: 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            background: var(--surface);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow: var(--shadow-large);
+
+            overflow: hidden;
+        }
+
+
+        .profile-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -70px;
+            top: -70px;
+
+            border-radius: 50%;
+
+            background: rgba(91, 140, 255, 0.18);
+
+            filter: blur(30px);
+        }
+
+
+        .profile-image {
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1 / 1.08;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            border-radius: 19px;
+
+            background: var(--bg-secondary);
+        }
+
+
+        .profile-info {
+            padding: 20px 8px 8px;
+        }
+
+
+        .profile-role {
+            color: var(--text);
+
+            font-size: 15px;
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+
+        .profile-school {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        .profile-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 18px;
+
+            padding-top: 16px;
+
+            border-top: 1px solid var(--border);
+        }
+
+
+        .profile-meta span {
+            color: var(--text-secondary);
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           AREAS
+        ========================================================= */
+
+        .disciplines {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(127, 127, 127, 0.015);
+        }
+
+
+        .discipline-grid {
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+
+        .discipline {
+            padding: 25px 20px;
+
+            text-align: center;
+
+            border-right: 1px solid var(--border);
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.3px;
+        }
+
+
+        .discipline:first-child {
+            border-left: 1px solid var(--border);
+        }
+
+
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
+
+        .section {
+            padding: 110px 0;
+        }
+
+
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            gap: 50px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-label {
+            color: var(--accent);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-title {
+            font-size: clamp(35px, 4.5vw, 53px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2.7px;
+
+            max-width: 650px;
+        }
+
+
+        .section-intro {
+            max-width: 440px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns: repeat(12, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .project {
+            position: relative;
+
+            padding: 32px;
+
+            min-height: 360px;
+
+            display: flex;
+            flex-direction: column;
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            background: var(--surface);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                border 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .project:nth-child(1) {
+            grid-column: span 7;
+        }
+
+
+        .project:nth-child(2) {
+            grid-column: span 5;
+        }
+
+
+        .project:nth-child(3) {
+            grid-column: span 12;
+
+            min-height: 300px;
+        }
+
+
+        .project:hover {
+            transform: translateY(-6px);
+
+            border-color: var(--border-strong);
+
+            box-shadow: var(--shadow-large);
+        }
+
+
+        .project::after {
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            border-radius: 50%;
+
+            right: -130px;
+            top: -120px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(91, 140, 255, 0.13),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .project-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .project-number {
+            color: var(--accent);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .project-type {
+            color: var(--muted);
+
+            font-size: 11px;
+
+            padding: 6px 9px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 999px;
+        }
+
+
+        .project h3 {
+            font-size: clamp(24px, 3vw, 34px);
+
+            line-height: 1.15;
+
+            letter-spacing: -1.3px;
+
+            margin-bottom: 15px;
+
+            max-width: 580px;
+        }
+
+
+        .project p {
+            max-width: 650px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: auto;
+        }
+
+
+        .tag {
+            padding: 7px 10px;
+
+            border-radius: 8px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent);
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           EXPERTISE
+        ========================================================= */
+
+        .expertise-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+
+        .expertise {
+            padding: 35px;
+
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            transition: background 0.25s ease;
+        }
+
+
+        .expertise:hover {
+            background: var(--surface);
+        }
+
+
+        .expertise-number {
+            color: var(--accent);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            margin-bottom: 32px;
+        }
+
+
+        .expertise h3 {
+            font-size: 21px;
+
+            margin-bottom: 11px;
+
+            letter-spacing: -0.6px;
+        }
+
+
+        .expertise p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.75;
+
+            max-width: 470px;
+        }
+
+
+        /* =========================================================
+           TOOLKIT
+        ========================================================= */
+
+        .toolkit {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .tool-card {
+            padding: 25px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            background: var(--surface);
+
+            transition: 0.25s ease;
+        }
+
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+
+            border-color: var(--border-strong);
+        }
+
+
+        .tool-category {
+            color: var(--accent);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .tool-card h3 {
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .tool-card p {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 90px;
+        }
+
+
+        .about-copy {
+            color: var(--text-secondary);
+
+            font-size: 17px;
+
+            line-height: 1.9;
+        }
+
+
+        .about-copy p {
+            margin-bottom: 20px;
+        }
+
+
+        .timeline {
+            border-left: 1px solid var(--border);
+
+            padding-left: 30px;
+        }
+
+
+        .timeline-item {
+            position: relative;
+
+            padding-bottom: 35px;
+        }
+
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            left: -35px;
+            top: 6px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            box-shadow:
+                0 0 0 5px var(--accent-soft);
+        }
+
+
+        .timeline-label {
+            color: var(--accent);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+        }
+
+
+        .timeline-item h3 {
+            font-size: 16px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .timeline-item p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact {
+            position: relative;
+
+            padding: 70px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            background: var(--surface);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow-large);
+        }
+
+
+        .contact::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            right: -220px;
+            top: -250px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(91, 140, 255, 0.18),
+                    rgba(124, 58, 237, 0.07),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .contact-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .contact h2 {
+            font-size: clamp(38px, 5vw, 58px);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            max-width: 720px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .contact p {
+            max-width: 650px;
+
+            color: var(--text-secondary);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .footer-links a {
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(24px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+            }
+
+
+            .hero-copy {
+                text-align: center;
+            }
+
+
+            .status {
+                margin-inline: auto;
+            }
+
+
+            .hero-title,
+            .hero-description,
+            .hero h1 {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            .actions {
+                justify-content: center;
+            }
+
+
+            .profile-column {
+                width: min(430px, 100%);
+
+                margin-inline: auto;
+            }
+
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+
+            .project:nth-child(1),
+            .project:nth-child(2),
+            .project:nth-child(3) {
+                grid-column: auto;
+            }
+
+
+            .toolkit {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+            }
+
+        }
+
+
+        /* =========================================================
+           SMALL TABLET
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .section-top {
+                flex-direction: column;
+
+                align-items: start;
+
+                gap: 20px;
+            }
+
+
+            .discipline-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .discipline:nth-child(5) {
+                grid-column: span 2;
+            }
+
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .contact {
+                padding: 45px 30px;
+            }
+
+        }
+
+
+        /* =========================================================
+           PHONE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(100% - 30px, 1180px);
+            }
+
+
+            .navbar .brand-name {
+                display: none;
+            }
+
+
+            .nav-inner {
+                height: 68px;
+            }
+
+
+            .nav-right {
+                gap: 8px;
+            }
+
+
+            .theme-button {
+                width: 33px;
+            }
+
+
+            .hero {
+                min-height: auto;
+
+                padding: 115px 0 70px;
+            }
+
+
+            .hero-grid {
+                gap: 45px;
+            }
+
+
+            .hero h1 {
+                font-size: clamp(48px, 15vw, 66px);
+
+                letter-spacing: -3px;
+            }
+
+
+            .hero-title {
+                font-size: 20px;
+            }
+
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+
+            .actions {
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                width: 100%;
+            }
+
+
+            .actions .btn:first-child {
+                grid-column: 1 / -1;
+            }
+
+
+            .btn {
+                width: 100%;
+
+                padding: 0 14px;
+            }
+
+
+            .profile-column {
+                width: 100%;
+            }
+
+
+            .profile-card {
+                max-width: 390px;
+
+                margin-inline: auto;
+            }
+
+
+            .discipline {
+                padding: 20px 10px;
+
+                font-size: 10px;
+            }
+
+
+            .section {
+                padding: 80px 0;
+            }
+
+
+            .section-title {
+                letter-spacing: -2px;
+            }
+
+
+            .project {
+                padding: 24px;
+
+                min-height: 330px;
+            }
+
+
+            .project-top {
+                margin-bottom: 38px;
+
+                align-items: flex-start;
+            }
+
+
+            .project-number {
+                max-width: 65%;
+            }
+
+
+            .toolkit {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-copy {
+                font-size: 15px;
+            }
+
+
+            .contact {
+                padding: 40px 23px;
+            }
+
+
+            .contact h2 {
+                letter-spacing: -2px;
+            }
+
+
+            .contact .actions {
+                grid-template-columns: 1fr;
+            }
+
+
+            .contact .actions .btn:first-child {
+                grid-column: auto;
+            }
+
+
+            .footer-inner {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .footer-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+        }
+
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+
+                transition-duration: 0.01ms !important;
+            }
+
+
+            .reveal {
+                opacity: 1;
+
+                transform: none;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- =====================================================
+
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
 <nav class="navbar">
+
     <div class="container nav-inner">
 
-        <a href="#home" class="logo">
-            Emmanuel<span>.</span>
+        <a
+            href="#home"
+            class="brand"
+            aria-label="Emmanuel Kuh home"
+        >
+
+            <span class="brand-mark">
+                EK
+            </span>
+
+            <span class="brand-name">
+                Emmanuel Kuh<span class="brand-dot">.</span>
+            </span>
+
         </a>
 
-        <div class="nav-links">
 
-            <a href="#projects">Projects</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-right">
 
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                aria-label="Toggle dark mode"
-                title="Toggle theme"
+            <div class="nav-links">
+
+                <a href="#work">
+                    Work
+                </a>
+
+                <a href="#expertise">
+                    Expertise
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div
+                class="theme-switcher"
+                aria-label="Color theme"
             >
-                <span id="themeIcon">☾</span>
-            </button>
+
+                <button
+                    class="theme-button"
+                    data-theme-choice="light"
+                    aria-label="Use light mode"
+                    title="Light mode"
+                >
+                    ☀
+                </button>
+
+                <button
+                    class="theme-button"
+                    data-theme-choice="system"
+                    aria-label="Use system theme"
+                    title="System theme"
+                >
+                    ◐
+                </button>
+
+                <button
+                    class="theme-button"
+                    data-theme-choice="dark"
+                    aria-label="Use dark mode"
+                    title="Dark mode"
+                >
+                    ☾
+                </button>
+
+            </div>
 
         </div>
 
     </div>
+
 </nav>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <main>
 
-<section class="hero" id="home">
 
-<div class="container hero-grid">
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-    <div class="profile-wrap">
+<section
+    class="hero"
+    id="home"
+>
 
-        <img
-            src="image.png"
-            alt="Portrait of Emmanuel Kuh"
-            class="profile-image"
-        >
+    <div class="container hero-grid">
+
+
+        <div class="hero-copy reveal">
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Economic Analytics & Data Science
+
+            </div>
+
+
+            <div class="hero-kicker">
+
+                Applied Economics · Research · Data Science
+
+            </div>
+
+
+            <h1>
+
+                Emmanuel
+
+                <span class="gradient-text">
+                    Kuh.
+                </span>
+
+            </h1>
+
+
+            <div class="hero-title">
+
+                Applied Economist & Data Scientist
+
+            </div>
+
+
+            <p class="hero-description">
+
+                <strong>
+                    Graduate Assistant and M.S. Economic Analytics
+                    student at Towson University.
+                </strong>
+
+                My work focuses on causal inference, econometrics,
+                machine learning, health economics, and decision
+                analytics. I use quantitative methods to study
+                real-world economic and policy questions and
+                communicate findings in a clear and practical way.
+
+            </p>
+
+
+            <div class="actions">
+
+                <a
+                    href="#work"
+                    class="btn btn-primary"
+                >
+                    Explore My Work
+                    <span>→</span>
+                </a>
+
+
+                <a
+                    href="CV_Resume_EK.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                >
+                    Résumé ↗
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/emmanuel-kuh45"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                >
+                    LinkedIn
+                </a>
+
+
+                <a
+                    href="https://github.com/kuhemmanuel9-sudo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="profile-column reveal">
+
+            <div class="profile-glow"></div>
+
+
+            <div class="profile-card">
+
+                <img
+                    src="image.png"
+                    alt="Portrait of Emmanuel Kuh"
+                    class="profile-image"
+                >
+
+
+                <div class="profile-info">
+
+                    <div class="profile-role">
+
+                        Graduate Assistant
+
+                    </div>
+
+
+                    <div class="profile-school">
+
+                        M.S. Economic Analytics<br>
+                        Towson University
+
+                    </div>
+
+
+                    <div class="profile-meta">
+
+                        <span>Economics</span>
+
+                        <span>Data Science</span>
+
+                        <span>Research</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="hero-content">
-
-        <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Economic Analytics & Data Science
-        </div>
-
-        <h1>Emmanuel Kuh</h1>
-
-        <div class="hero-title">
-            Applied Economist & Data Scientist
-        </div>
-
-        <p class="hero-description">
-
-            <strong>
-                Graduate Assistant, M.S. Economic Analytics,
-                Towson University
-            </strong>
-
-            <br>
-
-            Vice President, Graduate Student Association —
-            College of Business and Economics
-
-        </p>
-
-        <p class="hero-subtitle">
-
-            I apply econometrics, causal inference, machine learning
-            and decision analytics to transform complex data into
-            evidence for better business and public-policy decisions.
-
-        </p>
-
-
-        <div class="actions">
-
-            <a
-                href="CV_Resume_EK.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-            >
-                View Resume ↗
-            </a>
-
-            <a
-                href="https://www.linkedin.com/in/emmanuel-kuh45"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-            >
-                LinkedIn
-            </a>
-
-            <a
-                href="https://github.com/kuhemmanuel9-sudo"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-            >
-                GitHub
-            </a>
-
-        </div>
-
-
-        <div class="stats">
-
-            <div class="stat">
-                <div class="stat-value">Causal</div>
-                <div class="stat-label">
-                    Inference & Policy Evaluation
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="stat-value">ML</div>
-                <div class="stat-label">
-                    Predictive Analytics
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="stat-value">Econometrics</div>
-                <div class="stat-label">
-                    Applied Economic Research
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="stat-value">Decision</div>
-                <div class="stat-label">
-                    Analytics & Consulting
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
+     FOCUS AREAS
+========================================================= -->
+
+<section class="disciplines">
+
+    <div class="container discipline-grid">
+
+        <div class="discipline">
+            CAUSAL INFERENCE
+        </div>
+
+        <div class="discipline">
+            ECONOMETRICS
+        </div>
+
+        <div class="discipline">
+            MACHINE LEARNING
+        </div>
+
+        <div class="discipline">
+            HEALTH ECONOMICS
+        </div>
+
+        <div class="discipline">
+            DECISION ANALYTICS
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
      PROJECTS
-===================================================== -->
+========================================================= -->
 
-<section class="section section-alt" id="projects">
+<section
+    class="section"
+    id="work"
+>
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-heading">
 
-        <div class="section-label">
-            Selected Work
+        <div class="section-top reveal">
+
+            <div>
+
+                <div class="section-label">
+                    Selected Work
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Research & Projects
+
+                </h2>
+
+            </div>
+
+
+            <p class="section-intro">
+
+                Selected work in applied economics,
+                causal inference, forecasting,
+                health economics, and data science.
+
+            </p>
+
         </div>
 
-        <h2>
-            Research & Projects
-        </h2>
 
-        <p>
-            Selected projects combining economics, data science,
-            causal inference and decision analytics.
-        </p>
+
+        <div class="projects">
+
+
+            <article class="project reveal">
+
+                <div class="project-top">
+
+                    <div class="project-number">
+                        01 / WEATHER INTELLIGENCE
+                    </div>
+
+                    <div class="project-type">
+                        Analytics
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Weather Intelligence Platform
+                </h3>
+
+
+                <p>
+
+                    A weather analytics project that combines
+                    meteorological data, forecasting, and visualization
+                    to support planning and data-informed decision-making.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Data Science
+                    </span>
+
+                    <span class="tag">
+                        Forecasting
+                    </span>
+
+                    <span class="tag">
+                        Decision Analytics
+                    </span>
+
+                    <span class="tag">
+                        Visualization
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project reveal">
+
+                <div class="project-top">
+
+                    <div class="project-number">
+                        02 / HEALTH ECONOMICS
+                    </div>
+
+                    <div class="project-type">
+                        Research
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Medicare & Mental Health
+                </h3>
+
+
+                <p>
+
+                    Health economics research examining the relationship
+                    between Medicare eligibility and mental health outcomes
+                    using a fuzzy regression discontinuity design.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        RDD
+                    </span>
+
+                    <span class="tag">
+                        Causal Inference
+                    </span>
+
+                    <span class="tag">
+                        Health Economics
+                    </span>
+
+                    <span class="tag">
+                        Econometrics
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project reveal">
+
+                <div class="project-top">
+
+                    <div class="project-number">
+                        03 / APPLIED ECONOMICS
+                    </div>
+
+                    <div class="project-type">
+                        Consulting
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Applied Economics & Consulting
+                </h3>
+
+
+                <p>
+
+                    Applied economic and statistical analysis focused
+                    on answering practical business and policy questions
+                    through empirical research, quantitative modeling,
+                    and clear recommendations.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Econometrics
+                    </span>
+
+                    <span class="tag">
+                        Strategy
+                    </span>
+
+                    <span class="tag">
+                        Policy Evaluation
+                    </span>
+
+                    <span class="tag">
+                        Consulting
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
 
     </div>
-
-
-    <div class="projects-grid">
-
-        <article class="project-card">
-
-            <div class="project-number">
-                PROJECT 01
-            </div>
-
-            <h3>
-                Weather Intelligence Platform
-            </h3>
-
-            <p>
-                Decision-grade weather analytics designed to transform
-                meteorological data into actionable information for
-                planning, forecasting and operational decisions.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Data Science</span>
-                <span class="tag">Forecasting</span>
-                <span class="tag">Decision Analytics</span>
-            </div>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-number">
-                PROJECT 02
-            </div>
-
-            <h3>
-                Medicare & Mental Health
-            </h3>
-
-            <p>
-                Applied health-economics research examining causal
-                relationships using regression discontinuity and
-                modern econometric methods.
-            </p>
-
-            <div class="tags">
-                <span class="tag">RDD</span>
-                <span class="tag">Health Economics</span>
-                <span class="tag">Causal Inference</span>
-            </div>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-number">
-                PROJECT 03
-            </div>
-
-            <h3>
-                Applied Economics & Consulting
-            </h3>
-
-            <p>
-                Economic and statistical analysis supporting strategic
-                decisions through empirical research, modeling and
-                evidence-based recommendations.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Econometrics</span>
-                <span class="tag">Strategy</span>
-                <span class="tag">Consulting</span>
-            </div>
-
-        </article>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      EXPERTISE
-===================================================== -->
+========================================================= -->
 
-<section class="section" id="expertise">
+<section
+    class="section section-alt"
+    id="expertise"
+>
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-heading">
 
-        <div class="section-label">
-            Expertise
+        <div class="section-top reveal">
+
+            <div>
+
+                <div class="section-label">
+                    Expertise
+                </div>
+
+
+                <h2 class="section-title">
+                    Areas of Focus
+                </h2>
+
+            </div>
+
+
+            <p class="section-intro">
+
+                My academic and professional interests combine
+                economic analysis, statistical methods,
+                data science, and policy research.
+
+            </p>
+
         </div>
 
-        <h2>
-            What I Work On
-        </h2>
 
-        <p>
-            My work sits at the intersection of economics,
-            statistics, machine learning and decision science.
-        </p>
+
+        <div class="expertise-grid">
+
+
+            <div class="expertise reveal">
+
+                <div class="expertise-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Causal Inference
+                </h3>
+
+
+                <p>
+
+                    Quasi-experimental methods, regression discontinuity,
+                    treatment effect estimation, and empirical policy
+                    evaluation.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="expertise reveal">
+
+                <div class="expertise-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Econometrics
+                </h3>
+
+
+                <p>
+
+                    Statistical modeling for economic, behavioral,
+                    and policy questions using observational and
+                    experimental data.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="expertise reveal">
+
+                <div class="expertise-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Machine Learning
+                </h3>
+
+
+                <p>
+
+                    Predictive modeling, feature engineering,
+                    model evaluation, and data-driven forecasting.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="expertise reveal">
+
+                <div class="expertise-number">
+                    04
+                </div>
+
+
+                <h3>
+                    Decision Analytics
+                </h3>
+
+
+                <p>
+
+                    Using quantitative evidence to support practical
+                    decisions in business, economics, and public policy.
+
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="expertise-grid">
-
-        <div class="expertise-card">
-
-            <h3>
-                Causal Inference
-            </h3>
-
-            <p>
-                Quasi-experimental methods, regression discontinuity,
-                treatment-effect estimation and empirical policy
-                evaluation.
-            </p>
-
-        </div>
-
-
-        <div class="expertise-card">
-
-            <h3>
-                Econometrics
-            </h3>
-
-            <p>
-                Applied statistical modeling for economic,
-                behavioral and policy questions using observational
-                and experimental data.
-            </p>
-
-        </div>
-
-
-        <div class="expertise-card">
-
-            <h3>
-                Machine Learning
-            </h3>
-
-            <p>
-                Predictive modeling, feature engineering,
-                model evaluation and data-driven forecasting.
-            </p>
-
-        </div>
-
-
-        <div class="expertise-card">
-
-            <h3>
-                Decision Analytics
-            </h3>
-
-            <p>
-                Translating complex datasets and quantitative
-                research into practical insights for organizations
-                and decision-makers.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
+     TOOLKIT
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-top reveal">
+
+            <div>
+
+                <div class="section-label">
+                    Analytical Toolkit
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Methods & Tools
+
+                </h2>
+
+            </div>
+
+
+            <p class="section-intro">
+
+                Tools and methods I use for economic research,
+                quantitative analysis, modeling, and communication.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="toolkit">
+
+
+            <div class="tool-card reveal">
+
+                <div class="tool-category">
+                    Programming
+                </div>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+
+                    Data analysis, statistical modeling,
+                    machine learning, and analytical workflows.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card reveal">
+
+                <div class="tool-category">
+                    Economics
+                </div>
+
+                <h3>
+                    Econometrics
+                </h3>
+
+                <p>
+
+                    Regression analysis, causal identification,
+                    policy analysis, and empirical research.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card reveal">
+
+                <div class="tool-category">
+                    Analytics
+                </div>
+
+                <h3>
+                    Data Science
+                </h3>
+
+                <p>
+
+                    Data preparation, predictive modeling,
+                    forecasting, and quantitative analysis.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card reveal">
+
+                <div class="tool-category">
+                    Communication
+                </div>
+
+                <h3>
+                    Visualization
+                </h3>
+
+                <p>
+
+                    Presenting quantitative findings through
+                    clear charts, visual analysis, and reporting.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
      ABOUT
-===================================================== -->
+========================================================= -->
 
-<section class="section section-alt" id="about">
+<section
+    class="section section-alt"
+    id="about"
+>
 
-<div class="container">
-
-    <div class="section-heading">
-
-        <div class="section-label">
-            About
-        </div>
-
-        <h2>
-            Economics meets data science.
-        </h2>
-
-    </div>
+    <div class="container">
 
 
-    <div class="about-grid">
+        <div class="section-top reveal">
 
-        <div class="about-text">
+            <div>
 
-            <p>
-                I am an applied economist and graduate researcher
-                focused on using rigorous quantitative methods to
-                answer real-world economic and policy questions.
-            </p>
+                <div class="section-label">
+                    About
+                </div>
 
-            <p>
-                My interests include causal inference, health
-                economics, public policy, econometrics, machine
-                learning and the development of analytical tools
-                that improve decision-making.
-            </p>
 
-            <p>
-                I am particularly interested in work that connects
-                academic rigor with practical impact — from policy
-                evaluation and economic research to analytics and
-                consulting.
-            </p>
+                <h2 class="section-title">
+                    About Me
+                </h2>
+
+            </div>
 
         </div>
 
 
-        <ul class="about-list">
 
-            <li>
-                <strong>Education</strong>
-                M.S. Economic Analytics, Towson University
-            </li>
+        <div class="about-grid">
 
-            <li>
-                <strong>Current Role</strong>
-                Graduate Assistant
-            </li>
 
-            <li>
-                <strong>Leadership</strong>
-                Vice President, Graduate Student Association —
-                College of Business and Economics
-            </li>
+            <div class="about-copy reveal">
 
-            <li>
-                <strong>Research Interests</strong>
-                Causal Inference, Health Economics,
-                Public Policy & Applied Econometrics
-            </li>
+                <p>
 
-        </ul>
+                    I am a graduate student in Economic Analytics
+                    at Towson University, where I also serve as a
+                    Graduate Assistant. My interests are centered
+                    on applied economics, causal inference,
+                    health economics, public policy, econometrics,
+                    and data science.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy working with data to understand economic
+                    and policy questions, particularly when careful
+                    empirical analysis can help explain what is
+                    happening, why it matters, and what the evidence
+                    suggests.
+
+                </p>
+
+
+                <p>
+
+                    Alongside my academic work, I serve as Vice President
+                    of the Graduate Student Association for the College
+                    of Business and Economics. I am interested in
+                    opportunities that allow me to apply economic
+                    reasoning, quantitative analysis, and data science
+                    to real-world problems.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline reveal">
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-label">
+                        Education
+                    </div>
+
+
+                    <h3>
+                        M.S. Economic Analytics
+                    </h3>
+
+
+                    <p>
+                        Towson University
+                    </p>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-label">
+                        Academic Role
+                    </div>
+
+
+                    <h3>
+                        Graduate Assistant
+                    </h3>
+
+
+                    <p>
+
+                        Graduate academic and research work
+                        in economic analytics.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-label">
+                        Leadership
+                    </div>
+
+
+                    <h3>
+
+                        Vice President,
+                        Graduate Student Association
+
+                    </h3>
+
+
+                    <p>
+
+                        College of Business and Economics
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-label">
+                        Research Interests
+                    </div>
+
+
+                    <h3>
+
+                        Applied Economics &
+                        Causal Inference
+
+                    </h3>
+
+
+                    <p>
+
+                        Health economics, public policy,
+                        econometrics, machine learning,
+                        and decision analytics.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      CONTACT
-===================================================== -->
+========================================================= -->
 
-<section class="section" id="contact">
+<section
+    class="section"
+    id="contact"
+>
 
-<div class="container">
-
-    <div class="contact-box">
-
-        <div class="section-label">
-            Connect
-        </div>
-
-        <h2>
-            Let's build something meaningful.
-        </h2>
-
-        <p>
-            Interested in economic research, data science,
-            consulting, policy analysis or collaborative projects?
-            Connect with me through LinkedIn or explore my work
-            on GitHub.
-        </p>
+    <div class="container">
 
 
-        <div class="actions" style="justify-content:center;margin-bottom:0;">
+        <div class="contact reveal">
 
-            <a
-                href="https://www.linkedin.com/in/emmanuel-kuh45"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-            >
-                Connect on LinkedIn ↗
-            </a>
 
-            <a
-                href="https://github.com/kuhemmanuel9-sudo"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-            >
-                View GitHub
-            </a>
+            <div class="contact-content">
+
+
+                <div class="section-label">
+                    Contact
+                </div>
+
+
+                <h2>
+                    Let's Connect.
+                </h2>
+
+
+                <p>
+
+                    I am always interested in connecting with people
+                    working in economics, data science, research,
+                    consulting, and public policy. You can find me
+                    on LinkedIn, view my projects on GitHub, or take
+                    a look at my résumé.
+
+                </p>
+
+
+                <div class="actions">
+
+
+                    <a
+                        href="https://www.linkedin.com/in/emmanuel-kuh45"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+
+                        Connect on LinkedIn
+                        <span>↗</span>
+
+                    </a>
+
+
+                    <a
+                        href="https://github.com/kuhemmanuel9-sudo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        View GitHub
+                    </a>
+
+
+                    <a
+                        href="CV_Resume_EK.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        View Résumé
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-
 </section>
+
 
 </main>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
-<div class="container footer-inner">
+    <div class="container footer-inner">
 
-    <div>
-        © 2026 Emmanuel Kuh. All Rights Reserved.
+
+        <div>
+            © 2026 Emmanuel Kuh. All rights reserved.
+        </div>
+
+
+        <div class="footer-links">
+
+            <a
+                href="https://www.linkedin.com/in/emmanuel-kuh45"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+
+
+            <a
+                href="https://github.com/kuhemmanuel9-sudo"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+
+            <a href="#home">
+                Back to top ↑
+            </a>
+
+        </div>
+
     </div>
-
-    <div class="footer-links">
-
-        <a
-            href="https://www.linkedin.com/in/emmanuel-kuh45"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            LinkedIn
-        </a>
-
-        <a
-            href="https://github.com/kuhemmanuel9-sudo"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            GitHub
-        </a>
-
-        <a href="#home">
-            Back to top ↑
-        </a>
-
-    </div>
-
-</div>
 
 </footer>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
-/* =========================================================
-   LIGHT / DARK MODE
-========================================================= */
 
-const root = document.documentElement;
-const toggle = document.getElementById("themeToggle");
-const icon = document.getElementById("themeIcon");
+    /* =====================================================
+       LIGHT, SYSTEM, AND DARK MODE
+    ===================================================== */
 
-const savedTheme = localStorage.getItem("portfolio-theme");
-
-const systemDark = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-).matches;
-
-function setTheme(theme) {
-
-    root.setAttribute("data-theme", theme);
-
-    icon.textContent =
-        theme === "dark" ? "☀" : "☾";
-
-    localStorage.setItem(
-        "portfolio-theme",
-        theme
-    );
-}
-
-if (savedTheme) {
-
-    setTheme(savedTheme);
-
-} else {
-
-    setTheme(
-        systemDark ? "dark" : "light"
-    );
-
-}
-
-toggle.addEventListener("click", () => {
-
-    const current =
-        root.getAttribute("data-theme");
-
-    setTheme(
-        current === "dark"
-            ? "light"
-            : "dark"
-    );
-
-});
+    const root =
+        document.documentElement;
 
 
-/* =========================================================
-   FOLLOW SYSTEM THEME
-   Only when the user hasn't manually selected a theme.
-========================================================= */
-
-window.matchMedia(
-    "(prefers-color-scheme: dark)"
-).addEventListener("change", event => {
-
-    if (!localStorage.getItem("portfolio-theme")) {
-
-        setTheme(
-            event.matches
-                ? "dark"
-                : "light"
+    const themeButtons =
+        document.querySelectorAll(
+            "[data-theme-choice]"
         );
+
+
+    const systemTheme =
+        window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        );
+
+
+    function getSystemTheme() {
+
+        return systemTheme.matches
+            ? "dark"
+            : "light";
 
     }
 
-});
+
+    function applyTheme(choice) {
+
+        const actualTheme =
+            choice === "system"
+                ? getSystemTheme()
+                : choice;
+
+
+        root.setAttribute(
+            "data-theme",
+            actualTheme
+        );
+
+
+        themeButtons.forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.themeChoice === choice
+            );
+
+        });
+
+    }
+
+
+    function saveTheme(choice) {
+
+        localStorage.setItem(
+            "portfolio-theme-choice",
+            choice
+        );
+
+
+        applyTheme(choice);
+
+    }
+
+
+    const savedTheme =
+        localStorage.getItem(
+            "portfolio-theme-choice"
+        );
+
+
+    const initialTheme =
+        savedTheme || "system";
+
+
+    applyTheme(initialTheme);
+
+
+    themeButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                saveTheme(
+                    button.dataset.themeChoice
+                );
+
+            }
+        );
+
+    });
+
+
+    systemTheme.addEventListener(
+        "change",
+        () => {
+
+            const choice =
+                localStorage.getItem(
+                    "portfolio-theme-choice"
+                ) || "system";
+
+
+            if (choice === "system") {
+
+                applyTheme("system");
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    if (
+        "IntersectionObserver" in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target
+                                .classList
+                                .add("visible");
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+    } else {
+
+        revealElements.forEach(element => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        });
+
+    }
+
 </script>
+
 
 </body>
 </html>
