@@ -7,14 +7,14 @@
 
     <meta
         name="description"
-        content="Emmanuel Kuh is an applied economist and data scientist specializing in causal inference, econometrics, machine learning, health economics, public policy, and decision analytics."
+        content="Emmanuel Kuh — Applied Economist and Data Scientist specializing in causal inference, econometrics, machine learning, health economics, public policy, and decision analytics."
     >
 
     <title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
 
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
@@ -23,74 +23,76 @@
     <style>
 
         /* =========================================================
-           COLOR SYSTEM
+           THEME VARIABLES
         ========================================================= */
 
         :root {
+
             --bg: #f6f8fc;
             --bg-secondary: #ffffff;
 
-            --surface: rgba(255, 255, 255, 0.74);
+            --surface: rgba(255,255,255,.72);
             --surface-solid: #ffffff;
             --surface-hover: #ffffff;
 
             --text: #0b1220;
-            --text-secondary: #4b5870;
-            --muted: #748096;
+            --text-secondary: #536179;
+            --muted: #718096;
 
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
             --accent-2: #0891b2;
             --accent-3: #7c3aed;
 
-            --accent-soft: rgba(37, 99, 235, 0.09);
+            --accent-soft: rgba(37,99,235,.09);
 
-            --border: rgba(15, 23, 42, 0.09);
-            --border-strong: rgba(37, 99, 235, 0.28);
+            --border: rgba(15,23,42,.09);
+            --border-strong: rgba(37,99,235,.24);
 
-            --navbar: rgba(246, 248, 252, 0.80);
+            --navbar: rgba(246,248,252,.78);
 
             --shadow:
-                0 20px 60px rgba(15, 23, 42, 0.08);
+                0 20px 60px rgba(15,23,42,.08);
 
             --shadow-large:
-                0 35px 90px rgba(15, 23, 42, 0.14);
+                0 35px 90px rgba(15,23,42,.14);
 
-            --grid: rgba(15, 23, 42, 0.035);
+            --grid: rgba(15,23,42,.035);
         }
 
 
         html[data-theme="dark"] {
+
             --bg: #070b14;
             --bg-secondary: #0a101c;
 
-            --surface: rgba(15, 23, 42, 0.66);
+            --surface: rgba(15,23,42,.64);
             --surface-solid: #0f172a;
             --surface-hover: #131e32;
 
             --text: #f8fafc;
             --text-secondary: #b2bfd2;
-            --muted: #8491a6;
+            --muted: #7f8da4;
 
             --accent: #5b8cff;
             --accent-hover: #7ca4ff;
             --accent-2: #38bdf8;
             --accent-3: #9b7cff;
 
-            --accent-soft: rgba(91, 140, 255, 0.10);
+            --accent-soft: rgba(91,140,255,.10);
 
-            --border: rgba(148, 163, 184, 0.13);
-            --border-strong: rgba(91, 140, 255, 0.36);
+            --border: rgba(148,163,184,.13);
+            --border-strong: rgba(91,140,255,.35);
 
-            --navbar: rgba(7, 11, 20, 0.78);
+            --navbar: rgba(7,11,20,.76);
 
             --shadow:
-                0 20px 60px rgba(0, 0, 0, 0.22);
+                0 20px 60px rgba(0,0,0,.22);
 
             --shadow-large:
-                0 40px 100px rgba(0, 0, 0, 0.38);
+                0 40px 100px rgba(0,0,0,.38);
 
-            --grid: rgba(255, 255, 255, 0.025);
+            --grid: rgba(255,255,255,.025);
         }
 
 
@@ -112,22 +114,29 @@
 
 
         body {
+
             font-family: "Inter", sans-serif;
+
             background: var(--bg);
             color: var(--text);
+
             line-height: 1.6;
+
             overflow-x: hidden;
 
             transition:
-                background 0.35s ease,
-                color 0.35s ease;
+                background .35s ease,
+                color .35s ease;
         }
 
 
         body::before {
+
             content: "";
+
             position: fixed;
             inset: 0;
+
             pointer-events: none;
 
             background-image:
@@ -139,7 +148,7 @@
             mask-image:
                 linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.75),
+                    rgba(0,0,0,.75),
                     transparent 80%
                 );
 
@@ -148,6 +157,7 @@
 
 
         body::after {
+
             content: "";
 
             position: fixed;
@@ -163,12 +173,13 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(91, 140, 255, 0.14),
-                    rgba(124, 58, 237, 0.05) 40%,
+                    rgba(91,140,255,.13),
+                    rgba(124,58,237,.05) 40%,
                     transparent 70%
                 );
 
             pointer-events: none;
+
             z-index: -1;
         }
 
@@ -190,7 +201,9 @@
 
 
         .container {
+
             width: min(1180px, calc(100% - 48px));
+
             margin-inline: auto;
         }
 
@@ -200,6 +213,7 @@
         ========================================================= */
 
         .navbar {
+
             position: fixed;
 
             top: 0;
@@ -218,6 +232,7 @@
 
 
         .nav-inner {
+
             height: 76px;
 
             display: flex;
@@ -229,6 +244,7 @@
 
 
         .brand {
+
             display: flex;
             align-items: center;
 
@@ -237,15 +253,16 @@
             text-decoration: none;
 
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -.5px;
 
             white-space: nowrap;
         }
 
 
         .brand-mark {
-            width: 38px;
-            height: 38px;
+
+            width: 36px;
+            height: 36px;
 
             display: grid;
             place-items: center;
@@ -264,7 +281,7 @@
             font-size: 13px;
 
             box-shadow:
-                0 10px 30px rgba(37, 99, 235, 0.24);
+                0 10px 30px rgba(37,99,235,.24);
         }
 
 
@@ -274,6 +291,7 @@
 
 
         .nav-right {
+
             display: flex;
             align-items: center;
 
@@ -282,6 +300,7 @@
 
 
         .nav-links {
+
             display: flex;
             align-items: center;
 
@@ -290,6 +309,7 @@
 
 
         .nav-links a {
+
             text-decoration: none;
 
             color: var(--text-secondary);
@@ -297,20 +317,21 @@
             font-size: 13px;
             font-weight: 600;
 
-            transition: 0.2s ease;
+            transition: .2s ease;
         }
 
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--text);
         }
 
 
         /* =========================================================
-           THEME SELECTOR
+           THEME SWITCHER
         ========================================================= */
 
         .theme-switcher {
+
             display: flex;
             align-items: center;
 
@@ -327,6 +348,7 @@
 
 
         .theme-button {
+
             width: 35px;
             height: 32px;
 
@@ -334,6 +356,7 @@
             place-items: center;
 
             border: 0;
+
             border-radius: 8px;
 
             background: transparent;
@@ -342,7 +365,7 @@
 
             cursor: pointer;
 
-            transition: 0.2s ease;
+            transition: .2s ease;
         }
 
 
@@ -352,11 +375,13 @@
 
 
         .theme-button.active {
+
             background: var(--surface-solid);
+
             color: var(--accent);
 
             box-shadow:
-                0 4px 14px rgba(15, 23, 42, 0.10);
+                0 4px 14px rgba(15,23,42,.10);
         }
 
 
@@ -365,21 +390,25 @@
         ========================================================= */
 
         .hero {
+
             min-height: 100vh;
 
             display: flex;
             align-items: center;
 
-            padding: 140px 0 90px;
+            padding:
+                140px 0
+                90px;
         }
 
 
         .hero-grid {
+
             display: grid;
 
             grid-template-columns:
-                minmax(0, 1.45fr)
-                minmax(300px, 0.65fr);
+                minmax(0,1.45fr)
+                minmax(300px,.65fr);
 
             gap: 80px;
 
@@ -387,15 +416,20 @@
         }
 
 
+        /* STATUS */
+
         .status {
+
             display: inline-flex;
             align-items: center;
 
             gap: 9px;
 
-            padding: 8px 13px;
+            padding:
+                8px 13px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 999px;
 
@@ -413,6 +447,7 @@
 
 
         .status-dot {
+
             width: 7px;
             height: 7px;
 
@@ -421,11 +456,15 @@
             background: #22c55e;
 
             box-shadow:
-                0 0 0 5px rgba(34, 197, 94, 0.10);
+                0 0 0 5px
+                rgba(34,197,94,.10);
         }
 
 
+        /* HERO TYPOGRAPHY */
+
         .hero-kicker {
+
             color: var(--accent);
 
             font-size: 13px;
@@ -440,11 +479,13 @@
 
 
         .hero h1 {
+
             max-width: 760px;
 
-            font-size: clamp(55px, 7vw, 88px);
+            font-size:
+                clamp(55px,7vw,88px);
 
-            line-height: 0.94;
+            line-height: .94;
 
             letter-spacing: -5px;
 
@@ -453,6 +494,7 @@
 
 
         .gradient-text {
+
             background:
                 linear-gradient(
                     100deg,
@@ -469,13 +511,15 @@
 
 
         .hero-title {
-            font-size: clamp(21px, 2.4vw, 29px);
+
+            font-size:
+                clamp(21px,2.4vw,29px);
 
             line-height: 1.35;
 
             font-weight: 600;
 
-            letter-spacing: -0.7px;
+            letter-spacing: -.7px;
 
             color: var(--text-secondary);
 
@@ -486,7 +530,8 @@
 
 
         .hero-description {
-            max-width: 700px;
+
+            max-width: 690px;
 
             color: var(--muted);
 
@@ -503,11 +548,10 @@
         }
 
 
-        /* =========================================================
-           BUTTONS
-        ========================================================= */
+        /* BUTTONS */
 
         .actions {
+
             display: flex;
             flex-wrap: wrap;
 
@@ -516,6 +560,7 @@
 
 
         .btn {
+
             min-height: 49px;
 
             display: inline-flex;
@@ -534,10 +579,10 @@
             font-weight: 700;
 
             transition:
-                transform 0.25s ease,
-                border 0.25s ease,
-                background 0.25s ease,
-                box-shadow 0.25s ease;
+                transform .25s ease,
+                border .25s ease,
+                background .25s ease,
+                box-shadow .25s ease;
         }
 
 
@@ -547,6 +592,7 @@
 
 
         .btn-primary {
+
             color: white;
 
             background:
@@ -557,17 +603,21 @@
                 );
 
             box-shadow:
-                0 15px 35px rgba(37, 99, 235, 0.23);
+                0 15px 35px
+                rgba(37,99,235,.23);
         }
 
 
         .btn-primary:hover {
+
             box-shadow:
-                0 20px 45px rgba(37, 99, 235, 0.32);
+                0 20px 45px
+                rgba(37,99,235,.32);
         }
 
 
         .btn-secondary {
+
             color: var(--text);
 
             background: var(--surface);
@@ -577,14 +627,17 @@
 
 
         .btn-secondary:hover {
-            border-color: var(--border-strong);
 
-            background: var(--surface-hover);
+            border-color:
+                var(--border-strong);
+
+            background:
+                var(--surface-hover);
         }
 
 
         /* =========================================================
-           PROFILE
+           PROFILE PANEL
         ========================================================= */
 
         .profile-column {
@@ -593,6 +646,7 @@
 
 
         .profile-glow {
+
             position: absolute;
 
             width: 320px;
@@ -606,7 +660,7 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(91, 140, 255, 0.23),
+                    rgba(91,140,255,.23),
                     transparent 65%
                 );
 
@@ -617,26 +671,29 @@
 
 
         .profile-card {
+
             position: relative;
 
             padding: 14px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 28px;
 
             background: var(--surface);
 
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
 
-            box-shadow: var(--shadow-large);
+            box-shadow:
+                var(--shadow-large);
 
             overflow: hidden;
         }
 
 
         .profile-card::before {
+
             content: "";
 
             position: absolute;
@@ -649,13 +706,15 @@
 
             border-radius: 50%;
 
-            background: rgba(91, 140, 255, 0.18);
+            background:
+                rgba(91,140,255,.18);
 
             filter: blur(30px);
         }
 
 
         .profile-image {
+
             position: relative;
 
             width: 100%;
@@ -673,11 +732,15 @@
 
 
         .profile-info {
-            padding: 20px 8px 8px;
+
+            padding:
+                20px 8px
+                8px;
         }
 
 
         .profile-role {
+
             color: var(--text);
 
             font-size: 15px;
@@ -688,6 +751,7 @@
 
 
         .profile-school {
+
             color: var(--muted);
 
             font-size: 12px;
@@ -697,6 +761,7 @@
 
 
         .profile-meta {
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -707,11 +772,13 @@
 
             padding-top: 16px;
 
-            border-top: 1px solid var(--border);
+            border-top:
+                1px solid var(--border);
         }
 
 
         .profile-meta span {
+
             color: var(--text-secondary);
 
             font-size: 11px;
@@ -720,47 +787,60 @@
 
 
         /* =========================================================
-           AREAS
+           TRUST / DISCIPLINES
         ========================================================= */
 
         .disciplines {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
 
-            background: rgba(127, 127, 127, 0.015);
+            border-top:
+                1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
+
+            background:
+                rgba(127,127,127,.015);
         }
 
 
         .discipline-grid {
+
             display: grid;
 
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns:
+                repeat(5,1fr);
         }
 
 
         .discipline {
-            padding: 25px 20px;
+
+            padding:
+                25px 20px;
 
             text-align: center;
 
-            border-right: 1px solid var(--border);
+            border-right:
+                1px solid var(--border);
 
-            color: var(--text-secondary);
+            color:
+                var(--text-secondary);
 
             font-size: 12px;
             font-weight: 700;
 
-            letter-spacing: 0.3px;
+            letter-spacing: .3px;
         }
 
 
         .discipline:first-child {
-            border-left: 1px solid var(--border);
+
+            border-left:
+                1px solid var(--border);
         }
 
 
         /* =========================================================
-           SECTIONS
+           GENERAL SECTION
         ========================================================= */
 
         .section {
@@ -774,6 +854,7 @@
 
 
         .section-top {
+
             display: flex;
             justify-content: space-between;
             align-items: end;
@@ -785,6 +866,7 @@
 
 
         .section-label {
+
             color: var(--accent);
 
             font-size: 11px;
@@ -799,7 +881,9 @@
 
 
         .section-title {
-            font-size: clamp(35px, 4.5vw, 53px);
+
+            font-size:
+                clamp(35px,4.5vw,53px);
 
             line-height: 1.05;
 
@@ -810,6 +894,7 @@
 
 
         .section-intro {
+
             max-width: 440px;
 
             color: var(--muted);
@@ -825,15 +910,18 @@
         ========================================================= */
 
         .projects {
+
             display: grid;
 
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns:
+                repeat(12,1fr);
 
             gap: 20px;
         }
 
 
         .project {
+
             position: relative;
 
             padding: 32px;
@@ -843,7 +931,8 @@
             display: flex;
             flex-direction: column;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 22px;
 
@@ -854,9 +943,9 @@
             overflow: hidden;
 
             transition:
-                transform 0.3s ease,
-                border 0.3s ease,
-                box-shadow 0.3s ease;
+                transform .3s ease,
+                border .3s ease,
+                box-shadow .3s ease;
         }
 
 
@@ -872,21 +961,24 @@
 
         .project:nth-child(3) {
             grid-column: span 12;
-
             min-height: 300px;
         }
 
 
         .project:hover {
+
             transform: translateY(-6px);
 
-            border-color: var(--border-strong);
+            border-color:
+                var(--border-strong);
 
-            box-shadow: var(--shadow-large);
+            box-shadow:
+                var(--shadow-large);
         }
 
 
         .project::after {
+
             content: "";
 
             position: absolute;
@@ -902,15 +994,14 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(91, 140, 255, 0.13),
+                    rgba(91,140,255,.13),
                     transparent 70%
                 );
-
-            pointer-events: none;
         }
 
 
         .project-top {
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -922,6 +1013,7 @@
 
 
         .project-number {
+
             color: var(--accent);
 
             font-size: 11px;
@@ -932,20 +1024,25 @@
 
 
         .project-type {
+
             color: var(--muted);
 
             font-size: 11px;
 
-            padding: 6px 9px;
+            padding:
+                6px 9px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 999px;
         }
 
 
         .project h3 {
-            font-size: clamp(24px, 3vw, 34px);
+
+            font-size:
+                clamp(24px,3vw,34px);
 
             line-height: 1.15;
 
@@ -958,6 +1055,7 @@
 
 
         .project p {
+
             max-width: 650px;
 
             color: var(--text-secondary);
@@ -971,6 +1069,7 @@
 
 
         .tags {
+
             display: flex;
             flex-wrap: wrap;
 
@@ -981,13 +1080,17 @@
 
 
         .tag {
-            padding: 7px 10px;
+
+            padding:
+                7px 10px;
 
             border-radius: 8px;
 
-            background: var(--accent-soft);
+            background:
+                var(--accent-soft);
 
-            color: var(--accent);
+            color:
+                var(--accent);
 
             font-size: 10px;
             font-weight: 700;
@@ -999,22 +1102,32 @@
         ========================================================= */
 
         .expertise-grid {
+
             display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
+                repeat(2,1fr);
 
-            border-top: 1px solid var(--border);
-            border-left: 1px solid var(--border);
+            border-top:
+                1px solid var(--border);
+
+            border-left:
+                1px solid var(--border);
         }
 
 
         .expertise {
+
             padding: 35px;
 
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            border-right:
+                1px solid var(--border);
 
-            transition: background 0.25s ease;
+            border-bottom:
+                1px solid var(--border);
+
+            transition:
+                background .25s ease;
         }
 
 
@@ -1024,6 +1137,7 @@
 
 
         .expertise-number {
+
             color: var(--accent);
 
             font-size: 11px;
@@ -1034,15 +1148,17 @@
 
 
         .expertise h3 {
+
             font-size: 21px;
 
             margin-bottom: 11px;
 
-            letter-spacing: -0.6px;
+            letter-spacing: -.6px;
         }
 
 
         .expertise p {
+
             color: var(--muted);
 
             font-size: 14px;
@@ -1054,39 +1170,48 @@
 
 
         /* =========================================================
-           TOOLKIT
+           TECH STACK
         ========================================================= */
 
         .toolkit {
+
             display: grid;
 
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns:
+                repeat(4,1fr);
 
             gap: 15px;
         }
 
 
         .tool-card {
+
             padding: 25px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 17px;
 
             background: var(--surface);
 
-            transition: 0.25s ease;
+            transition:
+                .25s ease;
         }
 
 
         .tool-card:hover {
-            transform: translateY(-4px);
 
-            border-color: var(--border-strong);
+            transform:
+                translateY(-4px);
+
+            border-color:
+                var(--border-strong);
         }
 
 
         .tool-category {
+
             color: var(--accent);
 
             font-size: 10px;
@@ -1101,6 +1226,7 @@
 
 
         .tool-card h3 {
+
             font-size: 17px;
 
             margin-bottom: 8px;
@@ -1108,6 +1234,7 @@
 
 
         .tool-card p {
+
             color: var(--muted);
 
             font-size: 12px;
@@ -1121,15 +1248,18 @@
         ========================================================= */
 
         .about-grid {
+
             display: grid;
 
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns:
+                1.1fr .9fr;
 
             gap: 90px;
         }
 
 
         .about-copy {
+
             color: var(--text-secondary);
 
             font-size: 17px;
@@ -1144,13 +1274,16 @@
 
 
         .timeline {
-            border-left: 1px solid var(--border);
+
+            border-left:
+                1px solid var(--border);
 
             padding-left: 30px;
         }
 
 
         .timeline-item {
+
             position: relative;
 
             padding-bottom: 35px;
@@ -1163,6 +1296,7 @@
 
 
         .timeline-item::before {
+
             content: "";
 
             position: absolute;
@@ -1175,14 +1309,17 @@
 
             border-radius: 50%;
 
-            background: var(--accent);
+            background:
+                var(--accent);
 
             box-shadow:
-                0 0 0 5px var(--accent-soft);
+                0 0 0 5px
+                var(--accent-soft);
         }
 
 
         .timeline-label {
+
             color: var(--accent);
 
             font-size: 10px;
@@ -1197,6 +1334,7 @@
 
 
         .timeline-item h3 {
+
             font-size: 16px;
 
             margin-bottom: 5px;
@@ -1204,6 +1342,7 @@
 
 
         .timeline-item p {
+
             color: var(--muted);
 
             font-size: 13px;
@@ -1217,23 +1356,28 @@
         ========================================================= */
 
         .contact {
+
             position: relative;
 
             padding: 70px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 28px;
 
-            background: var(--surface);
+            background:
+                var(--surface);
 
             overflow: hidden;
 
-            box-shadow: var(--shadow-large);
+            box-shadow:
+                var(--shadow-large);
         }
 
 
         .contact::after {
+
             content: "";
 
             position: absolute;
@@ -1249,24 +1393,23 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(91, 140, 255, 0.18),
-                    rgba(124, 58, 237, 0.07),
+                    rgba(91,140,255,.18),
+                    rgba(124,58,237,.07),
                     transparent 70%
                 );
-
-            pointer-events: none;
         }
 
 
         .contact-content {
             position: relative;
-
             z-index: 2;
         }
 
 
         .contact h2 {
-            font-size: clamp(38px, 5vw, 58px);
+
+            font-size:
+                clamp(38px,5vw,58px);
 
             line-height: 1.05;
 
@@ -1279,7 +1422,8 @@
 
 
         .contact p {
-            max-width: 650px;
+
+            max-width: 620px;
 
             color: var(--text-secondary);
 
@@ -1296,9 +1440,12 @@
         ========================================================= */
 
         footer {
-            padding: 35px 0;
 
-            border-top: 1px solid var(--border);
+            padding:
+                35px 0;
+
+            border-top:
+                1px solid var(--border);
 
             color: var(--muted);
 
@@ -1307,6 +1454,7 @@
 
 
         .footer-inner {
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1316,6 +1464,7 @@
 
 
         .footer-links {
+
             display: flex;
             align-items: center;
 
@@ -1324,9 +1473,10 @@
 
 
         .footer-links a {
+
             text-decoration: none;
 
-            transition: 0.2s ease;
+            transition: .2s ease;
         }
 
 
@@ -1336,34 +1486,39 @@
 
 
         /* =========================================================
-           REVEAL ANIMATION
+           SCROLL ANIMATION
         ========================================================= */
 
         .reveal {
+
             opacity: 0;
 
-            transform: translateY(24px);
+            transform:
+                translateY(25px);
 
             transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
+                opacity .75s ease,
+                transform .75s ease;
         }
 
 
         .reveal.visible {
+
             opacity: 1;
 
-            transform: translateY(0);
+            transform:
+                translateY(0);
         }
 
 
         /* =========================================================
-           TABLET
+           RESPONSIVE
         ========================================================= */
 
-        @media (max-width: 1000px) {
+        @media(max-width:1000px) {
 
             .hero-grid {
+
                 grid-template-columns: 1fr;
 
                 gap: 55px;
@@ -1383,6 +1538,7 @@
             .hero-title,
             .hero-description,
             .hero h1 {
+
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -1394,13 +1550,15 @@
 
 
             .profile-column {
-                width: min(430px, 100%);
+
+                width: min(430px,100%);
 
                 margin-inline: auto;
             }
 
 
             .projects {
+
                 grid-template-columns: 1fr;
             }
 
@@ -1408,16 +1566,20 @@
             .project:nth-child(1),
             .project:nth-child(2),
             .project:nth-child(3) {
+
                 grid-column: auto;
             }
 
 
             .toolkit {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2,1fr);
             }
 
 
             .about-grid {
+
                 grid-template-columns: 1fr;
 
                 gap: 55px;
@@ -1426,11 +1588,7 @@
         }
 
 
-        /* =========================================================
-           SMALL TABLET
-        ========================================================= */
-
-        @media (max-width: 800px) {
+        @media(max-width:800px) {
 
             .nav-links {
                 display: none;
@@ -1438,6 +1596,7 @@
 
 
             .section-top {
+
                 flex-direction: column;
 
                 align-items: start;
@@ -1447,7 +1606,9 @@
 
 
             .discipline-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2,1fr);
             }
 
 
@@ -1468,14 +1629,12 @@
         }
 
 
-        /* =========================================================
-           PHONE
-        ========================================================= */
-
-        @media (max-width: 600px) {
+        @media(max-width:600px) {
 
             .container {
-                width: min(100% - 30px, 1180px);
+
+                width:
+                    min(100% - 30px,1180px);
             }
 
 
@@ -1490,29 +1649,22 @@
 
 
             .nav-right {
-                gap: 8px;
-            }
-
-
-            .theme-button {
-                width: 33px;
+                gap: 10px;
             }
 
 
             .hero {
-                min-height: auto;
 
-                padding: 115px 0 70px;
-            }
-
-
-            .hero-grid {
-                gap: 45px;
+                padding:
+                    115px 0
+                    70px;
             }
 
 
             .hero h1 {
-                font-size: clamp(48px, 15vw, 66px);
+
+                font-size:
+                    clamp(48px,15vw,66px);
 
                 letter-spacing: -3px;
             }
@@ -1523,77 +1675,8 @@
             }
 
 
-            .hero-description {
-                font-size: 15px;
-            }
-
-
-            .actions {
-                display: grid;
-
-                grid-template-columns: 1fr 1fr;
-
-                width: 100%;
-            }
-
-
-            .actions .btn:first-child {
-                grid-column: 1 / -1;
-            }
-
-
-            .btn {
-                width: 100%;
-
-                padding: 0 14px;
-            }
-
-
-            .profile-column {
-                width: 100%;
-            }
-
-
-            .profile-card {
-                max-width: 390px;
-
-                margin-inline: auto;
-            }
-
-
-            .discipline {
-                padding: 20px 10px;
-
-                font-size: 10px;
-            }
-
-
             .section {
                 padding: 80px 0;
-            }
-
-
-            .section-title {
-                letter-spacing: -2px;
-            }
-
-
-            .project {
-                padding: 24px;
-
-                min-height: 330px;
-            }
-
-
-            .project-top {
-                margin-bottom: 38px;
-
-                align-items: flex-start;
-            }
-
-
-            .project-number {
-                max-width: 65%;
             }
 
 
@@ -1602,13 +1685,8 @@
             }
 
 
-            .about-copy {
-                font-size: 15px;
-            }
-
-
-            .contact {
-                padding: 40px 23px;
+            .project {
+                padding: 25px;
             }
 
 
@@ -1617,56 +1695,11 @@
             }
 
 
-            .contact .actions {
-                grid-template-columns: 1fr;
-            }
-
-
-            .contact .actions .btn:first-child {
-                grid-column: auto;
-            }
-
-
             .footer-inner {
+
                 flex-direction: column;
 
                 text-align: center;
-            }
-
-
-            .footer-links {
-                flex-wrap: wrap;
-
-                justify-content: center;
-            }
-
-        }
-
-
-        /* =========================================================
-           ACCESSIBILITY
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-
-                transition-duration: 0.01ms !important;
-            }
-
-
-            .reveal {
-                opacity: 1;
-
-                transform: none;
             }
 
         }
@@ -1687,11 +1720,7 @@
 
     <div class="container nav-inner">
 
-        <a
-            href="#home"
-            class="brand"
-            aria-label="Emmanuel Kuh home"
-        >
+        <a href="#home" class="brand">
 
             <span class="brand-mark">
                 EK
@@ -1729,14 +1758,14 @@
 
             <div
                 class="theme-switcher"
-                aria-label="Color theme"
+                aria-label="Choose color theme"
             >
 
                 <button
                     class="theme-button"
                     data-theme-choice="light"
-                    aria-label="Use light mode"
                     title="Light mode"
+                    aria-label="Light mode"
                 >
                     ☀
                 </button>
@@ -1744,8 +1773,8 @@
                 <button
                     class="theme-button"
                     data-theme-choice="system"
-                    aria-label="Use system theme"
                     title="System theme"
+                    aria-label="Use system theme"
                 >
                     ◐
                 </button>
@@ -1753,8 +1782,8 @@
                 <button
                     class="theme-button"
                     data-theme-choice="dark"
-                    aria-label="Use dark mode"
                     title="Dark mode"
+                    aria-label="Dark mode"
                 >
                     ☾
                 </button>
@@ -1768,6 +1797,10 @@
 </nav>
 
 
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main>
 
@@ -1797,16 +1830,13 @@
 
 
             <div class="hero-kicker">
-
-                Applied Economics · Research · Data Science
-
+                Applied Economics · Research · Analytics
             </div>
 
 
             <h1>
 
                 Emmanuel
-
                 <span class="gradient-text">
                     Kuh.
                 </span>
@@ -1817,6 +1847,7 @@
             <div class="hero-title">
 
                 Applied Economist & Data Scientist
+                building evidence for better decisions.
 
             </div>
 
@@ -1824,15 +1855,14 @@
             <p class="hero-description">
 
                 <strong>
-                    Graduate Assistant and M.S. Economic Analytics
-                    student at Towson University.
+                    Graduate Assistant, M.S. Economic Analytics,
+                    Towson University.
                 </strong>
 
-                My work focuses on causal inference, econometrics,
-                machine learning, health economics, and decision
-                analytics. I use quantitative methods to study
-                real-world economic and policy questions and
-                communicate findings in a clear and practical way.
+                I use econometrics, causal inference,
+                machine learning and decision analytics
+                to transform complex data into rigorous,
+                actionable evidence.
 
             </p>
 
@@ -1892,7 +1922,7 @@
 
                 <img
                     src="image.png"
-                    alt="Portrait of Emmanuel Kuh"
+                    alt="Emmanuel Kuh"
                     class="profile-image"
                 >
 
@@ -1916,11 +1946,17 @@
 
                     <div class="profile-meta">
 
-                        <span>Economics</span>
+                        <span>
+                            Economics
+                        </span>
 
-                        <span>Data Science</span>
+                        <span>
+                            Data Science
+                        </span>
 
-                        <span>Research</span>
+                        <span>
+                            Research
+                        </span>
 
                     </div>
 
@@ -1937,7 +1973,7 @@
 
 
 <!-- =========================================================
-     FOCUS AREAS
+     DISCIPLINES
 ========================================================= -->
 
 <section class="disciplines">
@@ -1971,7 +2007,7 @@
 
 
 <!-- =========================================================
-     PROJECTS
+     SELECTED WORK
 ========================================================= -->
 
 <section
@@ -1990,10 +2026,10 @@
                     Selected Work
                 </div>
 
-
                 <h2 class="section-title">
 
-                    Research & Projects
+                    Research built around
+                    consequential questions.
 
                 </h2>
 
@@ -2002,9 +2038,10 @@
 
             <p class="section-intro">
 
-                Selected work in applied economics,
-                causal inference, forecasting,
-                health economics, and data science.
+                Selected projects at the intersection
+                of economics, causal inference,
+                forecasting, policy evaluation
+                and decision science.
 
             </p>
 
@@ -2031,15 +2068,19 @@
 
 
                 <h3>
+
                     Weather Intelligence Platform
+
                 </h3>
 
 
                 <p>
 
-                    A weather analytics project that combines
-                    meteorological data, forecasting, and visualization
-                    to support planning and data-informed decision-making.
+                    A decision-oriented analytics platform
+                    designed to transform meteorological
+                    information into actionable evidence
+                    for forecasting, planning and
+                    operational decision-making.
 
                 </p>
 
@@ -2084,15 +2125,19 @@
 
 
                 <h3>
+
                     Medicare & Mental Health
+
                 </h3>
 
 
                 <p>
 
-                    Health economics research examining the relationship
-                    between Medicare eligibility and mental health outcomes
-                    using a fuzzy regression discontinuity design.
+                    Applied health-economics research
+                    using regression discontinuity
+                    methods to investigate causal
+                    relationships surrounding Medicare
+                    eligibility and mental-health outcomes.
 
                 </p>
 
@@ -2137,16 +2182,21 @@
 
 
                 <h3>
-                    Applied Economics & Consulting
+
+                    Applied Economics &
+                    Decision Consulting
+
                 </h3>
 
 
                 <p>
 
-                    Applied economic and statistical analysis focused
-                    on answering practical business and policy questions
-                    through empirical research, quantitative modeling,
-                    and clear recommendations.
+                    Economic and statistical analysis
+                    designed to support strategic
+                    decisions through empirical research,
+                    quantitative modeling, policy
+                    evaluation and evidence-based
+                    recommendations.
 
                 </p>
 
@@ -2172,6 +2222,7 @@
                 </div>
 
             </article>
+
 
         </div>
 
@@ -2201,9 +2252,11 @@
                     Expertise
                 </div>
 
-
                 <h2 class="section-title">
-                    Areas of Focus
+
+                    Economics meets
+                    modern data science.
+
                 </h2>
 
             </div>
@@ -2211,9 +2264,10 @@
 
             <p class="section-intro">
 
-                My academic and professional interests combine
-                economic analysis, statistical methods,
-                data science, and policy research.
+                My work combines economic reasoning,
+                statistical identification and
+                computational methods to answer
+                real-world questions.
 
             </p>
 
@@ -2230,17 +2284,16 @@
                     01
                 </div>
 
-
                 <h3>
                     Causal Inference
                 </h3>
 
-
                 <p>
 
-                    Quasi-experimental methods, regression discontinuity,
-                    treatment effect estimation, and empirical policy
-                    evaluation.
+                    Quasi-experimental research,
+                    regression discontinuity,
+                    treatment-effect estimation
+                    and empirical policy evaluation.
 
                 </p>
 
@@ -2254,17 +2307,16 @@
                     02
                 </div>
 
-
                 <h3>
                     Econometrics
                 </h3>
 
-
                 <p>
 
-                    Statistical modeling for economic, behavioral,
-                    and policy questions using observational and
-                    experimental data.
+                    Statistical modeling for
+                    economic, behavioral and policy
+                    questions using observational
+                    and experimental data.
 
                 </p>
 
@@ -2278,16 +2330,16 @@
                     03
                 </div>
 
-
                 <h3>
                     Machine Learning
                 </h3>
 
-
                 <p>
 
-                    Predictive modeling, feature engineering,
-                    model evaluation, and data-driven forecasting.
+                    Predictive modeling,
+                    feature engineering,
+                    model evaluation and
+                    data-driven forecasting.
 
                 </p>
 
@@ -2301,20 +2353,21 @@
                     04
                 </div>
 
-
                 <h3>
                     Decision Analytics
                 </h3>
 
-
                 <p>
 
-                    Using quantitative evidence to support practical
-                    decisions in business, economics, and public policy.
+                    Translating quantitative
+                    evidence into practical
+                    insights for organizations,
+                    policymakers and decision-makers.
 
                 </p>
 
             </div>
+
 
         </div>
 
@@ -2325,7 +2378,7 @@
 
 
 <!-- =========================================================
-     TOOLKIT
+     TECHNICAL TOOLKIT
 ========================================================= -->
 
 <section class="section">
@@ -2341,22 +2394,14 @@
                     Analytical Toolkit
                 </div>
 
-
                 <h2 class="section-title">
 
-                    Methods & Tools
+                    From research design
+                    to decision insight.
 
                 </h2>
 
             </div>
-
-
-            <p class="section-intro">
-
-                Tools and methods I use for economic research,
-                quantitative analysis, modeling, and communication.
-
-            </p>
 
         </div>
 
@@ -2377,8 +2422,10 @@
 
                 <p>
 
-                    Data analysis, statistical modeling,
-                    machine learning, and analytical workflows.
+                    Data analysis,
+                    statistical modeling,
+                    machine learning
+                    and analytical workflows.
 
                 </p>
 
@@ -2398,8 +2445,10 @@
 
                 <p>
 
-                    Regression analysis, causal identification,
-                    policy analysis, and empirical research.
+                    Regression,
+                    causal identification,
+                    policy analysis and
+                    empirical economic research.
 
                 </p>
 
@@ -2419,8 +2468,10 @@
 
                 <p>
 
-                    Data preparation, predictive modeling,
-                    forecasting, and quantitative analysis.
+                    Data preparation,
+                    predictive modeling,
+                    forecasting and
+                    quantitative analysis.
 
                 </p>
 
@@ -2440,12 +2491,15 @@
 
                 <p>
 
-                    Presenting quantitative findings through
-                    clear charts, visual analysis, and reporting.
+                    Turning complex
+                    quantitative findings
+                    into clear visual
+                    evidence and insights.
 
                 </p>
 
             </div>
+
 
         </div>
 
@@ -2475,9 +2529,11 @@
                     About
                 </div>
 
-
                 <h2 class="section-title">
-                    About Me
+
+                    Rigorous analysis.
+                    Practical impact.
+
                 </h2>
 
             </div>
@@ -2493,35 +2549,36 @@
 
                 <p>
 
-                    I am a graduate student in Economic Analytics
-                    at Towson University, where I also serve as a
-                    Graduate Assistant. My interests are centered
-                    on applied economics, causal inference,
-                    health economics, public policy, econometrics,
-                    and data science.
+                    I am an applied economist and
+                    graduate researcher focused on
+                    using rigorous quantitative
+                    methods to answer real-world
+                    economic, business and policy
+                    questions.
 
                 </p>
 
 
                 <p>
 
-                    I enjoy working with data to understand economic
-                    and policy questions, particularly when careful
-                    empirical analysis can help explain what is
-                    happening, why it matters, and what the evidence
-                    suggests.
+                    My interests include causal
+                    inference, health economics,
+                    public policy, econometrics,
+                    machine learning and the
+                    development of analytical tools
+                    that improve decision-making.
 
                 </p>
 
 
                 <p>
 
-                    Alongside my academic work, I serve as Vice President
-                    of the Graduate Student Association for the College
-                    of Business and Economics. I am interested in
-                    opportunities that allow me to apply economic
-                    reasoning, quantitative analysis, and data science
-                    to real-world problems.
+                    I am particularly interested
+                    in work that connects academic
+                    rigor with practical impact —
+                    from economic research and
+                    policy evaluation to analytics,
+                    strategy and consulting.
 
                 </p>
 
@@ -2538,11 +2595,9 @@
                         Education
                     </div>
 
-
                     <h3>
                         M.S. Economic Analytics
                     </h3>
-
 
                     <p>
                         Towson University
@@ -2558,16 +2613,15 @@
                         Academic Role
                     </div>
 
-
                     <h3>
                         Graduate Assistant
                     </h3>
 
-
                     <p>
 
-                        Graduate academic and research work
-                        in economic analytics.
+                        Graduate research and
+                        academic work in
+                        economic analytics.
 
                     </p>
 
@@ -2581,7 +2635,6 @@
                         Leadership
                     </div>
 
-
                     <h3>
 
                         Vice President,
@@ -2589,10 +2642,10 @@
 
                     </h3>
 
-
                     <p>
 
-                        College of Business and Economics
+                        College of Business
+                        and Economics
 
                     </p>
 
@@ -2603,27 +2656,27 @@
                 <div class="timeline-item">
 
                     <div class="timeline-label">
-                        Research Interests
+                        Research Focus
                     </div>
-
 
                     <h3>
 
-                        Applied Economics &
-                        Causal Inference
+                        Causal Inference &
+                        Applied Economics
 
                     </h3>
 
-
                     <p>
 
-                        Health economics, public policy,
-                        econometrics, machine learning,
-                        and decision analytics.
+                        Health economics,
+                        public policy,
+                        econometrics and
+                        decision analytics.
 
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -2652,24 +2705,27 @@
 
             <div class="contact-content">
 
-
                 <div class="section-label">
-                    Contact
+                    Connect
                 </div>
 
 
                 <h2>
-                    Let's Connect.
+
+                    Let's turn complex data
+                    into meaningful decisions.
+
                 </h2>
 
 
                 <p>
 
-                    I am always interested in connecting with people
-                    working in economics, data science, research,
-                    consulting, and public policy. You can find me
-                    on LinkedIn, view my projects on GitHub, or take
-                    a look at my résumé.
+                    Interested in economic research,
+                    data science, causal inference,
+                    consulting or policy analysis?
+                    Connect with me on LinkedIn,
+                    explore my work on GitHub,
+                    or view my résumé.
 
                 </p>
 
@@ -2696,7 +2752,7 @@
                         rel="noopener noreferrer"
                         class="btn btn-secondary"
                     >
-                        View GitHub
+                        GitHub
                     </a>
 
 
@@ -2708,6 +2764,7 @@
                     >
                         View Résumé
                     </a>
+
 
                 </div>
 
@@ -2734,7 +2791,10 @@
 
 
         <div>
-            © 2026 Emmanuel Kuh. All rights reserved.
+
+            © 2026 Emmanuel Kuh.
+            All rights reserved.
+
         </div>
 
 
@@ -2748,7 +2808,6 @@
                 LinkedIn
             </a>
 
-
             <a
                 href="https://github.com/kuhemmanuel9-sudo"
                 target="_blank"
@@ -2757,12 +2816,12 @@
                 GitHub
             </a>
 
-
             <a href="#home">
                 Back to top ↑
             </a>
 
         </div>
+
 
     </div>
 
@@ -2777,18 +2836,16 @@
 <script>
 
     /* =====================================================
-       LIGHT, SYSTEM, AND DARK MODE
+       PREMIUM LIGHT / SYSTEM / DARK THEME
     ===================================================== */
 
     const root =
         document.documentElement;
 
-
     const themeButtons =
         document.querySelectorAll(
             "[data-theme-choice]"
         );
-
 
     const systemTheme =
         window.matchMedia(
@@ -2819,14 +2876,17 @@
         );
 
 
-        themeButtons.forEach(button => {
+        themeButtons.forEach(
+            button => {
 
-            button.classList.toggle(
-                "active",
-                button.dataset.themeChoice === choice
-            );
+                button.classList.toggle(
+                    "active",
+                    button.dataset.themeChoice
+                        === choice
+                );
 
-        });
+            }
+        );
 
     }
 
@@ -2837,7 +2897,6 @@
             "portfolio-theme-choice",
             choice
         );
-
 
         applyTheme(choice);
 
@@ -2857,20 +2916,22 @@
     applyTheme(initialTheme);
 
 
-    themeButtons.forEach(button => {
+    themeButtons.forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                saveTheme(
-                    button.dataset.themeChoice
-                );
+                    saveTheme(
+                        button.dataset.themeChoice
+                    );
 
-            }
-        );
+                }
+            );
 
-    });
+        }
+    );
 
 
     systemTheme.addEventListener(
@@ -2904,16 +2965,13 @@
         );
 
 
-    if (
-        "IntersectionObserver" in window
-    ) {
+    const observer =
+        new IntersectionObserver(
 
-        const observer =
-            new IntersectionObserver(
+            entries => {
 
-                entries => {
-
-                    entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
                         if (
                             entry.isIntersecting
@@ -2923,41 +2981,32 @@
                                 .classList
                                 .add("visible");
 
-
                             observer.unobserve(
                                 entry.target
                             );
 
                         }
 
-                    });
+                    }
+                );
 
-                },
+            },
 
-                {
-                    threshold: 0.12
-                }
+            {
+                threshold: .12
+            }
 
-            );
+        );
 
 
-        revealElements.forEach(element => {
+    revealElements.forEach(
+        element => {
 
             observer.observe(element);
 
-        });
+        }
+    );
 
-    } else {
-
-        revealElements.forEach(element => {
-
-            element.classList.add(
-                "visible"
-            );
-
-        });
-
-    }
 
 </script>
 
