@@ -57,6 +57,227 @@
 </script>
 
 
+<script>
+
+(function () {
+
+    const welcomeText =
+        "Hello, welcome to Emmanuel's page. Explore applied economics, data science, live intelligence systems, and project dashboards by Emmanuel Kuh.";
+
+
+    window.__emmanuelWelcomeVoicePlayed =
+        false;
+
+
+    function speakWelcome(forceReplay) {
+
+        const shouldForceReplay =
+            forceReplay === true;
+
+
+        if (shouldForceReplay) {
+
+            window.__emmanuelWelcomeVoicePlayed =
+                false;
+
+        }
+
+        if (
+            (
+                window.__emmanuelWelcomeVoicePlayed &&
+                !shouldForceReplay
+            ) ||
+            !(
+                "speechSynthesis"
+                in window
+            ) ||
+            typeof SpeechSynthesisUtterance ===
+                "undefined"
+        ) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const speech =
+                window.speechSynthesis;
+
+
+            if (
+                (
+                    speech.speaking ||
+                    speech.pending
+                ) &&
+                !shouldForceReplay
+            ) {
+
+                return;
+
+            }
+
+
+            const utterance =
+                new SpeechSynthesisUtterance(
+                    welcomeText
+                );
+
+
+            window.__emmanuelWelcomeUtterance =
+                utterance;
+
+
+            utterance.rate =
+                .95;
+
+            utterance.pitch =
+                1;
+
+            utterance.volume =
+                1;
+
+
+            utterance.onstart =
+                function () {
+
+                    window.__emmanuelWelcomeVoicePlayed =
+                        true;
+
+                };
+
+
+            utterance.onend =
+                function () {
+
+                    window.__emmanuelWelcomeVoicePlayed =
+                        true;
+
+                };
+
+
+            speech.cancel();
+
+
+            if (
+                typeof speech.resume ===
+                "function"
+            ) {
+
+                speech.resume();
+
+            }
+
+
+            speech.speak(
+                utterance
+            );
+
+        } catch (error) {
+
+            window.__emmanuelWelcomeVoicePlayed =
+                false;
+
+        }
+
+    }
+
+
+    function retryWelcome() {
+
+        [
+            0,
+            40,
+            120,
+            300,
+            700,
+            1300,
+            2200
+        ].forEach(
+            delay => {
+
+                window.setTimeout(
+                    speakWelcome,
+                    delay
+                );
+
+            }
+        );
+
+    }
+
+
+    speakWelcome();
+
+    retryWelcome();
+
+
+    document.addEventListener(
+        "readystatechange",
+        retryWelcome
+    );
+
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        retryWelcome,
+        {
+            once: true
+        }
+    );
+
+
+    window.addEventListener(
+        "load",
+        retryWelcome,
+        {
+            once: true
+        }
+    );
+
+
+    if (
+        "speechSynthesis"
+        in window
+    ) {
+
+        window.speechSynthesis.onvoiceschanged =
+            speakWelcome;
+
+    }
+
+
+    window.emmanuelSpeakWelcome =
+        speakWelcome;
+
+
+    [
+        "click",
+        "pointerdown",
+        "pointerup",
+        "touchend",
+        "keydown"
+    ].forEach(
+        function (eventName) {
+
+            window.addEventListener(
+                eventName,
+                speakWelcome,
+                {
+                    capture: true,
+                    passive: true
+                }
+            );
+
+        }
+    );
+
+})();
+
+</script>
+
+
 <style>
 
 /* =========================================================
@@ -461,6 +682,55 @@ img {
 /* =========================================================
    THEME SWITCHER
 ========================================================= */
+
+.voice-intro-btn {
+
+    min-height: 39px;
+
+    padding:
+        0 14px;
+
+    border: 1px solid rgba(40,209,124,.34);
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,209,124,.16),
+            rgba(37,99,235,.10)
+        );
+
+    color: var(--text);
+
+    font: inherit;
+    font-size: 11px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+
+.voice-intro-btn:hover {
+
+    transform: translateY(-1px);
+
+    border-color: rgba(40,209,124,.58);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,209,124,.24),
+            rgba(37,99,235,.16)
+        );
+
+}
+
 
 .theme-switcher {
 
@@ -2905,6 +3175,15 @@ footer {
     </a>
 
 </div>
+
+
+<button
+    type="button"
+    class="voice-intro-btn"
+    onclick="window.emmanuelSpeakWelcome && window.emmanuelSpeakWelcome(true)"
+>
+    Voice Intro
+</button>
 
 
 <div
