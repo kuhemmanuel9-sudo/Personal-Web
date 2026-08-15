@@ -43,7 +43,7 @@
         [
             "light",
             "dark",
-            "executive"
+            "scholar"
         ];
 
     const systemDark =
@@ -152,43 +152,43 @@ html[data-theme="dark"] {
 }
 
 
-html[data-theme="executive"] {
+html[data-theme="scholar"] {
 
-    color-scheme: dark;
+    color-scheme: light;
 
-    --bg: #080706;
-    --bg-secondary: #120f0b;
+    --bg: #f7f4ee;
+    --bg-secondary: #fffaf4;
 
-    --surface: rgba(26,21,15,.70);
-    --surface-strong: rgba(34,27,18,.96);
+    --surface: rgba(255,250,242,.76);
+    --surface-strong: rgba(255,252,246,.96);
 
-    --text: #fff8ed;
-    --text-secondary: #f0d5ac;
-    --muted: #b99a6f;
+    --text: #211d18;
+    --text-secondary: #59534b;
+    --muted: #706a61;
 
-    --blue: #d4af37;
-    --cyan: #ef4444;
-    --violet: #f97316;
-    --green: #22c55e;
-    --amber: #facc15;
-    --red: #fb7185;
+    --blue: #1f6b57;
+    --cyan: #2d8f72;
+    --violet: #3f7d68;
+    --green: #1f6b57;
+    --amber: #9b7a34;
+    --red: #9f4f4f;
 
-    --blue-soft: rgba(212,175,55,.13);
-    --green-soft: rgba(34,197,94,.12);
-    --amber-soft: rgba(250,204,21,.13);
+    --blue-soft: rgba(31,107,87,.11);
+    --green-soft: rgba(31,107,87,.12);
+    --amber-soft: rgba(155,122,52,.11);
 
-    --border: rgba(250,204,21,.15);
-    --border-accent: rgba(250,204,21,.42);
+    --border: rgba(31,107,87,.14);
+    --border-accent: rgba(31,107,87,.42);
 
-    --nav: rgba(8,7,6,.82);
+    --nav: rgba(247,244,238,.86);
 
-    --grid: rgba(250,204,21,.036);
+    --grid: rgba(31,107,87,.036);
 
     --shadow:
-        0 20px 70px rgba(0,0,0,.35);
+        0 20px 64px rgba(47,40,31,.10);
 
     --shadow-large:
-        0 54px 140px rgba(0,0,0,.54);
+        0 48px 120px rgba(47,40,31,.16);
 }
 
 
@@ -705,7 +705,7 @@ img {
             90deg,
             #f8fafc,
             #111827 48%,
-            #d4af37
+            #1f6b57
         );
 
     box-shadow:
@@ -753,13 +753,13 @@ img {
 }
 
 
-.theme-option-executive {
+.theme-option-scholar {
 
     background:
         linear-gradient(
             135deg,
-            #facc15,
-            #ef4444
+            #f7f4ee,
+            #1f6b57
         );
 
 }
@@ -802,7 +802,7 @@ html[data-theme="dark"] .theme-knob {
 }
 
 
-html[data-theme="executive"] .theme-knob {
+html[data-theme="scholar"] .theme-knob {
 
     transform: translateX(48px);
 
@@ -4137,7 +4137,7 @@ footer {
     type="button"
     class="theme-toggle"
     id="themeToggle"
-    aria-label="Switch website theme: dark, light, executive"
+    aria-label="Switch website theme: dark, light, scholar"
 >
     <span class="theme-label" id="themeLabel">
         Dark
@@ -4145,7 +4145,7 @@ footer {
     <span class="theme-track" aria-hidden="true">
         <span class="theme-option theme-option-light"></span>
         <span class="theme-option theme-option-dark"></span>
-        <span class="theme-option theme-option-executive"></span>
+        <span class="theme-option theme-option-scholar"></span>
         <span class="theme-knob"></span>
     </span>
 </button>
@@ -6035,7 +6035,7 @@ footer {
 <p class="section-intro">
 
     Academic training across economic analytics,
-    public administration, economics,Education
+    public administration, economics,eduaction
     and political science.
 
 </p>
@@ -6269,7 +6269,7 @@ footer {
         </h3>
 
         <p>
-            University of Maryland
+            University of Maryland,College Park
         </p>
 
     </div>
@@ -6291,7 +6291,7 @@ footer {
         </h3>
 
         <p>
-            University of Maryland
+            University of Maryland,College Park
         </p>
 
     </div>
@@ -6313,7 +6313,7 @@ footer {
         </h3>
 
         <p>
-            University of Maryland
+            University of Maryland,College Park
         </p>
 
     </div>
@@ -6335,7 +6335,7 @@ footer {
         </h3>
 
         <p>
-            University of Maryland
+            University of Maryland,College Park
         </p>
 
     </div>
@@ -6856,25 +6856,30 @@ const themeModes =
     [
         "dark",
         "light",
-        "executive"
+        "scholar"
     ];
 
 
 const themeNames = {
     dark: "Dark",
     light: "Light",
-    executive: "Executive"
+    scholar: "Scholar"
 };
 
 
 const themeColors = {
     dark: "#070A12",
     light: "#F7F8FC",
-    executive: "#080706"
+    scholar: "#F7F4EE"
 };
 
 
 function normalizeTheme(theme) {
+
+    if (theme === "executive") {
+        return "scholar";
+    }
+
 
     return themeModes.includes(theme)
         ? theme
@@ -6990,6 +6995,14 @@ let voiceIntroStarted =
     false;
 
 
+let voiceAutoAttempted =
+    false;
+
+
+let voiceTouchAttempted =
+    false;
+
+
 function setVoiceLabel(text) {
 
     if (voiceLabel) {
@@ -7051,10 +7064,7 @@ function speakPortfolioIntro(force = false) {
     }
 
 
-    if (
-        voiceIntroStarted &&
-        !force
-    ) {
+    if (voiceIntroStarted) {
 
         return;
 
@@ -7184,11 +7194,54 @@ function closeMenu() {
 }
 
 
-function scheduleVoiceIntro(delay = 80) {
+function attemptVoiceIntro(source = "auto") {
+
+    if (voiceIntroStarted) {
+        return;
+    }
+
+
+    if (source === "auto") {
+
+        if (voiceAutoAttempted) {
+            return;
+        }
+
+
+        voiceAutoAttempted =
+            true;
+
+
+        speakPortfolioIntro(
+            false
+        );
+
+        return;
+
+    }
+
+
+    if (voiceTouchAttempted) {
+        return;
+    }
+
+
+    voiceTouchAttempted =
+        true;
+
+
+    speakPortfolioIntro(
+        true
+    );
+
+}
+
+
+function scheduleVoiceIntro(delay = 0, source = "auto") {
 
     window.setTimeout(
-        () => speakPortfolioIntro(
-            false
+        () => attemptVoiceIntro(
+            source
         ),
         delay
     );
@@ -7236,8 +7289,8 @@ if (voiceToggle) {
         "click",
         () => {
 
-            speakPortfolioIntro(
-                true
+            attemptVoiceIntro(
+                "touch"
             );
 
         }
@@ -7249,7 +7302,8 @@ if (voiceToggle) {
 document.addEventListener(
     "DOMContentLoaded",
     () => scheduleVoiceIntro(
-        0
+        0,
+        "auto"
     )
 );
 
@@ -7259,68 +7313,11 @@ window.addEventListener(
     () => {
 
         scheduleVoiceIntro(
-            120
+            0,
+            "auto"
         );
 
     }
-);
-
-
-window.addEventListener(
-    "pageshow",
-    () => scheduleVoiceIntro(
-        120
-    )
-);
-
-
-document.addEventListener(
-    "visibilitychange",
-    () => {
-
-        if (
-            document.visibilityState === "visible" &&
-            !voiceIntroStarted
-        ) {
-
-            scheduleVoiceIntro(
-                120
-            );
-
-        }
-
-    }
-);
-
-
-if (window.speechSynthesis) {
-
-    window.speechSynthesis.onvoiceschanged =
-        () => {
-
-            if (!voiceIntroStarted) {
-
-                scheduleVoiceIntro(
-                    80
-                );
-
-            }
-
-        };
-
-}
-
-
-[
-    0,
-    120,
-    420,
-    1000,
-    2200
-].forEach(
-    delay => scheduleVoiceIntro(
-        delay
-    )
 );
 
 
@@ -7329,8 +7326,7 @@ if (window.speechSynthesis) {
     "touchstart",
     "mousedown",
     "click",
-    "keydown",
-    "scroll"
+    "keydown"
 ].forEach(
     eventName => {
 
@@ -7341,7 +7337,8 @@ if (window.speechSynthesis) {
                 if (!voiceIntroStarted) {
 
                     scheduleVoiceIntro(
-                        180
+                        0,
+                        "touch"
                     );
 
                 }
