@@ -559,7 +559,6 @@ img {
 ========================================================= */
 
 .theme-toggle,
-.voice-toggle,
 .menu-toggle {
 
     min-height: 42px;
@@ -590,8 +589,7 @@ img {
 }
 
 
-.theme-toggle,
-.voice-toggle {
+.theme-toggle {
 
     display: inline-flex;
 
@@ -619,57 +617,11 @@ img {
 
 
 .theme-toggle:hover,
-.voice-toggle:hover,
 .menu-toggle:hover {
 
     transform: translateY(-1px);
 
     border-color: var(--border-accent);
-
-}
-
-
-.voice-toggle {
-
-    padding:
-        0 13px;
-
-}
-
-
-.voice-pulse {
-
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow:
-        0 0 0 6px
-        var(--green-soft);
-
-}
-
-
-.voice-toggle.speaking .voice-pulse {
-
-    animation: voicePulse 1.1s ease-in-out infinite;
-
-}
-
-
-@keyframes voicePulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.35);
-    }
 
 }
 
@@ -1918,6 +1870,196 @@ html[data-theme="scholar"] .theme-knob {
     font-size: 13px;
 
     line-height: 1.8;
+
+}
+
+
+.tiger-section {
+
+    padding: 100px 0;
+
+    border-top: 1px solid var(--border);
+
+    background: var(--bg-secondary);
+
+}
+
+
+.tiger-card {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(240px,360px)
+        minmax(0,1fr);
+
+    gap: 34px;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(247,185,85,.14),
+            transparent 38%
+        ),
+        linear-gradient(
+            235deg,
+            rgba(56,189,248,.09),
+            transparent 45%
+        ),
+        var(--surface-strong);
+
+    box-shadow: var(--shadow-large);
+
+}
+
+
+.tiger-image-shell {
+
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    max-width: 360px;
+
+    aspect-ratio: 3 / 5;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(247,185,85,.13),
+            var(--surface)
+        );
+
+}
+
+
+.tiger-image {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform .35s ease;
+
+}
+
+
+.tiger-card:hover .tiger-image {
+
+    transform: scale(1.015);
+
+}
+
+
+.tiger-chip {
+
+    position: absolute;
+
+    left: 14px;
+    top: 14px;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255,255,255,.32);
+    border-radius: 999px;
+
+    background: rgba(7,10,18,.76);
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+}
+
+
+.tiger-copy {
+
+    max-width: 650px;
+
+}
+
+
+.tiger-copy .section-label {
+
+    margin-bottom: 16px;
+
+}
+
+
+.tiger-copy h2 {
+
+    margin-bottom: 16px;
+
+    color: var(--text);
+
+    font-size: 44px;
+    line-height: 1.05;
+    font-weight: 800;
+
+    letter-spacing: 0;
+
+}
+
+
+.tiger-copy p {
+
+    margin-bottom: 22px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    line-height: 1.85;
+
+}
+
+
+.tiger-caption {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap: 9px;
+
+}
+
+
+.tiger-caption span {
+
+    padding: 11px 12px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 800;
 
 }
 
@@ -3601,6 +3743,33 @@ footer {
     }
 
 
+    .tiger-card {
+
+        grid-template-columns: 1fr;
+
+        max-width: 720px;
+
+        margin-inline: auto;
+
+    }
+
+
+    .tiger-image-shell {
+
+        margin-inline: auto;
+
+    }
+
+
+    .tiger-copy {
+
+        text-align: center;
+
+        margin-inline: auto;
+
+    }
+
+
     .contact-grid {
 
         grid-template-columns: 1fr;
@@ -3757,8 +3926,7 @@ footer {
     }
 
 
-    .theme-toggle,
-    .voice-toggle {
+    .theme-toggle {
 
         min-height: 39px;
 
@@ -3777,13 +3945,6 @@ footer {
 
 
     .theme-label {
-
-        display: none;
-
-    }
-
-
-    .voice-label {
 
         display: none;
 
@@ -3864,6 +4025,43 @@ footer {
         font-size: 42px;
 
         letter-spacing: 0;
+
+    }
+
+
+    .tiger-section {
+
+        padding: 76px 0;
+
+    }
+
+
+    .tiger-card {
+
+        padding: 16px;
+
+        gap: 22px;
+
+    }
+
+
+    .tiger-image-shell {
+
+        max-width: min(315px,100%);
+
+    }
+
+
+    .tiger-copy h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .tiger-caption {
+
+        grid-template-columns: 1fr;
 
     }
 
@@ -4145,19 +4343,6 @@ footer {
         <span class="theme-option theme-option-dark"></span>
         <span class="theme-option theme-option-scholar"></span>
         <span class="theme-knob"></span>
-    </span>
-</button>
-
-
-<button
-    type="button"
-    class="voice-toggle"
-    id="voiceToggle"
-    aria-label="Play portfolio voice introduction"
->
-    <span class="voice-pulse" aria-hidden="true"></span>
-    <span class="voice-label" id="voiceLabel">
-        Voice intro
     </span>
 </button>
 
@@ -4871,8 +5056,8 @@ footer {
     dashboard integrating free FX APIs, cross-rate
     calculations, historical trend analysis, volatility,
     drawdown, momentum scoring, currency conversion,
-    market sessions, local storage, and browser voice
-    briefings.
+    market sessions, local storage, and explainable
+    market briefings.
 
 </p>
 
@@ -4891,7 +5076,7 @@ footer {
 
     <div class="preview-metric">
         <span>Output</span>
-        <strong>Voice brief</strong>
+        <strong>Risk brief</strong>
     </div>
 
 </div>
@@ -4959,7 +5144,7 @@ footer {
     </span>
 
     <span class="tag">
-        VOICE UI
+        EXPLAINABLE UI
     </span>
 
 </div>
@@ -5132,7 +5317,7 @@ footer {
     for Baltimore, Towson, Maryland, and configured
     city networks, combining route search, live arrival
     estimates, moving bus markers, map follow mode,
-    destination discovery, and browser voice alerts.
+    destination discovery, and browser-based ETA alerts.
 
 </p>
 
@@ -5151,7 +5336,7 @@ footer {
 
     <div class="preview-metric">
         <span>Alerts</span>
-        <strong>Voice ETA</strong>
+        <strong>ETA alerts</strong>
     </div>
 
 </div>
@@ -5266,7 +5451,7 @@ footer {
     hospital quality and readmission data to compare
     facility performance, regional risk pressure,
     excess readmission ratios, quality ratings, and
-    voice-guided danger explanations for hospital
+    risk-guided danger explanations for hospital
     operations and health economics analysis.
 
 </p>
@@ -5301,7 +5486,7 @@ footer {
     <div class="healthcare-badges">
         <span class="visual-badge">5,419 hospitals</span>
         <span class="visual-badge">18,330 readmission rows</span>
-        <span class="visual-badge">Voice risk</span>
+        <span class="visual-badge">Risk alerts</span>
     </div>
 
 </div>
@@ -5369,7 +5554,7 @@ footer {
     </span>
 
     <span class="tag">
-        VOICE UI
+        RISK ALERTS
     </span>
 
     <span class="tag">
@@ -5416,7 +5601,7 @@ footer {
     Binance public market data for streaming tickers,
     candlestick vectors, order-book depth, bid-ask spread
     monitoring, breakout alerts, liquidity signals, and
-    voice explanations for market microstructure analysis.
+    explainable signals for market microstructure analysis.
 
 </p>
 
@@ -6052,7 +6237,7 @@ footer {
 
 
 <div class="education-date">
-    2025 · PRESENT
+    2025 - PRESENT
 </div>
 
 
@@ -6092,7 +6277,7 @@ footer {
 
 
 <div class="education-date">
-    AUG 2024 · AUG 2025
+    AUG 2024 - AUG 2025
 </div>
 
 
@@ -6505,6 +6690,76 @@ footer {
 </section>
 
 
+<!-- =========================================================
+     TIGER IDENTITY
+========================================================= -->
+
+<section
+    class="tiger-section"
+    aria-label="Tiger identity"
+>
+
+<div class="container">
+
+<div class="tiger-card reveal">
+
+    <a
+        href="assets/tiger-portfolio-emmanuel.jpg"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="tiger-image-shell"
+        aria-label="Open full tiger image"
+    >
+        <img
+            src="assets/tiger-portfolio-emmanuel.jpg"
+            alt="Tiger walking forward, representing focus, discipline, and Towson identity"
+            class="tiger-image"
+            loading="lazy"
+            decoding="async"
+        >
+        <span class="tiger-chip">
+            Tiger Energy
+        </span>
+    </a>
+
+    <div class="tiger-copy">
+
+        <div class="section-label">
+            Identity
+        </div>
+
+        <h2>
+            Focus, Discipline, Momentum
+        </h2>
+
+        <p>
+            A visual signal for the way I approach
+            research, analytics, and technical work:
+            calm attention, disciplined execution,
+            and forward movement.
+        </p>
+
+        <div class="tiger-caption">
+            <span>
+                Towson Spirit
+            </span>
+            <span>
+                Applied Research
+            </span>
+            <span>
+                Data Discipline
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
 
 <!-- =========================================================
      CONTACT
@@ -6742,7 +6997,7 @@ footer {
 
 <div>
 
-    © 2026 Emmanuel Kuh. All rights reserved.
+    (c) 2026 Emmanuel Kuh. All rights reserved.
 
 </div>
 
@@ -6778,7 +7033,7 @@ footer {
 
 
 <a href="#home">
-    Back to top ↑
+    Back to top
 </a>
 
 
@@ -6817,18 +7072,6 @@ const themeToggle =
 const themeLabel =
     document.getElementById(
         "themeLabel"
-    );
-
-
-const voiceToggle =
-    document.getElementById(
-        "voiceToggle"
-    );
-
-
-const voiceLabel =
-    document.getElementById(
-        "voiceLabel"
     );
 
 
@@ -6981,192 +7224,6 @@ function updateScrollProgress() {
 }
 
 
-/* =========================================================
-   VOICE INTRODUCTION
-========================================================= */
-
-const portfolioIntro =
-    "Hello, welcome to Emmanuel's page. Explore how economic analytics, data science, machine learning, and backend engineering interact to solve real world problems through research, dashboards, live data products, and decision support tools.";
-
-
-let voiceIntroStarted =
-    false;
-
-
-let voiceAutoAttempted =
-    false;
-
-
-let voiceTouchAttempted =
-    false;
-
-
-function setVoiceLabel(text) {
-
-    if (voiceLabel) {
-
-        voiceLabel.textContent =
-            text;
-
-    }
-
-}
-
-
-function chooseVoice() {
-
-    const synth =
-        window.speechSynthesis;
-
-
-    const voices =
-        synth && synth.getVoices
-            ? synth.getVoices()
-            : [];
-
-
-    return (
-        voices.find(
-            voice => /en-US/i.test(
-                voice.lang
-            )
-        ) ||
-        voices.find(
-            voice => /^en/i.test(
-                voice.lang
-            )
-        ) ||
-        null
-    );
-
-}
-
-
-function speakPortfolioIntro(force = false) {
-
-    const synth =
-        window.speechSynthesis;
-
-
-    if (
-        !synth ||
-        typeof SpeechSynthesisUtterance === "undefined"
-    ) {
-
-        setVoiceLabel(
-            "Voice unavailable"
-        );
-
-        return;
-
-    }
-
-
-    if (voiceIntroStarted) {
-
-        return;
-
-    }
-
-
-    synth.cancel();
-
-    if (synth.resume) {
-        synth.resume();
-    }
-
-
-    const utterance =
-        new SpeechSynthesisUtterance(
-            portfolioIntro
-        );
-
-
-    const preferredVoice =
-        chooseVoice();
-
-
-    if (preferredVoice) {
-
-        utterance.voice =
-            preferredVoice;
-
-    }
-
-
-    utterance.rate = 0.92;
-    utterance.pitch = 1;
-    utterance.volume = 1;
-
-
-    utterance.onstart =
-        () => {
-
-            voiceIntroStarted =
-                true;
-
-
-            if (voiceToggle) {
-
-                voiceToggle.classList.add(
-                    "speaking"
-                );
-
-            }
-
-
-            setVoiceLabel(
-                "Speaking"
-            );
-
-        };
-
-
-    utterance.onend =
-        () => {
-
-            if (voiceToggle) {
-
-                voiceToggle.classList.remove(
-                    "speaking"
-                );
-
-            }
-
-
-            setVoiceLabel(
-                "Voice intro"
-            );
-
-        };
-
-
-    utterance.onerror =
-        () => {
-
-            if (voiceToggle) {
-
-                voiceToggle.classList.remove(
-                    "speaking"
-                );
-
-            }
-
-
-            setVoiceLabel(
-                "Voice intro"
-            );
-
-        };
-
-
-    synth.speak(
-        utterance
-    );
-
-}
-
-
 function closeMenu() {
 
     if (!navMenu || !menuToggle) {
@@ -7187,49 +7244,6 @@ function closeMenu() {
     menuToggle.setAttribute(
         "aria-expanded",
         "false"
-    );
-
-}
-
-
-function attemptVoiceIntro(source = "auto") {
-
-    if (voiceIntroStarted) {
-        return;
-    }
-
-
-    if (source === "auto") {
-
-        if (voiceAutoAttempted) {
-            return;
-        }
-
-
-        voiceAutoAttempted =
-            true;
-
-
-        speakPortfolioIntro(
-            false
-        );
-
-        return;
-
-    }
-
-
-    if (voiceTouchAttempted) {
-        return;
-    }
-
-
-    voiceTouchAttempted =
-        true;
-
-
-    speakPortfolioIntro(
-        true
     );
 
 }
@@ -7267,80 +7281,6 @@ if (themeToggle) {
     );
 
 }
-
-
-if (voiceToggle) {
-
-    voiceToggle.addEventListener(
-        "click",
-        () => {
-
-            attemptVoiceIntro(
-                "touch"
-            );
-
-        }
-    );
-
-}
-
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => attemptVoiceIntro(
-        "auto"
-    ),
-    {
-        once: true
-    }
-);
-
-
-window.addEventListener(
-    "load",
-    () => {
-
-        attemptVoiceIntro(
-            "auto"
-        );
-
-    },
-    {
-        once: true
-    }
-);
-
-
-[
-    "pointerup",
-    "touchend",
-    "click",
-    "keydown"
-].forEach(
-    eventName => {
-
-        document.addEventListener(
-            eventName,
-            () => {
-
-                if (!voiceIntroStarted) {
-
-                    attemptVoiceIntro(
-                        "touch"
-                    );
-
-                }
-
-            },
-            {
-                once: true,
-                capture: true,
-                passive: eventName !== "keydown"
-            }
-        );
-
-    }
-);
 
 
 if (menuToggle && navMenu) {
