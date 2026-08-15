@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="scholar">
 
 <head>
 
@@ -17,7 +17,7 @@
 
 <meta name="google-site-verification" content="DsOT2e5ZrYvwt489rJI0HLjzVQ8tVnJ6aXQoI77GzOY" />
 
-<meta name="theme-color" content="#070A12">
+<meta name="theme-color" content="#F7F4EE">
 
 <title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
 
@@ -46,15 +46,13 @@
             "scholar"
         ];
 
-    const systemDark =
-        window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches;
-
     const activeTheme =
-        validThemes.includes(savedTheme)
-            ? savedTheme
-            : (systemDark ? "dark" : "light");
+        "scholar";
+
+    localStorage.setItem(
+        "ek-theme",
+        activeTheme
+    );
 
     document.documentElement.setAttribute(
         "data-theme",
@@ -7237,18 +7235,6 @@ function attemptVoiceIntro(source = "auto") {
 }
 
 
-function scheduleVoiceIntro(delay = 0, source = "auto") {
-
-    window.setTimeout(
-        () => attemptVoiceIntro(
-            source
-        ),
-        delay
-    );
-
-}
-
-
 if (themeToggle) {
 
     themeToggle.addEventListener(
@@ -7301,10 +7287,12 @@ if (voiceToggle) {
 
 document.addEventListener(
     "DOMContentLoaded",
-    () => scheduleVoiceIntro(
-        0,
+    () => attemptVoiceIntro(
         "auto"
-    )
+    ),
+    {
+        once: true
+    }
 );
 
 
@@ -7312,32 +7300,32 @@ window.addEventListener(
     "load",
     () => {
 
-        scheduleVoiceIntro(
-            0,
+        attemptVoiceIntro(
             "auto"
         );
 
+    },
+    {
+        once: true
     }
 );
 
 
 [
-    "pointerdown",
-    "touchstart",
-    "mousedown",
+    "pointerup",
+    "touchend",
     "click",
     "keydown"
 ].forEach(
     eventName => {
 
-        window.addEventListener(
+        document.addEventListener(
             eventName,
             () => {
 
                 if (!voiceIntroStarted) {
 
-                    scheduleVoiceIntro(
-                        0,
+                    attemptVoiceIntro(
                         "touch"
                     );
 
@@ -7346,6 +7334,7 @@ window.addEventListener(
             },
             {
                 once: true,
+                capture: true,
                 passive: eventName !== "keydown"
             }
         );
