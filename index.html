@@ -12,8 +12,10 @@
 
 <meta
     name="description"
-    content="Emmanuel Kuh is an applied economist and data scientist focused on causal inference, econometrics, machine learning, financial analytics, health economics, policy evaluation, and decision support products."
+    content="Emmanuel Kuh is an applied economist and data scientist focused on causal inference, econometrics, machine learning, financial analytics, health economics, crypto market intelligence, public data products, policy evaluation, and decision support products."
 >
+
+<meta name="google-site-verification" content="DsOT2e5ZrYvwt489rJI0HLjzVQ8tVnJ6aXQoI77GzOY" />
 
 <meta name="theme-color" content="#070A12">
 
@@ -35,7 +37,14 @@
 (function () {
 
     const savedTheme =
-        localStorage.getItem("ek-theme") || "system";
+        localStorage.getItem("ek-theme");
+
+    const validThemes =
+        [
+            "light",
+            "dark",
+            "executive"
+        ];
 
     const systemDark =
         window.matchMedia(
@@ -43,234 +52,13 @@
         ).matches;
 
     const activeTheme =
-        savedTheme === "system"
-            ? (systemDark ? "dark" : "light")
-            : savedTheme;
+        validThemes.includes(savedTheme)
+            ? savedTheme
+            : (systemDark ? "dark" : "light");
 
     document.documentElement.setAttribute(
         "data-theme",
         activeTheme
-    );
-
-})();
-
-</script>
-
-
-<script>
-
-(function () {
-
-    const welcomeText =
-        "Hello, welcome to Emmanuel's page. Explore applied economics, data science, live intelligence systems, and project dashboards by Emmanuel Kuh.";
-
-
-    window.__emmanuelWelcomeVoicePlayed =
-        false;
-
-
-    function speakWelcome(forceReplay) {
-
-        const shouldForceReplay =
-            forceReplay === true;
-
-
-        if (shouldForceReplay) {
-
-            window.__emmanuelWelcomeVoicePlayed =
-                false;
-
-        }
-
-        if (
-            (
-                window.__emmanuelWelcomeVoicePlayed &&
-                !shouldForceReplay
-            ) ||
-            !(
-                "speechSynthesis"
-                in window
-            ) ||
-            typeof SpeechSynthesisUtterance ===
-                "undefined"
-        ) {
-
-            return;
-
-        }
-
-
-        try {
-
-            const speech =
-                window.speechSynthesis;
-
-
-            if (
-                (
-                    speech.speaking ||
-                    speech.pending
-                ) &&
-                !shouldForceReplay
-            ) {
-
-                return;
-
-            }
-
-
-            const utterance =
-                new SpeechSynthesisUtterance(
-                    welcomeText
-                );
-
-
-            window.__emmanuelWelcomeUtterance =
-                utterance;
-
-
-            utterance.rate =
-                .95;
-
-            utterance.pitch =
-                1;
-
-            utterance.volume =
-                1;
-
-
-            utterance.onstart =
-                function () {
-
-                    window.__emmanuelWelcomeVoicePlayed =
-                        true;
-
-                };
-
-
-            utterance.onend =
-                function () {
-
-                    window.__emmanuelWelcomeVoicePlayed =
-                        true;
-
-                };
-
-
-            speech.cancel();
-
-
-            if (
-                typeof speech.resume ===
-                "function"
-            ) {
-
-                speech.resume();
-
-            }
-
-
-            speech.speak(
-                utterance
-            );
-
-        } catch (error) {
-
-            window.__emmanuelWelcomeVoicePlayed =
-                false;
-
-        }
-
-    }
-
-
-    function retryWelcome() {
-
-        [
-            0,
-            40,
-            120,
-            300,
-            700,
-            1300,
-            2200
-        ].forEach(
-            delay => {
-
-                window.setTimeout(
-                    speakWelcome,
-                    delay
-                );
-
-            }
-        );
-
-    }
-
-
-    speakWelcome();
-
-    retryWelcome();
-
-
-    document.addEventListener(
-        "readystatechange",
-        retryWelcome
-    );
-
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        retryWelcome,
-        {
-            once: true
-        }
-    );
-
-
-    window.addEventListener(
-        "load",
-        retryWelcome,
-        {
-            once: true
-        }
-    );
-
-
-    if (
-        "speechSynthesis"
-        in window
-    ) {
-
-        window.speechSynthesis.onvoiceschanged =
-            speakWelcome;
-
-    }
-
-
-    window.emmanuelSpeakWelcome =
-        speakWelcome;
-
-
-    [
-        "click",
-        "pointerdown",
-        "pointerup",
-        "touchend",
-        "keydown"
-    ].forEach(
-        function (eventName) {
-
-            window.addEventListener(
-                eventName,
-                speakWelcome,
-                {
-                    capture: true,
-                    passive: true
-                }
-            );
-
-        }
     );
 
 })();
@@ -303,6 +91,7 @@
     --violet: #7c3aed;
     --green: #16a34a;
     --amber: #d97706;
+    --red: #dc2626;
 
     --blue-soft: rgba(37,99,235,.09);
     --green-soft: rgba(22,163,74,.10);
@@ -342,6 +131,7 @@ html[data-theme="dark"] {
     --violet: #9b7cff;
     --green: #28d17c;
     --amber: #f7b955;
+    --red: #ff4d6d;
 
     --blue-soft: rgba(91,140,255,.11);
     --green-soft: rgba(40,209,124,.12);
@@ -359,6 +149,46 @@ html[data-theme="dark"] {
 
     --shadow-large:
         0 50px 130px rgba(0,0,0,.42);
+}
+
+
+html[data-theme="executive"] {
+
+    color-scheme: dark;
+
+    --bg: #080706;
+    --bg-secondary: #120f0b;
+
+    --surface: rgba(26,21,15,.70);
+    --surface-strong: rgba(34,27,18,.96);
+
+    --text: #fff8ed;
+    --text-secondary: #f0d5ac;
+    --muted: #b99a6f;
+
+    --blue: #d4af37;
+    --cyan: #ef4444;
+    --violet: #f97316;
+    --green: #22c55e;
+    --amber: #facc15;
+    --red: #fb7185;
+
+    --blue-soft: rgba(212,175,55,.13);
+    --green-soft: rgba(34,197,94,.12);
+    --amber-soft: rgba(250,204,21,.13);
+
+    --border: rgba(250,204,21,.15);
+    --border-accent: rgba(250,204,21,.42);
+
+    --nav: rgba(8,7,6,.82);
+
+    --grid: rgba(250,204,21,.036);
+
+    --shadow:
+        0 20px 70px rgba(0,0,0,.35);
+
+    --shadow-large:
+        0 54px 140px rgba(0,0,0,.54);
 }
 
 
@@ -521,6 +351,40 @@ img {
    NAVIGATION
 ========================================================= */
 
+.scroll-progress {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 2000;
+
+    width: 100%;
+    height: 3px;
+
+    transform:
+        scaleX(var(--scroll-progress,0));
+
+    transform-origin: left;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--cyan),
+            var(--violet),
+            var(--amber)
+        );
+
+    box-shadow:
+        0 0 22px
+        rgba(56,189,248,.35);
+
+    pointer-events: none;
+
+}
+
 .nav-shell {
 
     position: fixed;
@@ -557,11 +421,22 @@ img {
 
     gap: 20px;
 
-    border: 1px solid var(--border);
+    border: 1px solid transparent;
 
     border-radius: 18px;
 
-    background: var(--nav);
+    background:
+        linear-gradient(
+            var(--nav),
+            var(--nav)
+        ) padding-box,
+        linear-gradient(
+            115deg,
+            var(--blue),
+            var(--cyan),
+            var(--violet),
+            var(--amber)
+        ) border-box;
 
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
@@ -637,6 +512,8 @@ img {
 
     gap: 18px;
 
+    position: relative;
+
 }
 
 
@@ -680,31 +557,30 @@ img {
 
 
 /* =========================================================
-   THEME SWITCHER
+   PREMIUM NAV CONTROLS
 ========================================================= */
 
-.voice-intro-btn {
+.theme-toggle,
+.voice-toggle,
+.menu-toggle {
 
-    min-height: 39px;
+    min-height: 42px;
 
-    padding:
-        0 14px;
-
-    border: 1px solid rgba(40,209,124,.34);
-    border-radius: 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(40,209,124,.16),
-            rgba(37,99,235,.10)
+            var(--surface-strong),
+            var(--surface)
         );
 
     color: var(--text);
 
-    font: inherit;
-    font-size: 11px;
-    font-weight: 800;
+    box-shadow:
+        0 10px 28px
+        rgba(15,23,42,.08);
 
     cursor: pointer;
 
@@ -716,78 +592,287 @@ img {
 }
 
 
-.voice-intro-btn:hover {
+.theme-toggle,
+.voice-toggle {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        0 10px
+        0 13px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+}
+
+
+.theme-toggle {
+
+    min-width: 148px;
+
+    justify-content: space-between;
+
+}
+
+
+.theme-toggle:hover,
+.voice-toggle:hover,
+.menu-toggle:hover {
 
     transform: translateY(-1px);
 
-    border-color: rgba(40,209,124,.58);
+    border-color: var(--border-accent);
+
+}
+
+
+.voice-toggle {
+
+    padding:
+        0 13px;
+
+}
+
+
+.voice-pulse {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 0 6px
+        var(--green-soft);
+
+}
+
+
+.voice-toggle.speaking .voice-pulse {
+
+    animation: voicePulse 1.1s ease-in-out infinite;
+
+}
+
+
+@keyframes voicePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.35);
+    }
+
+}
+
+
+.theme-track {
+
+    position: relative;
+
+    width: 78px;
+    height: 30px;
+
+    flex: 0 0 78px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    align-items: center;
+
+    gap: 3px;
+
+    padding: 4px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255,255,255,.20);
+
+    background:
+        linear-gradient(
+            90deg,
+            #f8fafc,
+            #111827 48%,
+            #d4af37
+        );
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(15,23,42,.12);
+
+}
+
+
+.theme-option {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 999px;
+
+}
+
+
+.theme-option-light {
 
     background:
         linear-gradient(
             135deg,
-            rgba(40,209,124,.24),
-            rgba(37,99,235,.16)
+            #ffffff,
+            #dbeafe
         );
 
 }
 
 
-.theme-switcher {
+.theme-option-dark {
 
-    display: flex;
-
-    padding: 3px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 11px;
-
-    background: var(--surface);
+    background:
+        linear-gradient(
+            135deg,
+            #020617,
+            #2563eb
+        );
 
 }
 
 
-.theme-btn {
+.theme-option-executive {
 
-    width: 33px;
-    height: 31px;
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #ef4444
+        );
+
+}
+
+
+.theme-knob {
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 4px;
+    left: 4px;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #e2e8f0
+        );
+
+    box-shadow:
+        0 4px 10px
+        rgba(15,23,42,.28);
+
+    transition: transform .24s ease;
+
+}
+
+
+html[data-theme="dark"] .theme-knob {
+
+    transform: translateX(24px);
+
+}
+
+
+html[data-theme="executive"] .theme-knob {
+
+    transform: translateX(48px);
+
+}
+
+
+.menu-toggle {
+
+    width: 43px;
+    height: 42px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+}
+
+
+.menu-lines {
+
+    width: 18px;
 
     display: grid;
 
-    place-items: center;
-
-    border: 0;
-
-    border-radius: 8px;
-
-    background: transparent;
-
-    color: var(--muted);
-
-    cursor: pointer;
-
-    transition: .2s ease;
+    gap: 4px;
 
 }
 
 
-.theme-btn:hover {
+.menu-lines span {
 
-    color: var(--text);
+    display: block;
+
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: var(--text);
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
 
 }
 
 
-.theme-btn.active {
+.menu-toggle.open .menu-lines span:nth-child(1) {
 
-    color: var(--blue);
+    transform:
+        translateY(6px)
+        rotate(45deg);
 
-    background: var(--surface-strong);
+}
 
-    box-shadow:
 
-        0 4px 12px
-        rgba(15,23,42,.08);
+.menu-toggle.open .menu-lines span:nth-child(2) {
+
+    opacity: 0;
+
+}
+
+
+.menu-toggle.open .menu-lines span:nth-child(3) {
+
+    transform:
+        translateY(-6px)
+        rotate(-45deg);
 
 }
 
@@ -908,13 +993,33 @@ img {
             100deg,
             var(--blue),
             var(--cyan),
-            var(--violet)
+            var(--violet),
+            var(--amber)
         );
+
+    background-size: 220% 220%;
 
     -webkit-background-clip: text;
     background-clip: text;
 
     color: transparent;
+
+    animation:
+        prestigeShift 9s ease-in-out infinite;
+
+}
+
+
+@keyframes prestigeShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 
 }
 
@@ -954,6 +1059,158 @@ img {
 .hero-description strong {
 
     color: var(--text);
+
+}
+
+
+.hero-command {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap: 10px;
+
+    max-width: 720px;
+
+    margin:
+        0 0
+        28px;
+
+}
+
+
+.command-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 92px;
+
+    padding: 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--surface-strong),
+            var(--surface)
+        );
+
+    box-shadow:
+        0 18px 50px
+        rgba(15,23,42,.07);
+
+}
+
+
+.command-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(91,140,255,.13),
+            transparent 58%
+        );
+
+    opacity: .8;
+
+    pointer-events: none;
+
+}
+
+
+.command-card span,
+.command-card strong,
+.command-card em {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+.command-card span {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+.command-card strong {
+
+    display: block;
+
+    color: var(--text);
+
+    font-size: 20px;
+    font-weight: 800;
+
+    line-height: 1;
+
+}
+
+
+.command-card em {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+
+    line-height: 1.35;
+
+}
+
+
+@media(max-width:980px) {
+
+    .hero-command {
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        margin-inline: auto;
+
+    }
+
+}
+
+
+@media(max-width:520px) {
+
+    .hero-command {
+
+        grid-template-columns: 1fr;
+
+    }
 
 }
 
@@ -1430,6 +1687,8 @@ img {
 
     box-shadow: var(--shadow);
 
+    isolation: isolate;
+
     transition:
         transform .3s ease,
         border-color .3s ease,
@@ -1514,8 +1773,38 @@ img {
 }
 
 
+.project::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 31px;
+    right: 31px;
+    top: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--blue),
+            var(--cyan),
+            transparent
+        );
+
+    opacity: .36;
+
+    pointer-events: none;
+
+}
+
+
 .project:nth-child(5),
-.project:nth-child(6) {
+.project:nth-child(6),
+.project:nth-child(7),
+.project:nth-child(8) {
 
     grid-column: span 6;
 
@@ -1656,6 +1945,382 @@ img {
             transparent
         ),
         var(--surface-strong);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.project:hover .project-dashboard-preview,
+.project:hover .project-visual {
+
+    transform: translateY(-3px);
+
+    border-color: var(--border-accent);
+
+    box-shadow:
+        0 18px 48px
+        rgba(15,23,42,.12);
+
+}
+
+
+.project-visual {
+
+    position: relative;
+
+    min-height: 172px;
+
+    margin:
+        0 0
+        18px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--surface-strong),
+            var(--surface)
+        );
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.project-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            var(--grid) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--grid) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+
+    pointer-events: none;
+
+}
+
+
+.visual-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 13px 0;
+
+}
+
+
+.visual-header span {
+
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.visual-header strong {
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 800;
+
+}
+
+
+.healthcare-visual {
+
+    background:
+        radial-gradient(
+            circle at 16% 18%,
+            rgba(37,99,235,.20),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 83% 12%,
+            rgba(220,38,38,.17),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            var(--surface-strong),
+            var(--surface)
+        );
+
+}
+
+
+.hospital-lines {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    gap: 9px;
+
+    padding: 19px 13px 13px;
+
+}
+
+
+.hospital-line {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        88px;
+
+    gap: 10px;
+
+    align-items: center;
+
+}
+
+
+.hospital-label {
+
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.risk-bar {
+
+    height: 9px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: var(--blue-soft);
+
+}
+
+
+.risk-bar span {
+
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--red, #dc2626)
+        );
+
+}
+
+
+.healthcare-badges,
+.crypto-badges {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    padding: 0 13px 13px;
+
+}
+
+
+.visual-badge {
+
+    padding: 6px 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: var(--surface-strong);
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+    font-weight: 800;
+
+}
+
+
+.crypto-visual {
+
+    background:
+        radial-gradient(
+            circle at 16% 18%,
+            rgba(40,209,124,.20),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 86% 17%,
+            rgba(247,185,85,.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--surface-strong),
+            var(--surface)
+        );
+
+}
+
+
+.candle-board {
+
+    position: relative;
+
+    z-index: 2;
+
+    height: 88px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 7px;
+
+    padding:
+        17px 13px
+        12px;
+
+}
+
+
+.candle {
+
+    position: relative;
+
+    width: 10px;
+
+    border-radius: 999px;
+
+    background: var(--green);
+
+}
+
+
+.candle::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 100%;
+
+    width: 2px;
+    height: 12px;
+
+    border-radius: 999px;
+
+    background: currentColor;
+
+    transform: translateX(-50%);
+
+}
+
+
+.candle.down {
+
+    background: #ef4444;
+    color: #ef4444;
+
+}
+
+
+.candle.up {
+
+    color: var(--green);
+
+}
+
+
+.order-book-mini {
+
+    position: absolute;
+
+    z-index: 2;
+
+    right: 13px;
+    bottom: 47px;
+
+    width: 108px;
+
+    display: grid;
+
+    gap: 5px;
+
+}
+
+
+.order-row {
+
+    height: 8px;
+
+    border-radius: 999px;
+
+    background: var(--green-soft);
+
+}
+
+
+.order-row.sell {
+
+    background: rgba(239,68,68,.18);
 
 }
 
@@ -2774,7 +3439,68 @@ footer {
 
     .nav-links {
 
-        display: none;
+        position: absolute;
+
+        top: calc(100% + 12px);
+        right: 0;
+
+        width:
+            min(
+                330px,
+                calc(100vw - 30px)
+            );
+
+        display: grid;
+
+        gap: 4px;
+
+        padding: 11px;
+
+        border: 1px solid var(--border);
+        border-radius: 17px;
+
+        background: var(--surface-strong);
+
+        box-shadow: var(--shadow-large);
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transform: translateY(-7px);
+
+        transition:
+            opacity .2s ease,
+            transform .2s ease;
+
+    }
+
+
+    .nav-links.open {
+
+        opacity: 1;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+
+    }
+
+
+    .nav-link {
+
+        width: 100%;
+
+        padding: 12px 13px;
+
+        font-size: 13px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: inline-flex;
 
     }
 
@@ -2845,10 +3571,35 @@ footer {
     }
 
 
-    .theme-btn {
+    .theme-toggle,
+    .voice-toggle {
 
-        width: 32px;
-        height: 30px;
+        min-height: 39px;
+
+        padding:
+            0 8px
+            0 11px;
+
+    }
+
+
+    .theme-toggle {
+
+        min-width: 96px;
+
+    }
+
+
+    .theme-label {
+
+        display: none;
+
+    }
+
+
+    .voice-label {
+
+        display: none;
 
     }
 
@@ -3096,6 +3847,13 @@ footer {
 <body>
 
 
+<div
+    class="scroll-progress"
+    id="scrollProgress"
+    aria-hidden="true"
+></div>
+
+
 <!-- =========================================================
      NAVIGATION
 ========================================================= -->
@@ -3130,7 +3888,17 @@ footer {
 <div class="nav-right">
 
 
-<div class="nav-links">
+<div
+    class="nav-links"
+    id="navLinks"
+>
+
+    <a
+        href="#home"
+        class="nav-link"
+    >
+        Home
+    </a>
 
     <a
         href="#work"
@@ -3179,51 +3947,49 @@ footer {
 
 <button
     type="button"
-    class="voice-intro-btn"
-    onclick="window.emmanuelSpeakWelcome && window.emmanuelSpeakWelcome(true)"
+    class="theme-toggle"
+    id="themeToggle"
+    aria-label="Switch website theme: dark, light, executive"
 >
-    Voice Intro
+    <span class="theme-label" id="themeLabel">
+        Dark
+    </span>
+    <span class="theme-track" aria-hidden="true">
+        <span class="theme-option theme-option-light"></span>
+        <span class="theme-option theme-option-dark"></span>
+        <span class="theme-option theme-option-executive"></span>
+        <span class="theme-knob"></span>
+    </span>
 </button>
 
 
-<div
-    class="theme-switcher"
-    aria-label="Choose website theme"
+<button
+    type="button"
+    class="voice-toggle"
+    id="voiceToggle"
+    aria-label="Play portfolio voice introduction"
 >
-
-    <button
-        type="button"
-        class="theme-btn"
-        data-theme-choice="light"
-        aria-label="Use light mode"
-        title="Light mode"
-    >
-        ☀
-    </button>
+    <span class="voice-pulse" aria-hidden="true"></span>
+    <span class="voice-label" id="voiceLabel">
+        Voice intro
+    </span>
+</button>
 
 
-    <button
-        type="button"
-        class="theme-btn"
-        data-theme-choice="system"
-        aria-label="Use system theme"
-        title="System theme"
-    >
-        ◐
-    </button>
-
-
-    <button
-        type="button"
-        class="theme-btn"
-        data-theme-choice="dark"
-        aria-label="Use dark mode"
-        title="Dark mode"
-    >
-        ☾
-    </button>
-
-</div>
+<button
+    type="button"
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="navLinks"
+>
+    <span class="menu-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+</button>
 
 
 </div>
@@ -3305,6 +4071,38 @@ footer {
     dashboards, and decision support tools.
 
 </p>
+
+
+<div
+    class="hero-command"
+    aria-label="Portfolio impact summary"
+>
+
+    <div class="command-card">
+        <span>Live Products</span>
+        <strong>6+</strong>
+        <em>Dashboards and public tools</em>
+    </div>
+
+    <div class="command-card">
+        <span>Domains</span>
+        <strong>5</strong>
+        <em>Health, transit, macro, FX, crypto</em>
+    </div>
+
+    <div class="command-card">
+        <span>Methods</span>
+        <strong>RDD</strong>
+        <em>Causal inference and econometrics</em>
+    </div>
+
+    <div class="command-card">
+        <span>Experience</span>
+        <strong>Voice</strong>
+        <em>Interactive explanations and alerts</em>
+    </div>
+
+</div>
 
 
 <div class="actions">
@@ -4085,7 +4883,19 @@ footer {
 <div class="tags">
 
     <span class="tag">
-        TRANSIT APIs
+        GTFS-REALTIME
+    </span>
+
+    <span class="tag">
+        TRANSITLAND API
+    </span>
+
+    <span class="tag">
+        PROXIES
+    </span>
+
+    <span class="tag">
+        JAVASCRIPT
     </span>
 
     <span class="tag">
@@ -4093,7 +4903,149 @@ footer {
     </span>
 
     <span class="tag">
-        REAL TIME
+        MOBILE
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+<!-- PROJECT 7 -->
+
+<article class="project project-featured reveal">
+
+
+<div class="project-top">
+
+    <div class="project-number">
+        07 / HEALTHCARE ANALYTICS
+    </div>
+
+    <div class="project-type">
+        CMS Intelligence Console
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+    Healthcare Intelligence
+</h3>
+
+
+<p>
+
+    A premium healthcare analytics console using CMS
+    hospital quality and readmission data to compare
+    facility performance, regional risk pressure,
+    excess readmission ratios, quality ratings, and
+    voice-guided danger explanations for hospital
+    operations and health economics analysis.
+
+</p>
+
+
+<div
+    class="project-visual healthcare-visual"
+    role="img"
+    aria-label="Healthcare Intelligence preview with CMS hospital risk matrix"
+>
+
+    <div class="visual-header">
+        <span>CMS QUALITY</span>
+        <strong>Readmission risk matrix</strong>
+    </div>
+
+    <div class="hospital-lines">
+        <div class="hospital-line">
+            <span class="hospital-label">UMD Medical Center</span>
+            <span class="risk-bar"><span style="width:74%"></span></span>
+        </div>
+        <div class="hospital-line">
+            <span class="hospital-label">Johns Hopkins</span>
+            <span class="risk-bar"><span style="width:42%"></span></span>
+        </div>
+        <div class="hospital-line">
+            <span class="hospital-label">Towson area facilities</span>
+            <span class="risk-bar"><span style="width:58%"></span></span>
+        </div>
+    </div>
+
+    <div class="healthcare-badges">
+        <span class="visual-badge">5,419 hospitals</span>
+        <span class="visual-badge">18,330 readmission rows</span>
+        <span class="visual-badge">Voice risk</span>
+    </div>
+
+</div>
+
+
+<div class="project-stats" aria-label="Healthcare Intelligence highlights">
+
+    <div class="project-stat">
+        <span>Source</span>
+        <strong>CMS Provider Data</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Model</span>
+        <strong>Readmission index</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Use case</span>
+        <strong>Hospital analytics</strong>
+    </div>
+
+</div>
+
+
+<div class="project-links">
+
+    <a
+        href="https://kuhemmanuel9-sudo.github.io/Healthcare-Intelligence-by-Emmanuel-Kuh/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link primary"
+    >
+        Open Healthcare App
+    </a>
+
+    <a
+        href="https://github.com/kuhemmanuel9-sudo/Healthcare-Intelligence-by-Emmanuel-Kuh"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+    >
+        View GitHub
+    </a>
+
+</div>
+
+
+<div class="tags">
+
+    <span class="tag">
+        CMS PROVIDER DATA
+    </span>
+
+    <span class="tag">
+        HEALTH ECONOMICS
+    </span>
+
+    <span class="tag">
+        READMISSIONS
+    </span>
+
+    <span class="tag">
+        JAVASCRIPT
     </span>
 
     <span class="tag">
@@ -4101,7 +5053,159 @@ footer {
     </span>
 
     <span class="tag">
-        MOBILE
+        GITHUB PAGES
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+<!-- PROJECT 8 -->
+
+<article class="project project-featured reveal">
+
+
+<div class="project-top">
+
+    <div class="project-number">
+        08 / CRYPTO MARKET INTELLIGENCE
+    </div>
+
+    <div class="project-type">
+        Quant Trading Terminal
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+    Global Crypto Quant Terminal
+</h3>
+
+
+<p>
+
+    A live cryptocurrency quantitative dashboard using
+    Binance public market data for streaming tickers,
+    candlestick vectors, order-book depth, bid-ask spread
+    monitoring, breakout alerts, liquidity signals, and
+    voice explanations for market microstructure analysis.
+
+</p>
+
+
+<div
+    class="project-visual crypto-visual"
+    role="img"
+    aria-label="Global Crypto Quant Terminal preview with candlesticks and order book"
+>
+
+    <div class="visual-header">
+        <span>BINANCE STREAM</span>
+        <strong>Market spread liquidity</strong>
+    </div>
+
+    <div class="candle-board">
+        <span class="candle up" style="height:34px"></span>
+        <span class="candle up" style="height:49px"></span>
+        <span class="candle down" style="height:29px"></span>
+        <span class="candle up" style="height:63px"></span>
+        <span class="candle down" style="height:41px"></span>
+        <span class="candle up" style="height:68px"></span>
+        <span class="candle up" style="height:53px"></span>
+        <span class="candle down" style="height:36px"></span>
+    </div>
+
+    <div class="order-book-mini" aria-hidden="true">
+        <span class="order-row sell" style="width:70%"></span>
+        <span class="order-row sell" style="width:54%"></span>
+        <span class="order-row" style="width:86%"></span>
+        <span class="order-row" style="width:62%"></span>
+    </div>
+
+    <div class="crypto-badges">
+        <span class="visual-badge">WebSocket</span>
+        <span class="visual-badge">Order book</span>
+        <span class="visual-badge">Breakout radar</span>
+    </div>
+
+</div>
+
+
+<div class="project-stats" aria-label="Global Crypto Quant Terminal highlights">
+
+    <div class="project-stat">
+        <span>Source</span>
+        <strong>Binance public API</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Analytics</span>
+        <strong>Spread + depth</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Interface</span>
+        <strong>Live terminal</strong>
+    </div>
+
+</div>
+
+
+<div class="project-links">
+
+    <a
+        href="https://kuhemmanuel9-sudo.github.io/Global-Crypto-Quant-by-Emmanuel-Kuh/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link primary"
+    >
+        Open Crypto Terminal
+    </a>
+
+    <a
+        href="https://github.com/kuhemmanuel9-sudo/Global-Crypto-Quant-by-Emmanuel-Kuh"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+    >
+        View GitHub
+    </a>
+
+</div>
+
+
+<div class="tags">
+
+    <span class="tag">
+        BINANCE API
+    </span>
+
+    <span class="tag">
+        WEBSOCKETS
+    </span>
+
+    <span class="tag">
+        CANDLESTICKS
+    </span>
+
+    <span class="tag">
+        ORDER BOOK
+    </span>
+
+    <span class="tag">
+        JAVASCRIPT
+    </span>
+
+    <span class="tag">
+        MARKET MICROSTRUCTURE
     </span>
 
 </div>
@@ -4255,143 +5359,6 @@ footer {
 </article>
 
 
-<article class="expertise-card reveal">
-
-    <div class="expertise-number">
-        05
-    </div>
-
-    <h3>
-        Live Data Products
-    </h3>
-
-    <p>
-
-        Interactive tools that turn live APIs,
-        public datasets, and real time signals
-        into clean dashboards for finance,
-        inflation, weather, transit, and policy.
-
-    </p>
-
-</article>
-
-
-
-<article class="expertise-card reveal">
-
-    <div class="expertise-number">
-        06
-    </div>
-
-    <h3>
-        Applied Economics & Policy Analysis
-    </h3>
-
-    <p>
-
-        Health economics, inflation monitoring,
-        labor markets, public finance, program
-        evaluation, and policy questions where
-        evidence needs to become action.
-
-    </p>
-
-</article>
-
-
-
-<article class="expertise-card reveal">
-
-    <div class="expertise-number">
-        07
-    </div>
-
-    <h3>
-        Data Engineering & APIs
-    </h3>
-
-    <p>
-
-        API integration, browser applications,
-        Node.js backends, GitHub Pages deployment,
-        data pipelines, structured cleaning, and
-        automation for decision support systems.
-
-    </p>
-
-</article>
-
-
-
-<article class="expertise-card reveal">
-
-    <div class="expertise-number">
-        08
-    </div>
-
-    <h3>
-        Decision Support Dashboards
-    </h3>
-
-    <p>
-
-        Premium, mobile ready dashboards that help
-        users scan risk, compare locations, monitor
-        markets, track routes, and understand complex
-        economic signals quickly.
-
-    </p>
-
-</article>
-
-
-
-<article class="expertise-card reveal">
-
-    <div class="expertise-number">
-        09
-    </div>
-
-    <h3>
-        Case Study Development
-    </h3>
-
-    <p>
-
-        Project storytelling that connects the
-        problem, data, method, tools, outcome,
-        live product, and GitHub repository into
-        a clear professional narrative.
-
-    </p>
-
-</article>
-
-
-
-<article class="expertise-card reveal">
-
-    <div class="expertise-number">
-        10
-    </div>
-
-    <h3>
-        Backend & Deployment
-    </h3>
-
-    <p>
-
-        Deployable web systems using front-end
-        interfaces, Node.js servers, API keys,
-        backend proxies, GitHub Pages, Render,
-        and production ready project packaging.
-
-    </p>
-
-</article>
-
-
 </div>
 
 </div>
@@ -4431,7 +5398,7 @@ footer {
 <p class="section-intro">
 
     Academic training across economic analytics,
-    public administration, economics,education
+    public administration, economics,
     and political science.
 
 </p>
@@ -4490,7 +5457,7 @@ footer {
 
 
 <div class="education-date">
-    AUG 2024 · AUG 2025
+    SEP 2024 · AUG 2025
 </div>
 
 
@@ -4501,7 +5468,7 @@ footer {
 
 <div class="education-degree">
 
-    Master of Professional Studies in Public Administration
+    Graduate Studies in Public Administration
 
 </div>
 
@@ -5200,42 +6167,100 @@ const root =
     document.documentElement;
 
 
-const themeButtons =
-    document.querySelectorAll(
-        "[data-theme-choice]"
-    );
-
-
 const systemPreference =
     window.matchMedia(
         "(prefers-color-scheme: dark)"
     );
 
 
-function getSystemTheme() {
+const themeToggle =
+    document.getElementById(
+        "themeToggle"
+    );
 
-    return systemPreference.matches
-        ? "dark"
-        : "light";
+
+const themeLabel =
+    document.getElementById(
+        "themeLabel"
+    );
+
+
+const voiceToggle =
+    document.getElementById(
+        "voiceToggle"
+    );
+
+
+const voiceLabel =
+    document.getElementById(
+        "voiceLabel"
+    );
+
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+
+const navMenu =
+    document.getElementById(
+        "navLinks"
+    );
+
+
+const scrollProgress =
+    document.getElementById(
+        "scrollProgress"
+    );
+
+
+const themeModes =
+    [
+        "dark",
+        "light",
+        "executive"
+    ];
+
+
+const themeNames = {
+    dark: "Dark",
+    light: "Light",
+    executive: "Executive"
+};
+
+
+const themeColors = {
+    dark: "#070A12",
+    light: "#F7F8FC",
+    executive: "#080706"
+};
+
+
+function normalizeTheme(theme) {
+
+    return themeModes.includes(theme)
+        ? theme
+        : (systemPreference.matches ? "dark" : "light");
 
 }
 
 
 function getThemeChoice() {
 
-    return localStorage.getItem(
-        "ek-theme"
-    ) || "system";
+    return normalizeTheme(
+        localStorage.getItem(
+            "ek-theme"
+        )
+    );
 
 }
 
 
-function applyTheme(choice) {
+function setTheme(theme) {
 
     const actual =
-        choice === "system"
-            ? getSystemTheme()
-            : choice;
+        normalizeTheme(theme);
 
 
     root.setAttribute(
@@ -5244,17 +6269,32 @@ function applyTheme(choice) {
     );
 
 
-    themeButtons.forEach(
-        button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.themeChoice
-                    === choice
-            );
-
-        }
+    localStorage.setItem(
+        "ek-theme",
+        actual
     );
+
+
+    if (themeToggle) {
+
+        themeToggle.dataset.activeTheme =
+            actual;
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch website theme. Current theme: " +
+                themeNames[actual]
+        );
+
+    }
+
+
+    if (themeLabel) {
+
+        themeLabel.textContent =
+            themeNames[actual];
+
+    }
 
 
     document
@@ -5263,51 +6303,343 @@ function applyTheme(choice) {
         )
         .setAttribute(
             "content",
-            actual === "dark"
-                ? "#070A12"
-                : "#F7F8FC"
+            themeColors[actual]
         );
 
 }
 
 
-themeButtons.forEach(
-    button => {
+function updateScrollProgress() {
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                const choice =
-                    button.dataset.themeChoice;
+    if (!scrollProgress) {
+        return;
+    }
 
 
-                localStorage.setItem(
-                    "ek-theme",
-                    choice
+    const scrollable =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+
+    const progress =
+        scrollable > 0
+            ? Math.min(
+                1,
+                Math.max(
+                    0,
+                    window.scrollY / scrollable
+                )
+            )
+            : 0;
+
+
+    root.style.setProperty(
+        "--scroll-progress",
+        String(progress)
+    );
+
+}
+
+
+/* =========================================================
+   VOICE INTRODUCTION
+========================================================= */
+
+const portfolioIntro =
+    "Hello, welcome to Emmanuel Kuh's page. I am an applied economist and data scientist building live decision support products across health economics, transit intelligence, inflation monitoring, foreign exchange, and crypto market analytics. Explore the work section to see the featured projects.";
+
+
+let voiceIntroStarted =
+    false;
+
+
+function setVoiceLabel(text) {
+
+    if (voiceLabel) {
+
+        voiceLabel.textContent =
+            text;
+
+    }
+
+}
+
+
+function chooseVoice() {
+
+    const synth =
+        window.speechSynthesis;
+
+
+    const voices =
+        synth && synth.getVoices
+            ? synth.getVoices()
+            : [];
+
+
+    return (
+        voices.find(
+            voice => /en-US/i.test(
+                voice.lang
+            )
+        ) ||
+        voices.find(
+            voice => /^en/i.test(
+                voice.lang
+            )
+        ) ||
+        null
+    );
+
+}
+
+
+function speakPortfolioIntro(force = false) {
+
+    const synth =
+        window.speechSynthesis;
+
+
+    if (
+        !synth ||
+        typeof SpeechSynthesisUtterance === "undefined"
+    ) {
+
+        setVoiceLabel(
+            "Voice unavailable"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        voiceIntroStarted &&
+        !force
+    ) {
+
+        return;
+
+    }
+
+
+    synth.cancel();
+
+    if (synth.resume) {
+        synth.resume();
+    }
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(
+            portfolioIntro
+        );
+
+
+    const preferredVoice =
+        chooseVoice();
+
+
+    if (preferredVoice) {
+
+        utterance.voice =
+            preferredVoice;
+
+    }
+
+
+    utterance.rate = 0.92;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+
+    utterance.onstart =
+        () => {
+
+            voiceIntroStarted =
+                true;
+
+
+            if (voiceToggle) {
+
+                voiceToggle.classList.add(
+                    "speaking"
+                );
+
+            }
+
+
+            setVoiceLabel(
+                "Speaking"
+            );
+
+        };
+
+
+    utterance.onend =
+        () => {
+
+            if (voiceToggle) {
+
+                voiceToggle.classList.remove(
+                    "speaking"
+                );
+
+            }
+
+
+            setVoiceLabel(
+                "Voice intro"
+            );
+
+        };
+
+
+    utterance.onerror =
+        () => {
+
+            if (voiceToggle) {
+
+                voiceToggle.classList.remove(
+                    "speaking"
+                );
+
+            }
+
+
+            setVoiceLabel(
+                "Voice intro"
+            );
+
+        };
+
+
+    synth.speak(
+        utterance
+    );
+
+}
+
+
+function closeMenu() {
+
+    if (!navMenu || !menuToggle) {
+        return;
+    }
+
+
+    navMenu.classList.remove(
+        "open"
+    );
+
+
+    menuToggle.classList.remove(
+        "open"
+    );
+
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+}
+
+
+function scheduleVoiceIntro(delay = 80) {
+
+    window.setTimeout(
+        () => speakPortfolioIntro(
+            false
+        ),
+        delay
+    );
+
+}
+
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            const currentTheme =
+                normalizeTheme(
+                    root.getAttribute(
+                        "data-theme"
+                    )
                 );
 
 
-                applyTheme(choice);
+            const nextTheme =
+                themeModes[
+                    (
+                        themeModes.indexOf(
+                            currentTheme
+                        ) + 1
+                    ) % themeModes.length
+                ];
 
-            }
+
+            setTheme(
+                nextTheme
+            );
+
+        }
+    );
+
+}
+
+
+if (voiceToggle) {
+
+    voiceToggle.addEventListener(
+        "click",
+        () => {
+
+            speakPortfolioIntro(
+                true
+            );
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "load",
+    () => {
+
+        scheduleVoiceIntro(
+            120
         );
 
     }
 );
 
 
-systemPreference.addEventListener(
-    "change",
+window.addEventListener(
+    "pageshow",
+    () => scheduleVoiceIntro(
+        120
+    )
+);
+
+
+document.addEventListener(
+    "visibilitychange",
     () => {
 
         if (
-            getThemeChoice()
-            === "system"
+            document.visibilityState === "visible" &&
+            !voiceIntroStarted
         ) {
 
-            applyTheme(
-                "system"
+            scheduleVoiceIntro(
+                120
             );
 
         }
@@ -5316,7 +6648,140 @@ systemPreference.addEventListener(
 );
 
 
-applyTheme(
+if (window.speechSynthesis) {
+
+    window.speechSynthesis.onvoiceschanged =
+        () => {
+
+            if (!voiceIntroStarted) {
+
+                scheduleVoiceIntro(
+                    80
+                );
+
+            }
+
+        };
+
+}
+
+
+scheduleVoiceIntro(
+    90
+);
+
+
+[
+    "pointerdown",
+    "keydown"
+].forEach(
+    eventName => {
+
+        window.addEventListener(
+            eventName,
+            () => {
+
+                if (!voiceIntroStarted) {
+
+                    scheduleVoiceIntro(
+                        180
+                    );
+
+                }
+
+            },
+            {
+                once: true
+            }
+        );
+
+    }
+);
+
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            const isOpen =
+                navMenu.classList.toggle(
+                    "open"
+                );
+
+
+            menuToggle.classList.toggle(
+                "open",
+                isOpen
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+        }
+    );
+
+
+    navMenu
+        .querySelectorAll(
+            "a"
+        )
+        .forEach(
+            link => {
+
+                link.addEventListener(
+                    "click",
+                    closeMenu
+                );
+
+            }
+        );
+
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                !navMenu.contains(
+                    event.target
+                ) &&
+                !menuToggle.contains(
+                    event.target
+                )
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateScrollProgress,
+    { passive: true }
+);
+
+
+window.addEventListener(
+    "resize",
+    updateScrollProgress
+);
+
+
+updateScrollProgress();
+
+
+setTheme(
     getThemeChoice()
 );
 
