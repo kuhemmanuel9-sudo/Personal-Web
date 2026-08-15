@@ -1543,7 +1543,10 @@ html[data-theme="executive"] .theme-knob {
     display: grid;
 
     grid-template-columns:
-        repeat(6,1fr);
+        repeat(
+            auto-fit,
+            minmax(150px,1fr)
+        );
 
 }
 
@@ -1804,7 +1807,8 @@ html[data-theme="executive"] .theme-knob {
 .project:nth-child(5),
 .project:nth-child(6),
 .project:nth-child(7),
-.project:nth-child(8) {
+.project:nth-child(8),
+.project:nth-child(9) {
 
     grid-column: span 6;
 
@@ -2522,7 +2526,7 @@ html[data-theme="executive"] .theme-knob {
     display: grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(3,1fr);
 
     border-top: 1px solid var(--border);
 
@@ -2533,7 +2537,7 @@ html[data-theme="executive"] .theme-knob {
 
 .expertise-card {
 
-    min-height: 255px;
+    min-height: 235px;
 
     padding: 33px;
 
@@ -2583,6 +2587,190 @@ html[data-theme="executive"] .theme-knob {
     font-size: 13px;
 
     line-height: 1.8;
+
+}
+
+
+.skills-panel {
+
+    margin-top: 24px;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--surface-strong),
+            var(--surface)
+        );
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.skills-panel-header {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.skills-panel-header h3 {
+
+    font-size: 25px;
+
+    line-height: 1.15;
+
+}
+
+
+.skills-panel-header p {
+
+    max-width: 520px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.75;
+
+}
+
+
+.skills-matrix {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap: 12px;
+
+}
+
+
+.skill-cluster {
+
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.025);
+
+}
+
+
+.skill-cluster-wide {
+
+    grid-column: 1 / -1;
+
+}
+
+
+.skill-cluster span {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--blue);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+.skill-chips {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+
+.skill-chip {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 32px;
+
+    padding: 7px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: var(--blue-soft);
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 700;
+
+}
+
+
+@media(max-width:1100px) {
+
+    .expertise-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:760px) {
+
+    .skills-panel {
+
+        padding: 20px;
+
+    }
+
+
+    .skills-panel-header,
+    .skills-matrix {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .skills-panel-header {
+
+        display: grid;
+
+    }
+
+
+    .skill-cluster-wide {
+
+        grid-column: auto;
+
+    }
 
 }
 
@@ -4065,6 +4253,11 @@ footer {
     econometrics, machine learning,
     financial analytics, health economics,
     and policy evaluation.
+    I work with modern empirical methods
+    including staggered difference-in-differences,
+    panel fixed effects, event studies,
+    instrumental variables, and regression
+    discontinuity designs.
     I use quantitative methods to study
     real world questions and communicate
     evidence through clear research,
@@ -4086,20 +4279,20 @@ footer {
 
     <div class="command-card">
         <span>Domains</span>
-        <strong>5</strong>
-        <em>Health, transit, macro, FX, crypto</em>
+        <strong>6</strong>
+        <em>Health, transit, macro, FX, crypto, safety</em>
     </div>
 
     <div class="command-card">
         <span>Methods</span>
-        <strong>RDD</strong>
-        <em>Causal inference and econometrics</em>
+        <strong>DiD+</strong>
+        <em>RDD, IV, panel FE, event studies</em>
     </div>
 
     <div class="command-card">
-        <span>Experience</span>
-        <strong>Voice</strong>
-        <em>Interactive explanations and alerts</em>
+        <span>Toolchain</span>
+        <strong>R/Python</strong>
+        <em>SQL, Stata, JavaScript, Power BI</em>
     </div>
 
 </div>
@@ -4245,6 +4438,26 @@ footer {
     </div>
 
     <div class="focus">
+        STAGGERED DID
+    </div>
+
+    <div class="focus">
+        PANEL FIXED EFFECTS
+    </div>
+
+    <div class="focus">
+        EVENT STUDIES
+    </div>
+
+    <div class="focus">
+        IV / 2SLS
+    </div>
+
+    <div class="focus">
+        CAUSAL ML
+    </div>
+
+    <div class="focus">
         MACHINE LEARNING
     </div>
 
@@ -4297,6 +4510,7 @@ footer {
 <p class="section-intro">
 
     Selected work in health economics,
+    public safety,
     causal inference, forecasting,
     financial analytics,
     and applied data science products.
@@ -4521,13 +4735,121 @@ footer {
 
 <!-- PROJECT 4 -->
 
+<article class="project reveal">
+
+
+<div class="project-top">
+
+    <div class="project-number">
+        04 / URBAN ECONOMICS & PUBLIC SAFETY
+    </div>
+
+    <div class="project-type">
+        Empirical Research
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+    Socioeconomic Determinants of Homicide in Baltimore
+</h3>
+
+
+<p>
+
+    Empirical analysis of how poverty,
+    unemployment, education, income inequality,
+    neighborhood conditions, and demographic
+    patterns relate to homicide risk in Baltimore,
+    with attention to public safety policy,
+    urban inequality, and community-level outcomes.
+
+</p>
+
+
+<div class="project-dashboard-preview" aria-label="Baltimore homicide research preview">
+
+    <div class="preview-metric">
+        <span>Outcome</span>
+        <strong>Homicide risk</strong>
+    </div>
+
+    <div class="preview-metric">
+        <span>Method</span>
+        <strong>Empirical model</strong>
+    </div>
+
+    <div class="preview-metric">
+        <span>Lens</span>
+        <strong>Urban policy</strong>
+    </div>
+
+</div>
+
+
+<div class="project-stats" aria-label="Baltimore homicide study highlights">
+
+    <div class="project-stat">
+        <span>Domain</span>
+        <strong>Public safety</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Focus</span>
+        <strong>Socioeconomic factors</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Output</span>
+        <strong>Policy evidence</strong>
+    </div>
+
+</div>
+
+
+<div class="tags">
+
+    <span class="tag">
+        BALTIMORE
+    </span>
+
+    <span class="tag">
+        HOMICIDE
+    </span>
+
+    <span class="tag">
+        URBAN ECONOMICS
+    </span>
+
+    <span class="tag">
+        REGRESSION
+    </span>
+
+    <span class="tag">
+        POLICY ANALYSIS
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+<!-- PROJECT 5 -->
+
 <article class="project project-featured reveal">
 
 
 <div class="project-top">
 
     <div class="project-number">
-        04 / FINANCIAL ANALYTICS
+        05 / FINANCIAL ANALYTICS
     </div>
 
     <div class="project-type">
@@ -4650,7 +4972,7 @@ footer {
 </article>
 
 
-<!-- PROJECT 5 -->
+<!-- PROJECT 6 -->
 
 <article class="project project-featured reveal">
 
@@ -4658,7 +4980,7 @@ footer {
 <div class="project-top">
 
     <div class="project-number">
-        05 / ECONOMIC INTELLIGENCE
+        06 / ECONOMIC INTELLIGENCE
     </div>
 
     <div class="project-type">
@@ -4780,7 +5102,7 @@ footer {
 </article>
 
 
-<!-- PROJECT 6 -->
+<!-- PROJECT 7 -->
 
 <article class="project project-featured reveal">
 
@@ -4788,7 +5110,7 @@ footer {
 <div class="project-top">
 
     <div class="project-number">
-        06 / TRANSIT INTELLIGENCE
+        07 / TRANSIT INTELLIGENCE
     </div>
 
     <div class="project-type">
@@ -4850,7 +5172,7 @@ footer {
     </div>
 
     <div class="project-stat">
-        <span>Experience</span>
+        <span>Interface</span>
         <strong>Phone first</strong>
     </div>
 
@@ -4914,7 +5236,7 @@ footer {
 </article>
 
 
-<!-- PROJECT 7 -->
+<!-- PROJECT 8 -->
 
 <article class="project project-featured reveal">
 
@@ -4922,7 +5244,7 @@ footer {
 <div class="project-top">
 
     <div class="project-number">
-        07 / HEALTHCARE ANALYTICS
+        08 / HEALTHCARE ANALYTICS
     </div>
 
     <div class="project-type">
@@ -5064,7 +5386,7 @@ footer {
 </article>
 
 
-<!-- PROJECT 8 -->
+<!-- PROJECT 9 -->
 
 <article class="project project-featured reveal">
 
@@ -5072,7 +5394,7 @@ footer {
 <div class="project-top">
 
     <div class="project-number">
-        08 / CRYPTO MARKET INTELLIGENCE
+        09 / CRYPTO MARKET INTELLIGENCE
     </div>
 
     <div class="project-type">
@@ -5218,6 +5540,7 @@ footer {
 
 </div>
 
+
 </div>
 
 </section>
@@ -5256,7 +5579,8 @@ footer {
 
     My work combines economic reasoning,
     causal identification, statistical methods,
-    and modern data science.
+    live data systems, APIs,
+    and modern decision support products.
 
 </p>
 
@@ -5281,10 +5605,12 @@ footer {
     <p>
 
         Regression discontinuity,
-        instrumental variables,
-        difference in differences,
-        event studies, and
-        treatment effect estimation.
+        instrumental variables / 2SLS,
+        staggered difference-in-differences,
+        event-study designs,
+        matching,
+        heterogeneous treatment effects,
+        and treatment effect estimation.
 
     </p>
 
@@ -5305,8 +5631,11 @@ footer {
     <p>
 
         Regression analysis, panel data,
-        fixed effects, longitudinal data,
-        empirical research, and
+        panel fixed effects,
+        two-way fixed effects,
+        clustered standard errors,
+        longitudinal data, robust inference,
+        model diagnostics, and
         policy evaluation.
 
     </p>
@@ -5328,8 +5657,10 @@ footer {
     <p>
 
         Statistical and causal machine learning,
+        double machine learning,
         predictive modeling, model evaluation,
-        and computational analysis.
+        feature engineering, and
+        computational analysis.
 
     </p>
 
@@ -5359,7 +5690,313 @@ footer {
 </article>
 
 
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        05
+    </div>
+
+    <h3>
+        Live Data Products
+    </h3>
+
+    <p>
+
+        Browser based products that connect
+        to live data streams, refresh metrics,
+        surface alerts, and turn raw public
+        data into usable analytical tools.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        06
+    </div>
+
+    <h3>
+        Applied Economics & Policy Analysis
+    </h3>
+
+    <p>
+
+        Economic reasoning applied to policy,
+        labor, healthcare, inflation, public
+        programs, market behavior, and
+        evidence based recommendations.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        07
+    </div>
+
+    <h3>
+        Data Engineering & APIs
+    </h3>
+
+    <p>
+
+        API integration, structured data
+        cleaning, endpoint design, JSON data
+        handling, public data ingestion, and
+        reliable dashboard-ready pipelines.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        08
+    </div>
+
+    <h3>
+        Decision Support Dashboards
+    </h3>
+
+    <p>
+
+        Premium dashboards that help users
+        compare options, monitor risk,
+        understand performance, and make
+        faster decisions from complex data.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        09
+    </div>
+
+    <h3>
+        Case Study Development
+    </h3>
+
+    <p>
+
+        End-to-end analytical stories that
+        define the problem, explain the data,
+        show the method, interpret results,
+        and communicate business value.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        10
+    </div>
+
+    <h3>
+        Backend & Deployment
+    </h3>
+
+    <p>
+
+        Node servers, lightweight API proxies,
+        GitHub Pages workflows, deployment
+        preparation, environment setup, and
+        production handoff documentation.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        11
+    </div>
+
+    <h3>
+        Health Economics & Outcomes Research
+    </h3>
+
+    <p>
+
+        Medicare analysis, hospital quality
+        metrics, readmission risk, utilization,
+        patient outcomes, and healthcare
+        decision intelligence.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        12
+    </div>
+
+    <h3>
+        Financial & Crypto Market Intelligence
+    </h3>
+
+    <p>
+
+        Market dashboards covering foreign
+        exchange, inflation, crypto liquidity,
+        bid-ask spreads, volatility, and
+        real-time trading signals.
+
+    </p>
+
+</article>
+
+
+
+<article class="expertise-card reveal">
+
+    <div class="expertise-number">
+        13
+    </div>
+
+    <h3>
+        Research Communication & Technical Writing
+    </h3>
+
+    <p>
+
+        Clear project documentation, README
+        writing, portfolio positioning,
+        analytical summaries, and professional
+        communication for technical audiences.
+
+    </p>
+
+</article>
+
+
 </div>
+
+
+<div class="skills-panel reveal" aria-label="Skills and research interests">
+
+    <div class="skills-panel-header">
+
+        <div>
+
+            <div class="section-label">
+                Skills
+            </div>
+
+            <h3>
+                Technical Methods & Research Interests
+            </h3>
+
+        </div>
+
+        <p>
+
+            A focused stack across causal inference,
+            statistical machine learning, programming,
+            visualization, and data-driven policy
+            evaluation.
+
+        </p>
+
+    </div>
+
+
+    <div class="skills-matrix">
+
+        <div class="skill-cluster">
+            <span>Econometrics and Causal Inference</span>
+            <div class="skill-chips">
+                <span class="skill-chip">Regression Discontinuity (Fuzzy RD)</span>
+                <span class="skill-chip">Instrumental Variables (IV/2SLS)</span>
+                <span class="skill-chip">Difference-in-Differences (DiD)</span>
+                <span class="skill-chip">Sun-Abraham Staggered DiD</span>
+                <span class="skill-chip">Event Studies</span>
+                <span class="skill-chip">Fixed Effects</span>
+                <span class="skill-chip">Panel Data</span>
+                <span class="skill-chip">Survey-Weighted Estimation</span>
+                <span class="skill-chip">Treatment Effect Heterogeneity</span>
+            </div>
+        </div>
+
+        <div class="skill-cluster">
+            <span>Machine Learning and Statistics</span>
+            <div class="skill-chips">
+                <span class="skill-chip">Causal Forests</span>
+                <span class="skill-chip">Generalized Random Forests</span>
+                <span class="skill-chip">Gradient Boosting</span>
+                <span class="skill-chip">Random Forests</span>
+                <span class="skill-chip">Neural Networks</span>
+                <span class="skill-chip">Logistic Regression</span>
+                <span class="skill-chip">Principal Component Analysis (PCA)</span>
+                <span class="skill-chip">Cross-Validation</span>
+            </div>
+        </div>
+
+        <div class="skill-cluster">
+            <span>Programming and Data</span>
+            <div class="skill-chips">
+                <span class="skill-chip">R</span>
+                <span class="skill-chip">Python</span>
+                <span class="skill-chip">SQL</span>
+                <span class="skill-chip">Stata</span>
+                <span class="skill-chip">JavaScript</span>
+            </div>
+        </div>
+
+        <div class="skill-cluster">
+            <span>Data Visualization and Tools</span>
+            <div class="skill-chips">
+                <span class="skill-chip">Power BI</span>
+                <span class="skill-chip">Excel</span>
+                <span class="skill-chip">Git</span>
+                <span class="skill-chip">Jupyter Notebook</span>
+                <span class="skill-chip">RStudio</span>
+            </div>
+        </div>
+
+        <div class="skill-cluster skill-cluster-wide">
+            <span>Research Interests</span>
+            <div class="skill-chips">
+                <span class="skill-chip">Causal Machine Learning</span>
+                <span class="skill-chip">Causal Inference</span>
+                <span class="skill-chip">Health Data Science</span>
+                <span class="skill-chip">Statistical Machine Learning</span>
+                <span class="skill-chip">Computational Social Science</span>
+                <span class="skill-chip">Applied Econometrics</span>
+                <span class="skill-chip">Data-Driven Policy Evaluation</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
 
 </div>
 
@@ -5398,7 +6035,7 @@ footer {
 <p class="section-intro">
 
     Academic training across economic analytics,
-    public administration, economics,
+    public administration, economics,Education
     and political science.
 
 </p>
@@ -5457,7 +6094,7 @@ footer {
 
 
 <div class="education-date">
-    SEP 2024 · AUG 2025
+    AUG 2024 · AUG 2025
 </div>
 
 
@@ -5468,7 +6105,7 @@ footer {
 
 <div class="education-degree">
 
-    Graduate Studies in Public Administration
+    Master of Professional Studies in Public Administration
 
 </div>
 
@@ -6346,7 +6983,7 @@ function updateScrollProgress() {
 ========================================================= */
 
 const portfolioIntro =
-    "Hello, welcome to Emmanuel Kuh's page. I am an applied economist and data scientist building live decision support products across health economics, transit intelligence, inflation monitoring, foreign exchange, and crypto market analytics. Explore the work section to see the featured projects.";
+    "Hello, welcome to Emmanuel's page. Explore how economic analytics, data science, machine learning, and backend engineering interact to solve real world problems through research, dashboards, live data products, and decision support tools.";
 
 
 let voiceIntroStarted =
@@ -6609,6 +7246,14 @@ if (voiceToggle) {
 }
 
 
+document.addEventListener(
+    "DOMContentLoaded",
+    () => scheduleVoiceIntro(
+        0
+    )
+);
+
+
 window.addEventListener(
     "load",
     () => {
@@ -6666,14 +7311,26 @@ if (window.speechSynthesis) {
 }
 
 
-scheduleVoiceIntro(
-    90
+[
+    0,
+    120,
+    420,
+    1000,
+    2200
+].forEach(
+    delay => scheduleVoiceIntro(
+        delay
+    )
 );
 
 
 [
     "pointerdown",
-    "keydown"
+    "touchstart",
+    "mousedown",
+    "click",
+    "keydown",
+    "scroll"
 ].forEach(
     eventName => {
 
@@ -6691,7 +7348,8 @@ scheduleVoiceIntro(
 
             },
             {
-                once: true
+                once: true,
+                passive: eventName !== "keydown"
             }
         );
 
