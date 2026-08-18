@@ -1758,7 +1758,8 @@ html[data-theme="scholar"] .theme-knob {
 .project:nth-child(6),
 .project:nth-child(7),
 .project:nth-child(8),
-.project:nth-child(9) {
+.project:nth-child(9),
+.project:nth-child(10) {
 
     grid-column: span 6;
 
@@ -2307,7 +2308,8 @@ html[data-theme="scholar"] .theme-knob {
 
 
 .healthcare-badges,
-.crypto-badges {
+.crypto-badges,
+.churn-badges {
 
     position: relative;
 
@@ -2465,6 +2467,166 @@ html[data-theme="scholar"] .theme-knob {
 .order-row.sell {
 
     background: rgba(239,68,68,.18);
+
+}
+
+
+.churn-visual {
+
+    background:
+        radial-gradient(
+            circle at 17% 18%,
+            rgba(91,140,255,.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 84% 15%,
+            rgba(247,185,85,.18),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            var(--surface-strong),
+            var(--surface)
+        );
+
+}
+
+
+.churn-board {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    padding:
+        18px 13px
+        13px;
+
+}
+
+
+.churn-segments {
+
+    display: grid;
+
+    gap: 7px;
+
+}
+
+
+.churn-segment {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        54px;
+
+    gap: 8px;
+
+    align-items: center;
+
+    padding: 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.04);
+
+}
+
+
+.churn-segment span {
+
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.churn-segment strong {
+
+    color: var(--blue);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    text-align: right;
+
+}
+
+
+.churn-lift {
+
+    position: relative;
+
+    min-height: 118px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 7px;
+
+    padding:
+        12px 10px
+        10px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: var(--surface-strong);
+
+}
+
+
+.lift-bar {
+
+    width: 18%;
+
+    min-width: 16px;
+
+    border-radius:
+        999px 999px 6px 6px;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--blue),
+            var(--cyan)
+        );
+
+    box-shadow:
+        0 10px 28px
+        rgba(37,99,235,.18);
+
+}
+
+
+.lift-bar.hot {
+
+    background:
+        linear-gradient(
+            to top,
+            var(--amber),
+            var(--red)
+        );
 
 }
 
@@ -4559,7 +4721,7 @@ footer {
 
 
 <h3>
-    Graduate Assistant & Graduate Student Association Vice President — College of Business and Economics
+    Graduate Assistant & Graduate Student Association Vice President â€” College of Business and Economics
 </h3>
 
 
@@ -5711,6 +5873,170 @@ footer {
 
     <span class="tag">
         MARKET MICROSTRUCTURE
+    </span>
+
+</div>
+
+
+</div>
+
+</article>
+
+
+<!-- PROJECT 10 -->
+
+<article class="project project-featured reveal">
+
+
+<div class="project-top">
+
+    <div class="project-number">
+        10 / MACHINE LEARNING & CUSTOMER ANALYTICS
+    </div>
+
+    <div class="project-type">
+        Predictive Modeling Case Study
+    </div>
+
+</div>
+
+
+<div class="project-content">
+
+
+<h3>
+    Customer Churn Intelligence
+</h3>
+
+
+<p>
+
+    A machine learning case study analyzing
+    10,000 bank customers with exploratory analysis,
+    supervised classification, threshold tuning,
+    feature importance, and K-Means customer
+    segmentation to identify high-risk churn profiles
+    and support retention strategy.
+
+</p>
+
+
+<div class="project-dashboard-preview" aria-label="Customer Churn Intelligence machine learning preview">
+
+    <div class="preview-metric">
+        <span>Best model</span>
+        <strong>Gradient Boosting</strong>
+    </div>
+
+    <div class="preview-metric">
+        <span>ROC-AUC</span>
+        <strong>0.871</strong>
+    </div>
+
+    <div class="preview-metric">
+        <span>PR-AUC</span>
+        <strong>0.721</strong>
+    </div>
+
+</div>
+
+
+<div class="project-stats" aria-label="Customer Churn Intelligence highlights">
+
+    <div class="project-stat">
+        <span>Data</span>
+        <strong>10,000 customers</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Churn rate</span>
+        <strong>20.37%</strong>
+    </div>
+
+    <div class="project-stat">
+        <span>Segmentation</span>
+        <strong>4 risk groups</strong>
+    </div>
+
+</div>
+
+
+<div
+    class="project-visual churn-visual"
+    role="img"
+    aria-label="Customer Churn Intelligence preview showing churn risk segments and model lift"
+>
+
+    <div class="visual-header">
+        <span>CHURN RISK MODEL</span>
+        <strong>Retention targeting view</strong>
+    </div>
+
+    <div class="churn-board">
+
+        <div class="churn-segments">
+            <div class="churn-segment">
+                <span>Older High-Risk</span>
+                <strong>36.29%</strong>
+            </div>
+
+            <div class="churn-segment">
+                <span>Inactive High-Balance</span>
+                <strong>28.58%</strong>
+            </div>
+
+            <div class="churn-segment">
+                <span>Multi-Product Low-Balance</span>
+                <strong>11.92%</strong>
+            </div>
+        </div>
+
+        <div class="churn-lift" aria-hidden="true">
+            <span class="lift-bar" style="height:38%"></span>
+            <span class="lift-bar" style="height:52%"></span>
+            <span class="lift-bar hot" style="height:77%"></span>
+            <span class="lift-bar hot" style="height:94%"></span>
+        </div>
+
+    </div>
+
+    <div class="churn-badges">
+        <span class="visual-badge">Threshold tuning</span>
+        <span class="visual-badge">Feature importance</span>
+        <span class="visual-badge">Retention strategy</span>
+    </div>
+
+</div>
+
+
+<div class="tags">
+
+    <span class="tag">
+        PYTHON
+    </span>
+
+    <span class="tag">
+        SCIKIT-LEARN
+    </span>
+
+    <span class="tag">
+        GRADIENT BOOSTING
+    </span>
+
+    <span class="tag">
+        RANDOM FOREST
+    </span>
+
+    <span class="tag">
+        NEURAL NETWORKS
+    </span>
+
+    <span class="tag">
+        K-MEANS
+    </span>
+
+    <span class="tag">
+        THRESHOLD ANALYSIS
     </span>
 
 </div>
@@ -7688,3 +8014,4 @@ if (canHover) {
 </body>
 
 </html>
+
