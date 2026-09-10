@@ -5289,6 +5289,589 @@ html[data-theme="dark"] .theme-option-scholar { background: #2563eb !important; 
     }
 }
 
+
+
+/* =========================================================
+   FINAL PHONE-SAFE PROFESSIONAL PATCH
+   Stops horizontal dragging and tightens the mobile layout.
+========================================================= */
+
+html,
+body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+body {
+    position: relative !important;
+}
+
+main,
+header,
+footer,
+section,
+.nav-shell,
+.hero,
+.focus-strip,
+.tiger-section,
+.contact-panel,
+.project,
+.expertise-card,
+.education-card,
+.award-card,
+.about-item,
+.idea-form {
+    max-width: 100% !important;
+}
+
+.nav-shell,
+.hero,
+.section,
+.focus-strip,
+.tiger-section,
+.contact-panel {
+    overflow-x: clip !important;
+}
+
+@supports not (overflow-x: clip) {
+    .nav-shell,
+    .hero,
+    .section,
+    .focus-strip,
+    .tiger-section,
+    .contact-panel {
+        overflow-x: hidden !important;
+    }
+}
+
+img,
+svg,
+canvas,
+video,
+iframe {
+    max-width: 100% !important;
+}
+
+.contact-card strong,
+.contact-card span,
+.project-content h3,
+.project-content p,
+.hero-description,
+.command-card strong,
+.command-card em,
+.profile-content h3,
+.profile-content p {
+    overflow-wrap: anywhere !important;
+}
+
+html[data-theme="scholar"] .focus,
+html[data-theme="dark"] .focus {
+    color: #f8fafc !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 14px rgba(255, 194, 10, .28) !important;
+}
+
+html[data-theme="scholar"] .focus-strip,
+html[data-theme="dark"] .focus-strip {
+    background: #050505 !important;
+    border-bottom: 3px solid #ffc20a !important;
+}
+
+html[data-theme="scholar"] .btn:hover,
+html[data-theme="scholar"] .btn:focus-visible,
+html[data-theme="scholar"] .project-link:hover,
+html[data-theme="scholar"] .project-link:focus-visible,
+html[data-theme="scholar"] .contact-link:hover,
+html[data-theme="scholar"] .contact-link:focus-visible,
+html[data-theme="scholar"] .form-submit:hover,
+html[data-theme="scholar"] .form-submit:focus-visible {
+    background: #ffc20a !important;
+    border-color: #ffc20a !important;
+    color: #080808 !important;
+    outline: 3px solid rgba(8, 8, 8, .26) !important;
+    outline-offset: 3px !important;
+}
+
+html[data-theme="light"] {
+    --bg: #f4f7fb;
+    --bg-secondary: #ffffff;
+    --text: #09111f;
+    --text-secondary: #344256;
+    --muted: #66758a;
+    --blue: #173b63;
+    --cyan: #2563eb;
+    --green: #047857;
+    --amber: #c88a1a;
+    --border-accent: rgba(37, 99, 235, .30);
+}
+
+html[data-theme="light"] body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(37, 99, 235, .10), transparent 28%),
+        radial-gradient(circle at 88% 16%, rgba(200, 138, 26, .11), transparent 30%),
+        linear-gradient(135deg, #f4f7fb, #ffffff 58%, #f8f3e8) !important;
+}
+
+html[data-theme="light"] .brand-mark,
+html[data-theme="light"] .btn-primary,
+html[data-theme="light"] .project-link.primary,
+html[data-theme="light"] .form-submit,
+html[data-theme="light"] .project-type,
+html[data-theme="light"] .education-badge {
+    background: linear-gradient(135deg, #173b63, #2563eb) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+html[data-theme="light"] .hero-overline,
+html[data-theme="light"] .section-label,
+html[data-theme="light"] .project-number,
+html[data-theme="light"] .award-year,
+html[data-theme="light"] .education-date,
+html[data-theme="light"] .about-label,
+html[data-theme="light"] .preview-metric strong,
+html[data-theme="light"] .project-stat strong,
+html[data-theme="light"] .expertise-number {
+    color: #173b63 !important;
+}
+
+html[data-theme="light"] footer {
+    background: #09111f !important;
+    border-top-color: #2563eb !important;
+}
+
+@media (max-width: 900px) {
+    .container,
+    .navbar {
+        width: calc(100% - 28px) !important;
+        max-width: calc(100vw - 28px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .contact-grid,
+    .education-grid,
+    .awards-grid,
+    .expertise-grid,
+    .tiger-panel,
+    .form-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .hero-text,
+    .profile-area,
+    .profile-card,
+    .contact-content,
+    .idea-form,
+    .contact-card,
+    .project,
+    .project-content,
+    .project-top,
+    .about-copy,
+    .about-side {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .profile-area,
+    .profile-card {
+        justify-self: start !important;
+        max-width: 430px !important;
+    }
+
+    .hero-command {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .command-card {
+        min-height: auto !important;
+        width: 100% !important;
+    }
+
+    .command-card:nth-child(4) strong {
+        font-size: clamp(23px, 7.4vw, 34px) !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        scroll-padding-top: 156px !important;
+    }
+
+    body {
+        min-width: 0 !important;
+    }
+
+    body::after,
+    .hero::before,
+    .contact-panel::after,
+    html[data-theme="scholar"] body::after,
+    html[data-theme="scholar"] .hero::before {
+        display: none !important;
+    }
+
+    .nav-shell {
+        position: sticky !important;
+        top: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .navbar {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 12px !important;
+        padding: 12px !important;
+        overflow: hidden !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell {
+        padding-top: 8px !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell::before {
+        height: 4px !important;
+    }
+
+    html[data-theme="scholar"] .brand::before {
+        display: none !important;
+    }
+
+    .brand {
+        min-width: 0 !important;
+        width: 100% !important;
+        padding-right: 0 !important;
+    }
+
+    .brand-name {
+        min-width: 0 !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    .nav-right {
+        width: 100% !important;
+        min-width: 0 !important;
+        align-items: stretch !important;
+    }
+
+    .nav-links {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .nav-link,
+    html[data-theme="scholar"] .nav-link {
+        min-width: 0 !important;
+        width: 100% !important;
+        padding: 10px 8px !important;
+        text-align: center !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px !important;
+        font-size: 12px !important;
+    }
+
+    html[data-theme="scholar"] .nav-link {
+        border-radius: 0 !important;
+    }
+
+    .theme-toggle {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: space-between !important;
+    }
+
+    .theme-label {
+        text-align: left !important;
+    }
+
+    .menu-toggle {
+        width: 48px !important;
+        justify-self: end !important;
+    }
+
+    .hero,
+    html[data-theme="scholar"] .hero {
+        padding-top: 42px !important;
+        padding-bottom: 48px !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 14.5vw, 70px) !important;
+        line-height: .96 !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    .hero-role {
+        font-size: clamp(21px, 6.5vw, 30px) !important;
+    }
+
+    .hero-description,
+    .section-intro,
+    .contact-copy {
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+    }
+
+    .actions,
+    .project-links,
+    .form-actions {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+    }
+
+    .btn,
+    .project-link,
+    .form-submit {
+        width: 100% !important;
+        min-width: 0 !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .contact-panel {
+        padding-left: clamp(18px, 5vw, 28px) !important;
+        padding-right: clamp(18px, 5vw, 28px) !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .contact-grid {
+        gap: 12px !important;
+    }
+
+    .contact-card {
+        display: grid !important;
+        width: 100% !important;
+    }
+
+    .idea-form {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    .form-field,
+    .form-field.full,
+    .form-field input,
+    .form-field textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .focus-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .focus {
+        min-height: 56px !important;
+        padding: 14px 10px !important;
+    }
+
+    .section {
+        padding-top: 54px !important;
+        padding-bottom: 54px !important;
+    }
+
+    .footer-inner,
+    .footer-links {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .container,
+    .navbar {
+        width: calc(100% - 22px) !important;
+        max-width: calc(100vw - 22px) !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 14vw, 62px) !important;
+    }
+
+    .nav-links {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+
+/* =========================================================
+   FINAL FOOTER FIT PATCH
+   Presentation only. Keeps all footer text and links unchanged.
+========================================================= */
+footer {
+    position: relative !important;
+    z-index: 20 !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding-left: max(18px, env(safe-area-inset-left)) !important;
+    padding-right: max(18px, env(safe-area-inset-right)) !important;
+}
+
+footer::before,
+footer::after {
+    display: none !important;
+    content: none !important;
+}
+
+footer .container,
+.footer-inner,
+.footer-links {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: min(1180px, calc(100vw - 36px)) !important;
+    min-width: 0 !important;
+}
+
+.footer-inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 18px !important;
+}
+
+.footer-inner > * {
+    min-width: 0 !important;
+}
+
+.footer-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.footer-links a {
+    position: relative !important;
+    z-index: 3 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 42px !important;
+    padding: 10px 12px !important;
+    border-radius: 999px !important;
+    color: currentColor !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+}
+
+html[data-theme="dark"] footer {
+    background: #050914 !important;
+    color: #e5edf8 !important;
+    border-top: 1px solid rgba(96, 165, 250, .26) !important;
+}
+
+html[data-theme="scholar"] footer {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-top: 4px solid #ffc20a !important;
+}
+
+html[data-theme="light"] footer {
+    background: #09111f !important;
+    color: #ffffff !important;
+    border-top: 3px solid #2563eb !important;
+}
+
+html[data-theme="dark"] .footer-links a,
+html[data-theme="light"] .footer-links a {
+    background: rgba(255, 255, 255, .06) !important;
+    border: 1px solid rgba(255, 255, 255, .13) !important;
+}
+
+html[data-theme="scholar"] .footer-links a {
+    background: #0b0b0b !important;
+    border: 1px solid rgba(255, 194, 10, .55) !important;
+    color: #ffffff !important;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    transform: translateY(-1px) !important;
+    outline: 3px solid rgba(255, 194, 10, .28) !important;
+    outline-offset: 3px !important;
+}
+
+html[data-theme="dark"] .footer-links a:hover,
+html[data-theme="dark"] .footer-links a:focus-visible,
+html[data-theme="light"] .footer-links a:hover,
+html[data-theme="light"] .footer-links a:focus-visible {
+    color: #ffffff !important;
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+}
+
+html[data-theme="scholar"] .footer-links a:hover,
+html[data-theme="scholar"] .footer-links a:focus-visible {
+    color: #090909 !important;
+    background: #ffc20a !important;
+    border-color: #ffc20a !important;
+}
+
+@media (max-width: 720px) {
+    footer {
+        padding-top: 24px !important;
+        padding-bottom: calc(28px + env(safe-area-inset-bottom)) !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .footer-inner {
+        width: 100% !important;
+        max-width: calc(100vw - 28px) !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        gap: 14px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .footer-links {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        justify-content: stretch !important;
+        gap: 10px !important;
+    }
+
+    .footer-links a {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 46px !important;
+        padding: 12px 10px !important;
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .footer-links {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 </style>
 
 </head>
