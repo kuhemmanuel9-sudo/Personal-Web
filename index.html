@@ -37,7 +37,7 @@
 (function () {
 
     const savedTheme =
-        localStorage.getItem("ek-theme-towson-default-v2");
+        localStorage.getItem("ek-theme-towson-default-v3");
 
     const validThemes =
         [
@@ -7864,6 +7864,738 @@ html[data-theme="dark"] .gradient-text {
     }
 }
 
+
+
+/* =========================================================
+   FINAL PHONE SAME-DESIGN PATCH
+   Laptop design remains unchanged. Phones keep the same
+   Towson and Dark identity without sideways pull.
+========================================================= */
+@media (max-width: 900px) {
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    body {
+        min-width: 0 !important;
+    }
+
+    body::after,
+    html[data-theme="scholar"] body::after,
+    html[data-theme="dark"] body::after,
+    html[data-theme="light"] body::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .container {
+        width: min(100% - 26px, 1180px) !important;
+        max-width: calc(100vw - 26px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    section,
+    main,
+    header,
+    footer,
+    .hero,
+    .section,
+    .focus-strip,
+    .contact-panel,
+    .project,
+    .profile-card,
+    .hero-command,
+    .actions,
+    .footer-inner,
+    .footer-links {
+        max-width: 100% !important;
+        overflow-x: clip !important;
+    }
+
+    .nav-shell,
+    html[data-theme="scholar"] .nav-shell,
+    html[data-theme="dark"] .nav-shell,
+    html[data-theme="light"] .nav-shell {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+        overflow: visible !important;
+    }
+
+    .navbar,
+    html[data-theme="scholar"] .navbar,
+    html[data-theme="dark"] .navbar,
+    html[data-theme="light"] .navbar {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        overflow: visible !important;
+    }
+
+    .brand,
+    html[data-theme="scholar"] .brand,
+    html[data-theme="dark"] .brand,
+    html[data-theme="light"] .brand {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        display: inline-block !important;
+        min-width: 0 !important;
+        max-width: clamp(94px, 34vw, 172px) !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    .nav-right,
+    html[data-theme="scholar"] .nav-right,
+    html[data-theme="dark"] .nav-right,
+    html[data-theme="light"] .nav-right {
+        width: auto !important;
+        min-width: 0 !important;
+        flex: 0 0 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+        position: relative !important;
+    }
+
+    .menu-toggle,
+    html[data-theme="scholar"] .menu-toggle,
+    html[data-theme="dark"] .menu-toggle,
+    html[data-theme="light"] .menu-toggle {
+        display: inline-flex !important;
+        flex: 0 0 42px !important;
+        width: 42px !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle,
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="light"] .theme-toggle {
+        position: static !important;
+        flex: 0 0 106px !important;
+        width: 106px !important;
+        min-width: 106px !important;
+        max-width: 106px !important;
+        min-height: 40px !important;
+        padding: 0 7px 0 9px !important;
+        gap: 6px !important;
+    }
+
+    .theme-label,
+    html[data-theme="scholar"] .theme-label,
+    html[data-theme="dark"] .theme-label,
+    html[data-theme="light"] .theme-label {
+        max-width: 42px !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 11px !important;
+        text-align: left !important;
+    }
+
+    .theme-track,
+    html[data-theme="scholar"] .theme-track,
+    html[data-theme="dark"] .theme-track,
+    html[data-theme="light"] .theme-track {
+        width: 58px !important;
+        height: 26px !important;
+        flex: 0 0 58px !important;
+        padding: 3px !important;
+        gap: 2px !important;
+    }
+
+    .theme-knob {
+        top: 3px !important;
+        left: 3px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    html[data-theme="scholar"] .theme-knob {
+        transform: translateX(0) !important;
+    }
+
+    html[data-theme="dark"] .theme-knob {
+        transform: translateX(18px) !important;
+    }
+
+    html[data-theme="light"] .theme-knob {
+        transform: translateX(36px) !important;
+    }
+
+    .nav-links,
+    html[data-theme="scholar"] .nav-links,
+    html[data-theme="dark"] .nav-links,
+    html[data-theme="light"] .nav-links {
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        right: 0 !important;
+        left: auto !important;
+        width: min(320px, calc(100vw - 24px)) !important;
+        max-width: calc(100vw - 24px) !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-8px) !important;
+        z-index: 50 !important;
+    }
+
+    .nav-links.open,
+    html[data-theme="scholar"] .nav-links.open,
+    html[data-theme="dark"] .nav-links.open,
+    html[data-theme="light"] .nav-links.open {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    .nav-link,
+    html[data-theme="scholar"] .nav-link,
+    html[data-theme="dark"] .nav-link,
+    html[data-theme="light"] .nav-link {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 13px 16px !important;
+        text-align: left !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 900px) {
+    html[data-theme="scholar"] .nav-shell {
+        padding: 36px 0 0 !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #deded8 !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .10) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell::before {
+        display: block !important;
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 0 auto 0 !important;
+        height: 36px !important;
+        background: #050505 !important;
+        border-bottom: 3px solid #ffc20a !important;
+        z-index: 0 !important;
+    }
+
+    html[data-theme="scholar"] .navbar {
+        min-height: 74px !important;
+        padding: 0 10px !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+    }
+
+    html[data-theme="scholar"] .navbar::before {
+        display: block !important;
+        content: "" !important;
+        position: absolute !important;
+        left: -38px !important;
+        top: 0 !important;
+        width: min(198px, 50vw) !important;
+        height: 74px !important;
+        background: linear-gradient(124deg, #ffc20a 0 54%, transparent 54% 100%) !important;
+        clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%) !important;
+        opacity: .98 !important;
+        z-index: -1 !important;
+    }
+
+    html[data-theme="scholar"] .brand {
+        min-height: 74px !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+
+    html[data-theme="scholar"] .brand-mark {
+        width: 46px !important;
+        height: 46px !important;
+        flex-basis: 46px !important;
+        border-radius: 0 !important;
+        background: #050505 !important;
+        color: #ffc20a !important;
+        box-shadow: none !important;
+    }
+
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="scholar"] .brand-dot {
+        color: #050505 !important;
+        -webkit-text-fill-color: currentColor !important;
+        font-size: 15px !important;
+        font-weight: 900 !important;
+        line-height: 1.08 !important;
+    }
+
+    html[data-theme="scholar"] .theme-toggle {
+        background: #ffffff !important;
+        color: #050505 !important;
+        border: 1px solid rgba(0, 0, 0, .15) !important;
+        border-radius: 999px !important;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .11) !important;
+    }
+
+    html[data-theme="scholar"] .menu-toggle {
+        background: #ffffff !important;
+        color: #050505 !important;
+        border: 1px solid rgba(0, 0, 0, .15) !important;
+        border-radius: 999px !important;
+    }
+
+    html[data-theme="scholar"] .menu-lines span {
+        background: #050505 !important;
+    }
+
+    html[data-theme="scholar"] .nav-links {
+        padding: 0 !important;
+        border: 1px solid rgba(0, 0, 0, .14) !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, .18) !important;
+    }
+
+    html[data-theme="scholar"] .nav-link {
+        border: 0 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, .10) !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        color: #050505 !important;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+    }
+
+    html[data-theme="scholar"] .nav-link:hover,
+    html[data-theme="scholar"] .nav-link.active,
+    html[data-theme="scholar"] .nav-link:focus-visible {
+        background: #fff8dc !important;
+        color: #050505 !important;
+        border-bottom-color: rgba(0, 0, 0, .10) !important;
+    }
+
+    html[data-theme="scholar"] .hero {
+        position: relative !important;
+        padding: 46px 0 46px !important;
+        background: #ffffff !important;
+        color: #050505 !important;
+        text-align: left !important;
+        overflow: hidden !important;
+    }
+
+    html[data-theme="scholar"] .hero::before {
+        display: block !important;
+        content: "" !important;
+        position: absolute !important;
+        right: -116px !important;
+        bottom: 0 !important;
+        width: 300px !important;
+        height: 105px !important;
+        background: linear-gradient(118deg, transparent 0 32%, #ffc20a 32% 56%, transparent 56% 64%, rgba(138, 97, 0, .38) 64% 68%, transparent 68%) !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+    }
+
+    html[data-theme="scholar"] .hero-grid {
+        position: relative !important;
+        z-index: 1 !important;
+        display: block !important;
+    }
+
+    html[data-theme="scholar"] .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        text-align: left !important;
+    }
+
+    html[data-theme="scholar"] .status {
+        display: inline-flex !important;
+        max-width: 100% !important;
+        margin-bottom: 30px !important;
+        padding: 10px 12px !important;
+        border-radius: 0 !important;
+        background: #050505 !important;
+        color: #ffffff !important;
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    html[data-theme="scholar"] .hero-overline {
+        color: #9b6a00 !important;
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+    }
+
+    html[data-theme="scholar"] .gradient-text,
+    html[data-theme="scholar"] .hero h1,
+    html[data-theme="scholar"] .hero-role {
+        color: #050505 !important;
+        background: none !important;
+        -webkit-text-fill-color: currentColor !important;
+        font-family: Georgia, "Times New Roman", serif !important;
+    }
+
+    html[data-theme="scholar"] .hero h1 {
+        font-size: clamp(42px, 15vw, 70px) !important;
+        line-height: 1.02 !important;
+        letter-spacing: 0 !important;
+        word-break: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    html[data-theme="scholar"] .hero-role {
+        margin-top: 22px !important;
+        font-size: clamp(23px, 7.5vw, 34px) !important;
+        line-height: 1.18 !important;
+    }
+
+    html[data-theme="scholar"] .hero-description {
+        max-width: 100% !important;
+        font-size: 16px !important;
+        line-height: 1.72 !important;
+        color: #1f2937 !important;
+    }
+
+    html[data-theme="scholar"] .hero-command {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    html[data-theme="scholar"] .command-card {
+        min-width: 0 !important;
+        min-height: 118px !important;
+        padding: 16px 14px !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        border: 1px solid #d8d8d3 !important;
+        box-shadow: none !important;
+    }
+
+    html[data-theme="scholar"] .command-card strong {
+        font-size: clamp(28px, 9vw, 46px) !important;
+        line-height: 1 !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+    }
+
+    html[data-theme="scholar"] .command-card:nth-child(4) strong {
+        font-family: Inter, Arial, Helvetica, sans-serif !important;
+        font-size: clamp(24px, 6.5vw, 32px) !important;
+    }
+
+    html[data-theme="scholar"] .actions {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    html[data-theme="scholar"] .btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 48px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        border-radius: 0 !important;
+    }
+}
+
+@media (max-width: 900px) {
+    html[data-theme="dark"] .nav-shell {
+        padding: 8px 0 !important;
+        background: rgba(5, 8, 18, .90) !important;
+        border-bottom: 1px solid rgba(91, 140, 255, .18) !important;
+        box-shadow: 0 18px 42px rgba(0, 0, 0, .32) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+    }
+
+    html[data-theme="dark"] .navbar {
+        min-height: 60px !important;
+        padding: 8px !important;
+        border-radius: 18px !important;
+        border: 1px solid transparent !important;
+        background:
+            linear-gradient(115deg, rgba(18, 36, 62, .92), rgba(22, 22, 44, .90) 54%, rgba(36, 30, 42, .92)) padding-box,
+            linear-gradient(115deg, #5b8cff, #2dd4ff, #8b6cff, #ffc20a) border-box !important;
+        box-shadow: 0 24px 76px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .06) !important;
+    }
+
+    html[data-theme="dark"] .brand-mark {
+        background: linear-gradient(135deg, #5b8cff, #8b6cff) !important;
+        color: #ffffff !important;
+    }
+
+    html[data-theme="dark"] .brand-name {
+        color: #f8fafc !important;
+        -webkit-text-fill-color: currentColor !important;
+    }
+
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="dark"] .menu-toggle {
+        background: rgba(6, 13, 28, .78) !important;
+        border-color: rgba(255, 255, 255, .14) !important;
+        color: #ffffff !important;
+        border-radius: 999px !important;
+    }
+
+    html[data-theme="dark"] .menu-lines span {
+        background: #ffffff !important;
+    }
+
+    html[data-theme="dark"] .nav-links {
+        padding: 10px !important;
+        border: 1px solid rgba(186, 206, 239, .16) !important;
+        border-radius: 16px !important;
+        background: rgba(9, 17, 33, .98) !important;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, .45) !important;
+    }
+
+    html[data-theme="dark"] .nav-link {
+        border: 1px solid rgba(186, 206, 239, .12) !important;
+        border-radius: 10px !important;
+        background: rgba(255, 255, 255, .045) !important;
+        color: #e5edf8 !important;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+    }
+
+    html[data-theme="dark"] .nav-link:hover,
+    html[data-theme="dark"] .nav-link.active,
+    html[data-theme="dark"] .nav-link:focus-visible {
+        background: rgba(91, 140, 255, .18) !important;
+        color: #ffffff !important;
+    }
+
+    html[data-theme="dark"] .hero {
+        padding: 50px 0 54px !important;
+        background:
+            radial-gradient(circle at 16% 0%, rgba(45, 212, 255, .14), transparent 34%),
+            radial-gradient(circle at 82% 4%, rgba(139, 108, 255, .13), transparent 32%),
+            linear-gradient(180deg, #070a12 0%, #0a101b 52%, #070a12 100%) !important;
+        color: #f8fafc !important;
+        text-align: center !important;
+        overflow: hidden !important;
+    }
+
+    html[data-theme="dark"] .hero::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    html[data-theme="dark"] .hero-grid {
+        display: block !important;
+    }
+
+    html[data-theme="dark"] .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+    }
+
+    html[data-theme="dark"] .status {
+        display: inline-flex !important;
+        max-width: 100% !important;
+        margin-bottom: 28px !important;
+        padding: 10px 12px !important;
+        border-radius: 999px !important;
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    html[data-theme="dark"] .hero h1 {
+        font-size: clamp(46px, 16vw, 76px) !important;
+        line-height: .96 !important;
+        text-align: center !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    html[data-theme="dark"] .gradient-text {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #38bdf8 0%, #5b8cff 45%, #a78bfa 100%) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        color: transparent !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+
+    html[data-theme="dark"] .hero-role {
+        font-size: clamp(24px, 7vw, 36px) !important;
+        line-height: 1.15 !important;
+        color: #c8d3e4 !important;
+    }
+
+    html[data-theme="dark"] .hero-description {
+        max-width: 100% !important;
+        font-size: 16px !important;
+        line-height: 1.72 !important;
+        color: #9fb0ca !important;
+    }
+
+    html[data-theme="dark"] .hero-command {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    html[data-theme="dark"] .command-card {
+        min-width: 0 !important;
+        min-height: 118px !important;
+        padding: 16px 14px !important;
+        border-radius: 14px !important;
+    }
+
+    html[data-theme="dark"] .command-card strong {
+        font-size: clamp(28px, 9vw, 46px) !important;
+        line-height: 1 !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+    }
+
+    html[data-theme="dark"] .command-card:nth-child(4) strong {
+        font-size: clamp(24px, 6.5vw, 32px) !important;
+    }
+
+    html[data-theme="dark"] .actions {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    html[data-theme="dark"] .btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 48px !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100vw - 22px) !important;
+        max-width: calc(100vw - 22px) !important;
+    }
+
+    .navbar,
+    html[data-theme="scholar"] .navbar,
+    html[data-theme="dark"] .navbar,
+    html[data-theme="light"] .navbar {
+        width: calc(100vw - 18px) !important;
+        max-width: calc(100vw - 18px) !important;
+        gap: 6px !important;
+    }
+
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        max-width: 104px !important;
+        font-size: 12px !important;
+    }
+
+    html[data-theme="scholar"] .brand-name {
+        font-size: 14px !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle,
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="light"] .theme-toggle {
+        flex-basis: 98px !important;
+        width: 98px !important;
+        min-width: 98px !important;
+        max-width: 98px !important;
+    }
+
+    .theme-label,
+    html[data-theme="scholar"] .theme-label,
+    html[data-theme="dark"] .theme-label,
+    html[data-theme="light"] .theme-label {
+        max-width: 34px !important;
+    }
+
+    .theme-track,
+    html[data-theme="scholar"] .theme-track,
+    html[data-theme="dark"] .theme-track,
+    html[data-theme="light"] .theme-track {
+        width: 56px !important;
+        flex-basis: 56px !important;
+    }
+
+    .menu-toggle,
+    html[data-theme="scholar"] .menu-toggle,
+    html[data-theme="dark"] .menu-toggle,
+    html[data-theme="light"] .menu-toggle {
+        flex-basis: 40px !important;
+        width: 40px !important;
+    }
+
+    html[data-theme="scholar"] .hero-command,
+    html[data-theme="dark"] .hero-command,
+    html[data-theme="scholar"] .actions,
+    html[data-theme="dark"] .actions {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        display: none !important;
+    }
+}
+
 </style>
 
 </head>
@@ -10961,7 +11693,7 @@ function normalizeTheme(theme) {
 function getThemeChoice() {
 
     return normalizeTheme(
-        localStorage.getItem("ek-theme-towson-default-v2")
+        localStorage.getItem("ek-theme-towson-default-v3")
     );
 
 }
@@ -10979,7 +11711,7 @@ function setTheme(theme) {
     );
 
 
-    localStorage.setItem("ek-theme-towson-default-v2",
+    localStorage.setItem("ek-theme-towson-default-v3",
         actual
     );
 
