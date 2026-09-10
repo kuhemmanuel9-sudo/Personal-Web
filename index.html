@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="scholar">
 
 <head>
 
@@ -17,7 +17,7 @@
 
 <meta name="google-site-verification" content="DsOT2e5ZrYvwt489rJI0HLjzVQ8tVnJ6aXQoI77GzOY" />
 
-<meta name="theme-color" content="#070A12">
+<meta name="theme-color" content="#ffffff">
 
 <title>Emmanuel Kuh | Applied Economist & Data Scientist</title>
 
@@ -37,19 +37,19 @@
 (function () {
 
     const savedTheme =
-        localStorage.getItem("ek-theme");
+        localStorage.getItem("ek-theme-towson-default-v2");
 
     const validThemes =
         [
-            "light",
+            "scholar",
             "dark",
-            "scholar"
+            "light"
         ];
 
     const activeTheme =
         validThemes.includes(savedTheme)
             ? savedTheme
-            : "dark";
+            : "scholar";
 
     document.documentElement.setAttribute(
         "data-theme",
@@ -5872,6 +5872,1998 @@ html[data-theme="scholar"] .footer-links a:focus-visible {
     }
 }
 
+
+
+/* =========================================================
+   FINAL PREMIUM SECOND COLOR AND PHONE LAYOUT PATCH
+   Visual layer only. Keeps all portfolio content unchanged.
+========================================================= */
+html[data-theme="scholar"] {
+    color-scheme: dark !important;
+    --bg: #050812 !important;
+    --bg-secondary: #091426 !important;
+    --surface: rgba(15, 27, 48, .72) !important;
+    --surface-strong: rgba(18, 33, 58, .96) !important;
+    --text: #f8fafc !important;
+    --text-secondary: #c8d3e4 !important;
+    --muted: #91a0b7 !important;
+    --blue: #5b8cff !important;
+    --cyan: #2dd4ff !important;
+    --violet: #8b6cff !important;
+    --green: #22c98b !important;
+    --amber: #ffc20a !important;
+    --blue-soft: rgba(91, 140, 255, .16) !important;
+    --green-soft: rgba(34, 201, 139, .13) !important;
+    --amber-soft: rgba(255, 194, 10, .15) !important;
+    --border: rgba(186, 206, 239, .16) !important;
+    --border-accent: rgba(255, 194, 10, .45) !important;
+    --nav: rgba(18, 36, 62, .78) !important;
+    --grid: rgba(148, 163, 184, .052) !important;
+    --shadow: 0 22px 70px rgba(0, 0, 0, .34) !important;
+    --shadow-large: 0 42px 110px rgba(0, 0, 0, .48) !important;
+}
+
+html[data-theme="scholar"],
+html[data-theme="scholar"] body {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(45, 212, 255, .14), transparent 34%),
+        radial-gradient(circle at 82% 5%, rgba(255, 194, 10, .13), transparent 32%),
+        linear-gradient(180deg, #050812 0%, #081326 44%, #04060d 100%) !important;
+    color: var(--text) !important;
+}
+
+html[data-theme="scholar"] body::before {
+    background-image:
+        linear-gradient(rgba(148, 163, 184, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, .045) 1px, transparent 1px) !important;
+}
+
+html[data-theme="scholar"] body::after,
+html[data-theme="scholar"] .hero::before,
+html[data-theme="scholar"] .brand::before {
+    display: none !important;
+    content: none !important;
+}
+
+html[data-theme="scholar"] .nav-shell {
+    position: fixed !important;
+    top: 17px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="scholar"] .nav-shell::before {
+    display: none !important;
+    content: none !important;
+}
+
+html[data-theme="scholar"] .navbar {
+    width: min(1180px, calc(100% - 30px)) !important;
+    max-width: calc(100vw - 30px) !important;
+    min-height: 68px !important;
+    margin-inline: auto !important;
+    padding: 9px 11px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    border: 1px solid transparent !important;
+    border-radius: 18px !important;
+    background:
+        linear-gradient(115deg, rgba(18, 36, 62, .92), rgba(28, 28, 54, .90) 52%, rgba(40, 34, 42, .92)) padding-box,
+        linear-gradient(115deg, #5b8cff, #2dd4ff, #8b6cff, #ffc20a) border-box !important;
+    box-shadow: 0 24px 76px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .06) !important;
+    backdrop-filter: blur(22px) !important;
+    -webkit-backdrop-filter: blur(22px) !important;
+    overflow: visible !important;
+}
+
+html[data-theme="scholar"] .brand {
+    min-height: 0 !important;
+    width: auto !important;
+    padding-right: 0 !important;
+    gap: 10px !important;
+}
+
+html[data-theme="scholar"] .brand-mark {
+    width: 39px !important;
+    height: 39px !important;
+    border-radius: 11px !important;
+    background: linear-gradient(135deg, #5b8cff, #8b6cff) !important;
+    color: #ffffff !important;
+    box-shadow: 0 12px 32px rgba(91, 140, 255, .32) !important;
+}
+
+html[data-theme="scholar"] .brand-name,
+html[data-theme="scholar"] .brand-dot {
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    font-size: 13px !important;
+    color: #f8fafc !important;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+}
+
+html[data-theme="scholar"] .brand-dot,
+html[data-theme="scholar"] .hero-overline,
+html[data-theme="scholar"] .section-label,
+html[data-theme="scholar"] .project-number,
+html[data-theme="scholar"] .award-year,
+html[data-theme="scholar"] .education-date,
+html[data-theme="scholar"] .about-label,
+html[data-theme="scholar"] .preview-metric strong,
+html[data-theme="scholar"] .project-stat strong,
+html[data-theme="scholar"] .expertise-number {
+    color: #ffc20a !important;
+}
+
+html[data-theme="scholar"] .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    position: relative !important;
+    width: auto !important;
+}
+
+html[data-theme="scholar"] .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    position: static !important;
+    width: auto !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="scholar"] .nav-link {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 9px 10px !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    color: rgba(226, 232, 240, .76) !important;
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+}
+
+html[data-theme="scholar"] .nav-link:hover,
+html[data-theme="scholar"] .nav-link.active,
+html[data-theme="scholar"] .nav-link:focus-visible {
+    color: #ffffff !important;
+    background: rgba(91, 140, 255, .18) !important;
+    border-bottom-color: transparent !important;
+    outline-color: rgba(255, 194, 10, .36) !important;
+}
+
+html[data-theme="scholar"] .theme-toggle,
+html[data-theme="scholar"] .menu-toggle {
+    background: rgba(6, 13, 28, .72) !important;
+    border-color: rgba(186, 206, 239, .14) !important;
+    color: #ffffff !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 14px 34px rgba(0, 0, 0, .24) !important;
+}
+
+html[data-theme="scholar"] .theme-track,
+html[data-theme="dark"] .theme-track,
+html[data-theme="light"] .theme-track {
+    width: 78px !important;
+    height: 30px !important;
+    flex: 0 0 78px !important;
+    background: rgba(9, 17, 33, .78) !important;
+    border-color: rgba(255, 255, 255, .16) !important;
+}
+
+.theme-option-light {
+    background: linear-gradient(135deg, #ffffff, #dbeafe) !important;
+}
+
+.theme-option-dark {
+    background: linear-gradient(135deg, #ffc20a, #f59e0b) !important;
+}
+
+.theme-option-scholar {
+    background: linear-gradient(135deg, #2dd4ff, #2563eb) !important;
+}
+
+html[data-theme="dark"] .theme-knob {
+    transform: translateX(0) !important;
+    background: linear-gradient(135deg, #ffffff, #e2e8f0) !important;
+}
+
+html[data-theme="scholar"] .theme-knob {
+    transform: translateX(25px) !important;
+    background: linear-gradient(135deg, #ffc20a, #f59e0b) !important;
+}
+
+html[data-theme="light"] .theme-knob {
+    transform: translateX(50px) !important;
+    background: linear-gradient(135deg, #2dd4ff, #2563eb) !important;
+}
+
+html[data-theme="scholar"] .menu-lines span {
+    background: #f8fafc !important;
+}
+
+html[data-theme="scholar"] .hero {
+    background:
+        radial-gradient(circle at 14% 8%, rgba(45, 212, 255, .12), transparent 34%),
+        radial-gradient(circle at 78% 4%, rgba(255, 194, 10, .10), transparent 32%),
+        linear-gradient(180deg, rgba(8, 17, 34, .98), rgba(5, 8, 18, .98)) !important;
+    color: var(--text) !important;
+    border-bottom: 1px solid rgba(186, 206, 239, .12) !important;
+}
+
+html[data-theme="scholar"] .hero h1,
+html[data-theme="scholar"] .section-title,
+html[data-theme="scholar"] .project-content h3,
+html[data-theme="scholar"] .education-card h3,
+html[data-theme="scholar"] .award-card h3,
+html[data-theme="scholar"] .about-copy h3,
+html[data-theme="scholar"] .tiger-copy h2,
+html[data-theme="scholar"] .contact-content h2,
+html[data-theme="scholar"] .contact-card h3,
+html[data-theme="scholar"] .idea-form h3,
+html[data-theme="scholar"] .contact-card strong {
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    color: #f8fafc !important;
+}
+
+html[data-theme="scholar"] .hero-role,
+html[data-theme="scholar"] .hero-description,
+html[data-theme="scholar"] .section-intro,
+html[data-theme="scholar"] .project-content p,
+html[data-theme="scholar"] .education-card p,
+html[data-theme="scholar"] .award-card p,
+html[data-theme="scholar"] .about-copy p,
+html[data-theme="scholar"] .about-item p,
+html[data-theme="scholar"] .tiger-copy p,
+html[data-theme="scholar"] .contact-copy,
+html[data-theme="scholar"] .contact-card p,
+html[data-theme="scholar"] .idea-form p {
+    color: #c8d3e4 !important;
+}
+
+html[data-theme="scholar"] .command-card,
+html[data-theme="scholar"] .project,
+html[data-theme="scholar"] .expertise-card,
+html[data-theme="scholar"] .education-card,
+html[data-theme="scholar"] .award-card,
+html[data-theme="scholar"] .about-item,
+html[data-theme="scholar"] .tiger-panel,
+html[data-theme="scholar"] .contact-panel,
+html[data-theme="scholar"] .idea-form,
+html[data-theme="scholar"] .contact-card,
+html[data-theme="scholar"] .profile-card {
+    border-radius: 16px !important;
+    border: 1px solid rgba(186, 206, 239, .16) !important;
+    background: linear-gradient(180deg, rgba(18, 33, 58, .86), rgba(8, 15, 30, .90)) !important;
+    box-shadow: 0 24px 74px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .045) !important;
+}
+
+html[data-theme="scholar"] .command-card strong,
+html[data-theme="scholar"] .command-card span,
+html[data-theme="scholar"] .tag,
+html[data-theme="scholar"] .tiger-caption span {
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    color: #f8fafc !important;
+}
+
+html[data-theme="scholar"] .project-top {
+    background: linear-gradient(135deg, rgba(91, 140, 255, .18), rgba(255, 194, 10, .10)) !important;
+}
+
+html[data-theme="scholar"] .project-type,
+html[data-theme="scholar"] .education-badge,
+html[data-theme="scholar"] .btn-primary,
+html[data-theme="scholar"] .project-link.primary,
+html[data-theme="scholar"] .form-submit {
+    border-radius: 999px !important;
+    background: linear-gradient(135deg, #5b8cff, #2563eb) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+html[data-theme="scholar"] .btn-secondary,
+html[data-theme="scholar"] .project-link:not(.primary),
+html[data-theme="scholar"] .contact-link,
+html[data-theme="scholar"] .tag,
+html[data-theme="scholar"] .tiger-caption span {
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, .055) !important;
+    color: #e5edf8 !important;
+    border-color: rgba(186, 206, 239, .16) !important;
+}
+
+html[data-theme="scholar"] .btn:hover,
+html[data-theme="scholar"] .btn:focus-visible,
+html[data-theme="scholar"] .project-link:hover,
+html[data-theme="scholar"] .project-link:focus-visible,
+html[data-theme="scholar"] .contact-link:hover,
+html[data-theme="scholar"] .contact-link:focus-visible,
+html[data-theme="scholar"] .form-submit:hover,
+html[data-theme="scholar"] .form-submit:focus-visible {
+    background: linear-gradient(135deg, #ffc20a, #f59e0b) !important;
+    border-color: rgba(255, 194, 10, .55) !important;
+    color: #060914 !important;
+    outline: 3px solid rgba(255, 194, 10, .24) !important;
+    outline-offset: 3px !important;
+}
+
+html[data-theme="scholar"] .contact-panel::before {
+    background: linear-gradient(180deg, #5b8cff, #ffc20a, #2dd4ff) !important;
+}
+
+html[data-theme="scholar"] input,
+html[data-theme="scholar"] textarea {
+    background: rgba(4, 8, 18, .72) !important;
+    border-color: rgba(186, 206, 239, .16) !important;
+    color: #f8fafc !important;
+}
+
+html[data-theme="scholar"] input::placeholder,
+html[data-theme="scholar"] textarea::placeholder {
+    color: #91a0b7 !important;
+}
+
+html[data-theme="scholar"] footer {
+    background: #050812 !important;
+    color: #e5edf8 !important;
+    border-top: 1px solid rgba(255, 194, 10, .38) !important;
+}
+
+@media (max-width: 720px) {
+    html {
+        overflow-x: hidden !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    .nav-shell,
+    html[data-theme="scholar"] .nav-shell {
+        position: sticky !important;
+        top: 0 !important;
+        padding: 8px 0 !important;
+        background: rgba(5, 8, 18, .82) !important;
+        border-bottom: 1px solid rgba(186, 206, 239, .12) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+    }
+
+    .navbar,
+    html[data-theme="scholar"] .navbar {
+        width: calc(100vw - 22px) !important;
+        max-width: calc(100vw - 22px) !important;
+        min-height: 60px !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+        padding: 8px !important;
+        border-radius: 18px !important;
+        overflow: visible !important;
+    }
+
+    .brand,
+    html[data-theme="scholar"] .brand {
+        flex: 1 1 auto !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        padding-right: 0 !important;
+        gap: 9px !important;
+    }
+
+    .brand-mark,
+    html[data-theme="scholar"] .brand-mark {
+        width: 38px !important;
+        height: 38px !important;
+        flex: 0 0 38px !important;
+    }
+
+    .brand-name,
+    html[data-theme="scholar"] .brand-name {
+        display: inline-block !important;
+        max-width: min(130px, 33vw) !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 12px !important;
+    }
+
+    .nav-right,
+    html[data-theme="scholar"] .nav-right {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+        position: relative !important;
+    }
+
+    .menu-toggle,
+    html[data-theme="scholar"] .menu-toggle {
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        flex: 0 0 42px !important;
+        justify-self: auto !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle {
+        width: auto !important;
+        min-width: 104px !important;
+        max-width: 108px !important;
+        min-height: 40px !important;
+        flex: 0 0 104px !important;
+        padding: 0 7px 0 9px !important;
+        gap: 6px !important;
+    }
+
+    .theme-label {
+        max-width: 42px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        text-align: left !important;
+        font-size: 11px !important;
+    }
+
+    .theme-track,
+    html[data-theme="scholar"] .theme-track,
+    html[data-theme="dark"] .theme-track,
+    html[data-theme="light"] .theme-track {
+        width: 58px !important;
+        height: 26px !important;
+        flex: 0 0 58px !important;
+        gap: 2px !important;
+        padding: 3px !important;
+    }
+
+    .theme-knob {
+        top: 3px !important;
+        left: 3px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    html[data-theme="dark"] .theme-knob {
+        transform: translateX(0) !important;
+    }
+
+    html[data-theme="scholar"] .theme-knob {
+        transform: translateX(18px) !important;
+    }
+
+    html[data-theme="light"] .theme-knob {
+        transform: translateX(36px) !important;
+    }
+
+    .nav-links,
+    html[data-theme="scholar"] .nav-links {
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        right: 0 !important;
+        width: min(318px, calc(100vw - 22px)) !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 6px !important;
+        padding: 10px !important;
+        border: 1px solid rgba(186, 206, 239, .16) !important;
+        border-radius: 16px !important;
+        background: rgba(9, 17, 33, .98) !important;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, .45) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-8px) !important;
+        transition: opacity .2s ease, transform .2s ease !important;
+        z-index: 30 !important;
+    }
+
+    .nav-links.open,
+    html[data-theme="scholar"] .nav-links.open {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    .nav-link,
+    html[data-theme="scholar"] .nav-link {
+        width: 100% !important;
+        padding: 12px 13px !important;
+        border: 1px solid rgba(186, 206, 239, .12) !important;
+        border-radius: 10px !important;
+        background: rgba(255, 255, 255, .045) !important;
+        color: #e5edf8 !important;
+        font-size: 13px !important;
+        text-align: left !important;
+    }
+
+    .nav-link:hover,
+    .nav-link.active,
+    html[data-theme="scholar"] .nav-link:hover,
+    html[data-theme="scholar"] .nav-link.active {
+        background: rgba(91, 140, 255, .18) !important;
+        color: #ffffff !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand-name,
+    html[data-theme="scholar"] .brand-name {
+        display: none !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle {
+        flex-basis: 98px !important;
+        min-width: 98px !important;
+        max-width: 98px !important;
+    }
+
+    .theme-label {
+        max-width: 34px !important;
+    }
+}
+
+
+
+/* =========================================================
+   TRUE FINAL THEME ORDER AND LAPTOP-LIKE MOBILE LAYOUT
+   Towson first. Premium dark second. Light third.
+   Visual/layout only. Portfolio content remains unchanged.
+========================================================= */
+html[data-theme="scholar"] {
+    color-scheme: light !important;
+    --bg: #f7f4ee !important;
+    --bg-secondary: #ffffff !important;
+    --surface: rgba(255, 255, 255, .96) !important;
+    --surface-strong: #ffffff !important;
+    --text: #070707 !important;
+    --text-secondary: #1f2937 !important;
+    --muted: #5d6675 !important;
+    --blue: #080808 !important;
+    --cyan: #9a6a00 !important;
+    --violet: #111111 !important;
+    --green: #176f53 !important;
+    --amber: #ffc20a !important;
+    --blue-soft: rgba(255, 194, 10, .15) !important;
+    --green-soft: rgba(23, 111, 83, .10) !important;
+    --amber-soft: rgba(255, 194, 10, .20) !important;
+    --border: rgba(8, 8, 8, .13) !important;
+    --border-accent: rgba(255, 194, 10, .70) !important;
+    --nav: #ffffff !important;
+    --grid: rgba(8, 8, 8, .035) !important;
+    --shadow: 0 18px 46px rgba(8, 8, 8, .10) !important;
+    --shadow-large: 0 34px 90px rgba(8, 8, 8, .18) !important;
+}
+
+html[data-theme="scholar"],
+html[data-theme="scholar"] body {
+    background:
+        linear-gradient(90deg, rgba(255, 194, 10, .07), transparent 18%, transparent 82%, rgba(23, 111, 83, .055)),
+        #f7f4ee !important;
+    color: #070707 !important;
+}
+
+html[data-theme="scholar"] body::before {
+    background-image:
+        linear-gradient(rgba(8, 8, 8, .032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8, 8, 8, .032) 1px, transparent 1px) !important;
+}
+
+html[data-theme="scholar"] body::after,
+html[data-theme="scholar"] .hero::before,
+html[data-theme="scholar"] .brand::before {
+    display: none !important;
+    content: none !important;
+}
+
+html[data-theme="scholar"] .nav-shell {
+    position: sticky !important;
+    top: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #d9d9d2 !important;
+    box-shadow: 0 14px 34px rgba(8, 8, 8, .10) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="scholar"] .nav-shell::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 0 auto 0 !important;
+    height: 4px !important;
+    background: #ffc20a !important;
+    border: 0 !important;
+}
+
+html[data-theme="scholar"] .navbar {
+    width: min(1180px, calc(100% - 30px)) !important;
+    max-width: calc(100vw - 30px) !important;
+    min-height: 82px !important;
+    margin-inline: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow: visible !important;
+}
+
+html[data-theme="scholar"] .brand {
+    min-height: 82px !important;
+    width: auto !important;
+    flex: 0 1 auto !important;
+    padding: 0 20px 0 0 !important;
+    gap: 16px !important;
+    align-items: center !important;
+}
+
+html[data-theme="scholar"] .brand-mark {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 0 !important;
+    background: #050505 !important;
+    color: #ffc20a !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="scholar"] .brand-name,
+html[data-theme="scholar"] .brand-dot {
+    display: inline-block !important;
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    color: #080808 !important;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    line-height: 1.25 !important;
+}
+
+html[data-theme="scholar"] .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 18px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    position: relative !important;
+}
+
+html[data-theme="scholar"] .nav-links {
+    position: static !important;
+    width: auto !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+}
+
+html[data-theme="scholar"] .nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 0 0 !important;
+    border: 0 !important;
+    border-bottom: 4px solid transparent !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #171717 !important;
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+}
+
+html[data-theme="scholar"] .nav-link:hover,
+html[data-theme="scholar"] .nav-link.active,
+html[data-theme="scholar"] .nav-link:focus-visible {
+    background: transparent !important;
+    color: #050505 !important;
+    border-bottom-color: #ffc20a !important;
+    outline-color: rgba(255, 194, 10, .55) !important;
+}
+
+html[data-theme="scholar"] .theme-toggle,
+html[data-theme="scholar"] .menu-toggle {
+    background: #ffffff !important;
+    border: 1px solid rgba(8, 8, 8, .14) !important;
+    color: #080808 !important;
+    box-shadow: 0 12px 30px rgba(8, 8, 8, .10) !important;
+}
+
+html[data-theme="scholar"] .menu-lines span {
+    background: #080808 !important;
+}
+
+.theme-option-light {
+    background: linear-gradient(135deg, #ffc20a, #f59e0b) !important;
+}
+
+.theme-option-dark {
+    background: linear-gradient(135deg, #0b1020, #5b8cff) !important;
+}
+
+.theme-option-scholar {
+    background: linear-gradient(135deg, #ffffff, #dbeafe) !important;
+}
+
+html[data-theme="scholar"] .theme-track,
+html[data-theme="dark"] .theme-track,
+html[data-theme="light"] .theme-track {
+    background: rgba(7, 13, 27, .12) !important;
+    border-color: rgba(8, 8, 8, .16) !important;
+}
+
+html[data-theme="dark"] .theme-track {
+    background: rgba(7, 13, 27, .72) !important;
+    border-color: rgba(255, 255, 255, .16) !important;
+}
+
+html[data-theme="scholar"] .theme-knob {
+    transform: translateX(0) !important;
+    background: linear-gradient(135deg, #ffffff, #e2e8f0) !important;
+}
+
+html[data-theme="dark"] .theme-knob {
+    transform: translateX(25px) !important;
+    background: linear-gradient(135deg, #ffc20a, #f59e0b) !important;
+}
+
+html[data-theme="light"] .theme-knob {
+    transform: translateX(50px) !important;
+    background: linear-gradient(135deg, #2dd4ff, #2563eb) !important;
+}
+
+html[data-theme="scholar"] .hero {
+    padding: 88px 0 86px !important;
+    min-height: auto !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #deded8 !important;
+    text-align: center !important;
+}
+
+html[data-theme="scholar"] .hero-grid,
+html[data-theme="dark"] .hero-grid,
+html[data-theme="light"] .hero-grid {
+    align-items: center !important;
+}
+
+html[data-theme="scholar"] .hero-text {
+    margin-inline: auto !important;
+    text-align: center !important;
+}
+
+html[data-theme="scholar"] .status {
+    display: inline-flex !important;
+    background: #050505 !important;
+    color: #ffffff !important;
+    border-color: #050505 !important;
+    border-radius: 0 !important;
+}
+
+html[data-theme="scholar"] .status-dot {
+    background: #ffc20a !important;
+    box-shadow: 0 0 0 5px rgba(255, 194, 10, .18) !important;
+}
+
+html[data-theme="scholar"] .hero-overline,
+html[data-theme="scholar"] .section-label,
+html[data-theme="scholar"] .project-number,
+html[data-theme="scholar"] .award-year,
+html[data-theme="scholar"] .education-date,
+html[data-theme="scholar"] .about-label,
+html[data-theme="scholar"] .preview-metric strong,
+html[data-theme="scholar"] .project-stat strong,
+html[data-theme="scholar"] .expertise-number {
+    color: #9a6a00 !important;
+}
+
+html[data-theme="scholar"] .gradient-text,
+html[data-theme="scholar"] .hero h1,
+html[data-theme="scholar"] .section-title,
+html[data-theme="scholar"] .project-content h3,
+html[data-theme="scholar"] .education-card h3,
+html[data-theme="scholar"] .award-card h3,
+html[data-theme="scholar"] .about-copy h3,
+html[data-theme="scholar"] .tiger-copy h2,
+html[data-theme="scholar"] .hero-role {
+    font-family: Georgia, "Times New Roman", serif !important;
+    color: #050505 !important;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+}
+
+html[data-theme="scholar"] .hero-description,
+html[data-theme="scholar"] .section-intro,
+html[data-theme="scholar"] .project-content p,
+html[data-theme="scholar"] .education-card p,
+html[data-theme="scholar"] .award-card p,
+html[data-theme="scholar"] .about-copy p,
+html[data-theme="scholar"] .about-item p,
+html[data-theme="scholar"] .tiger-copy p,
+html[data-theme="scholar"] .contact-copy,
+html[data-theme="scholar"] .contact-card p,
+html[data-theme="scholar"] .idea-form p {
+    color: #1f2937 !important;
+}
+
+html[data-theme="scholar"] .command-card,
+html[data-theme="scholar"] .project,
+html[data-theme="scholar"] .expertise-card,
+html[data-theme="scholar"] .education-card,
+html[data-theme="scholar"] .award-card,
+html[data-theme="scholar"] .about-item,
+html[data-theme="scholar"] .tiger-panel,
+html[data-theme="scholar"] .contact-panel,
+html[data-theme="scholar"] .idea-form,
+html[data-theme="scholar"] .contact-card,
+html[data-theme="scholar"] .profile-card {
+    border-radius: 0 !important;
+    border: 1px solid #d8d8d3 !important;
+    background: #ffffff !important;
+    color: #070707 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="scholar"] .command-card strong,
+html[data-theme="scholar"] .command-card span,
+html[data-theme="scholar"] .tag,
+html[data-theme="scholar"] .tiger-caption span,
+html[data-theme="scholar"] .contact-content h2,
+html[data-theme="scholar"] .contact-card h3,
+html[data-theme="scholar"] .idea-form h3,
+html[data-theme="scholar"] .contact-card strong {
+    color: #070707 !important;
+}
+
+html[data-theme="scholar"] .btn-primary,
+html[data-theme="scholar"] .project-link.primary,
+html[data-theme="scholar"] .form-submit,
+html[data-theme="scholar"] .project-type,
+html[data-theme="scholar"] .education-badge {
+    border-radius: 0 !important;
+    background: #050505 !important;
+    color: #ffffff !important;
+    border-color: #050505 !important;
+}
+
+html[data-theme="scholar"] .btn-secondary,
+html[data-theme="scholar"] .project-link:not(.primary),
+html[data-theme="scholar"] .contact-link,
+html[data-theme="scholar"] .tag,
+html[data-theme="scholar"] .tiger-caption span {
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #070707 !important;
+    border-color: #070707 !important;
+}
+
+html[data-theme="scholar"] .btn:hover,
+html[data-theme="scholar"] .btn:focus-visible,
+html[data-theme="scholar"] .project-link:hover,
+html[data-theme="scholar"] .project-link:focus-visible,
+html[data-theme="scholar"] .contact-link:hover,
+html[data-theme="scholar"] .contact-link:focus-visible,
+html[data-theme="scholar"] .form-submit:hover,
+html[data-theme="scholar"] .form-submit:focus-visible {
+    background: #ffc20a !important;
+    border-color: #ffc20a !important;
+    color: #050505 !important;
+    outline: 3px solid rgba(8, 8, 8, .20) !important;
+    outline-offset: 3px !important;
+}
+
+html[data-theme="scholar"] .focus-strip {
+    background: #050505 !important;
+    border-top: 1px solid rgba(255, 194, 10, .45) !important;
+    border-bottom: 4px solid #ffc20a !important;
+}
+
+html[data-theme="scholar"] .focus,
+html[data-theme="scholar"] .focus:hover,
+html[data-theme="scholar"] .focus:focus-within {
+    color: #ffffff !important;
+    background: #050505 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+html[data-theme="scholar"] input,
+html[data-theme="scholar"] textarea {
+    background: #ffffff !important;
+    border-color: rgba(8, 8, 8, .16) !important;
+    color: #070707 !important;
+}
+
+html[data-theme="scholar"] footer {
+    background: #050505 !important;
+    color: #ffffff !important;
+    border-top: 4px solid #ffc20a !important;
+}
+
+html[data-theme="dark"] .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #5b8cff 45%, #a78bfa 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+html[data-theme="dark"] .brand-dot {
+    color: #5b8cff !important;
+}
+
+@media (min-width: 721px) {
+    .menu-toggle {
+        display: none !important;
+    }
+}
+
+@media (max-width: 720px) {
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    .nav-shell,
+    html[data-theme="scholar"] .nav-shell,
+    html[data-theme="dark"] .nav-shell,
+    html[data-theme="light"] .nav-shell {
+        position: sticky !important;
+        top: 0 !important;
+        padding: 8px 0 !important;
+        background: rgba(5, 8, 18, .88) !important;
+        border-bottom: 1px solid rgba(186, 206, 239, .12) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+        box-shadow: 0 16px 38px rgba(0, 0, 0, .22) !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell {
+        background: rgba(255, 255, 255, .96) !important;
+        border-bottom: 1px solid #d8d8d3 !important;
+    }
+
+    .navbar,
+    html[data-theme="scholar"] .navbar,
+    html[data-theme="dark"] .navbar,
+    html[data-theme="light"] .navbar {
+        width: calc(100vw - 22px) !important;
+        max-width: calc(100vw - 22px) !important;
+        min-height: 60px !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+        padding: 8px !important;
+        border-radius: 18px !important;
+        overflow: visible !important;
+    }
+
+    html[data-theme="scholar"] .navbar {
+        background: #ffffff !important;
+        border: 1px solid rgba(8, 8, 8, .12) !important;
+        box-shadow: 0 12px 30px rgba(8, 8, 8, .10) !important;
+    }
+
+    .brand,
+    html[data-theme="scholar"] .brand,
+    html[data-theme="dark"] .brand,
+    html[data-theme="light"] .brand {
+        flex: 1 1 auto !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        gap: 9px !important;
+    }
+
+    .brand-mark,
+    html[data-theme="scholar"] .brand-mark,
+    html[data-theme="dark"] .brand-mark,
+    html[data-theme="light"] .brand-mark {
+        width: 38px !important;
+        height: 38px !important;
+        flex: 0 0 38px !important;
+        border-radius: 10px !important;
+    }
+
+    html[data-theme="scholar"] .brand-mark {
+        border-radius: 0 !important;
+    }
+
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        display: inline-block !important;
+        max-width: min(138px, 35vw) !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 12px !important;
+    }
+
+    .nav-right,
+    html[data-theme="scholar"] .nav-right,
+    html[data-theme="dark"] .nav-right,
+    html[data-theme="light"] .nav-right {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+        position: relative !important;
+    }
+
+    .menu-toggle,
+    html[data-theme="scholar"] .menu-toggle,
+    html[data-theme="dark"] .menu-toggle,
+    html[data-theme="light"] .menu-toggle {
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        flex: 0 0 42px !important;
+        justify-self: auto !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle,
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="light"] .theme-toggle {
+        width: auto !important;
+        min-width: 104px !important;
+        max-width: 108px !important;
+        min-height: 40px !important;
+        flex: 0 0 104px !important;
+        padding: 0 7px 0 9px !important;
+        gap: 6px !important;
+    }
+
+    .theme-label {
+        max-width: 42px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        text-align: left !important;
+        font-size: 11px !important;
+    }
+
+    .theme-track,
+    html[data-theme="scholar"] .theme-track,
+    html[data-theme="dark"] .theme-track,
+    html[data-theme="light"] .theme-track {
+        width: 58px !important;
+        height: 26px !important;
+        flex: 0 0 58px !important;
+        gap: 2px !important;
+        padding: 3px !important;
+    }
+
+    .theme-knob {
+        top: 3px !important;
+        left: 3px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    html[data-theme="scholar"] .theme-knob {
+        transform: translateX(0) !important;
+    }
+
+    html[data-theme="dark"] .theme-knob {
+        transform: translateX(18px) !important;
+    }
+
+    html[data-theme="light"] .theme-knob {
+        transform: translateX(36px) !important;
+    }
+
+    .nav-links,
+    html[data-theme="scholar"] .nav-links,
+    html[data-theme="dark"] .nav-links,
+    html[data-theme="light"] .nav-links {
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        right: 0 !important;
+        width: min(318px, calc(100vw - 22px)) !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        padding: 10px !important;
+        border: 1px solid rgba(186, 206, 239, .16) !important;
+        border-radius: 16px !important;
+        background: rgba(9, 17, 33, .98) !important;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, .45) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-8px) !important;
+        transition: opacity .2s ease, transform .2s ease !important;
+        z-index: 30 !important;
+    }
+
+    html[data-theme="scholar"] .nav-links {
+        background: #ffffff !important;
+        border-color: rgba(8, 8, 8, .13) !important;
+        box-shadow: 0 24px 58px rgba(8, 8, 8, .18) !important;
+    }
+
+    .nav-links.open,
+    html[data-theme="scholar"] .nav-links.open,
+    html[data-theme="dark"] .nav-links.open,
+    html[data-theme="light"] .nav-links.open {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    .nav-link,
+    html[data-theme="dark"] .nav-link,
+    html[data-theme="light"] .nav-link {
+        width: 100% !important;
+        padding: 12px 13px !important;
+        border: 1px solid rgba(186, 206, 239, .12) !important;
+        border-radius: 10px !important;
+        background: rgba(255, 255, 255, .045) !important;
+        color: #e5edf8 !important;
+        font-size: 13px !important;
+        text-align: left !important;
+    }
+
+    html[data-theme="scholar"] .nav-link {
+        width: 100% !important;
+        padding: 12px 13px !important;
+        border: 1px solid rgba(8, 8, 8, .12) !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        color: #080808 !important;
+        font-size: 13px !important;
+        text-align: left !important;
+    }
+
+    .hero,
+    html[data-theme="scholar"] .hero,
+    html[data-theme="dark"] .hero,
+    html[data-theme="light"] .hero {
+        padding-top: 44px !important;
+        padding-bottom: 52px !important;
+        text-align: center !important;
+    }
+
+    .hero-grid,
+    html[data-theme="scholar"] .hero-grid,
+    html[data-theme="dark"] .hero-grid,
+    html[data-theme="light"] .hero-grid {
+        display: block !important;
+    }
+
+    .hero-text,
+    html[data-theme="scholar"] .hero-text,
+    html[data-theme="dark"] .hero-text,
+    html[data-theme="light"] .hero-text {
+        width: 100% !important;
+        max-width: 760px !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+    }
+
+    .profile-area,
+    html[data-theme="scholar"] .profile-area,
+    html[data-theme="dark"] .profile-area,
+    html[data-theme="light"] .profile-area {
+        width: 100% !important;
+        max-width: 430px !important;
+        margin: 28px auto 0 !important;
+        justify-self: center !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        display: none !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle,
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="light"] .theme-toggle {
+        flex-basis: 98px !important;
+        min-width: 98px !important;
+        max-width: 98px !important;
+    }
+}
+
+
+
+/* =========================================================
+   ABSOLUTE FINAL TOWSON REFERENCE PATCH
+   Towson first, premium dark second, light third.
+   Styling only. No portfolio content changes.
+========================================================= */
+html[data-theme="scholar"] {
+    color-scheme: light !important;
+    --bg: #ffffff !important;
+    --bg-secondary: #f7f7f4 !important;
+    --surface: #ffffff !important;
+    --surface-strong: #ffffff !important;
+    --text: #050505 !important;
+    --text-secondary: #111827 !important;
+    --muted: #475569 !important;
+    --blue: #050505 !important;
+    --cyan: #9b6a00 !important;
+    --violet: #050505 !important;
+    --green: #176f53 !important;
+    --amber: #ffc20a !important;
+    --blue-soft: rgba(255, 194, 10, .16) !important;
+    --green-soft: rgba(23, 111, 83, .10) !important;
+    --amber-soft: rgba(255, 194, 10, .20) !important;
+    --border: rgba(0, 0, 0, .14) !important;
+    --border-accent: rgba(255, 194, 10, .80) !important;
+    --nav: #ffffff !important;
+    --grid: rgba(0, 0, 0, .032) !important;
+    --shadow: 0 14px 38px rgba(0, 0, 0, .10) !important;
+    --shadow-large: 0 28px 80px rgba(0, 0, 0, .16) !important;
+}
+
+html[data-theme="scholar"],
+html[data-theme="scholar"] body {
+    background: #ffffff !important;
+    color: #050505 !important;
+}
+
+html[data-theme="scholar"] body::before {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, .026) 1px, transparent 1px) !important;
+}
+
+html[data-theme="scholar"] body::after {
+    display: block !important;
+    content: "" !important;
+    position: fixed !important;
+    right: -300px !important;
+    top: 390px !important;
+    width: 720px !important;
+    height: 245px !important;
+    border-radius: 0 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    background:
+        linear-gradient(118deg,
+            transparent 0 30%,
+            rgba(255, 194, 10, .92) 30% 49%,
+            transparent 49% 55%,
+            rgba(138, 97, 0, .35) 55% 58%,
+            transparent 58%) !important;
+}
+
+html[data-theme="scholar"] .nav-shell {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    padding: 58px 0 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e5e0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    pointer-events: auto !important;
+}
+
+html[data-theme="scholar"] .nav-shell::before {
+    display: block !important;
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 0 auto 0 !important;
+    height: 58px !important;
+    background: #050505 !important;
+    border-bottom: 3px solid #ffc20a !important;
+    z-index: 0 !important;
+}
+
+html[data-theme="scholar"] .navbar {
+    position: relative !important;
+    z-index: 1 !important;
+    width: min(1480px, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    min-height: 112px !important;
+    margin: 0 auto !important;
+    padding: 0 34px !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: clamp(18px, 3vw, 52px) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+html[data-theme="scholar"] .navbar::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -72px !important;
+    top: 0 !important;
+    width: min(560px, 45vw) !important;
+    height: 112px !important;
+    pointer-events: none !important;
+    background:
+        linear-gradient(124deg,
+            #ffc20a 0 20%,
+            transparent 20% 24%,
+            transparent 24% 80%,
+            rgba(138, 97, 0, .70) 80% 80.6%,
+            transparent 80.6%) !important;
+    clip-path: polygon(0 0, 100% 0, 86% 100%, 8% 100%) !important;
+    opacity: .98 !important;
+    z-index: -1 !important;
+}
+
+html[data-theme="scholar"] .brand {
+    position: relative !important;
+    z-index: 2 !important;
+    min-height: 112px !important;
+    width: auto !important;
+    min-width: 245px !important;
+    flex: 0 0 auto !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    text-decoration: none !important;
+}
+
+html[data-theme="scholar"] .brand::before {
+    display: none !important;
+    content: none !important;
+}
+
+html[data-theme="scholar"] .brand-mark {
+    width: 64px !important;
+    height: 64px !important;
+    flex: 0 0 64px !important;
+    border-radius: 0 !important;
+    background: #050505 !important;
+    color: #ffc20a !important;
+    font-size: 15px !important;
+    font-weight: 950 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="scholar"] .brand-name,
+html[data-theme="scholar"] .brand-dot {
+    display: inline-block !important;
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    color: #303030 !important;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    font-size: 22px !important;
+    font-weight: 950 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.01em !important;
+}
+
+html[data-theme="scholar"] .brand-name {
+    max-width: 185px !important;
+    white-space: normal !important;
+}
+
+html[data-theme="scholar"] .brand-dot {
+    color: #ffc20a !important;
+}
+
+html[data-theme="scholar"] .nav-right {
+    position: relative !important;
+    z-index: 2 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: clamp(18px, 2vw, 34px) !important;
+}
+
+html[data-theme="scholar"] .nav-links {
+    position: static !important;
+    width: auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: clamp(18px, 2.8vw, 46px) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+}
+
+html[data-theme="scholar"] .nav-link {
+    position: relative !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: 112px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-bottom: 5px solid transparent !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #111111 !important;
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    font-size: clamp(13px, 1.14vw, 17px) !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+}
+
+html[data-theme="scholar"] .nav-link:hover,
+html[data-theme="scholar"] .nav-link.active,
+html[data-theme="scholar"] .nav-link:focus-visible {
+    background: transparent !important;
+    color: #050505 !important;
+    border-bottom-color: #ffc20a !important;
+    outline-color: rgba(255, 194, 10, .62) !important;
+}
+
+html[data-theme="scholar"] .theme-toggle {
+    position: absolute !important;
+    right: 0 !important;
+    top: -48px !important;
+    min-width: 156px !important;
+    max-width: 156px !important;
+    min-height: 42px !important;
+    padding: 0 10px 0 13px !important;
+    border-radius: 0 !important;
+    background: #050505 !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="scholar"] .theme-label {
+    color: #ffffff !important;
+    font-weight: 900 !important;
+}
+
+html[data-theme="scholar"] .theme-track {
+    background: rgba(255, 255, 255, .13) !important;
+    border-color: rgba(255, 255, 255, .24) !important;
+}
+
+html[data-theme="scholar"] .menu-toggle {
+    display: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #050505 !important;
+    border-color: #050505 !important;
+}
+
+html[data-theme="scholar"] .menu-lines span {
+    background: #050505 !important;
+}
+
+html[data-theme="scholar"] .hero {
+    position: relative !important;
+    overflow: hidden !important;
+    min-height: auto !important;
+    padding: 86px 0 74px !important;
+    background: #ffffff !important;
+    color: #050505 !important;
+    border-bottom: 1px solid #deded8 !important;
+    text-align: left !important;
+}
+
+html[data-theme="scholar"] .hero::before {
+    display: block !important;
+    content: "" !important;
+    position: absolute !important;
+    right: -72px !important;
+    bottom: 0 !important;
+    width: min(560px, 42vw) !important;
+    height: 172px !important;
+    pointer-events: none !important;
+    background:
+        linear-gradient(118deg,
+            transparent 0 33%,
+            #ffc20a 33% 54%,
+            transparent 54% 60%,
+            rgba(138, 97, 0, .42) 60% 63%,
+            transparent 63%) !important;
+    z-index: 0 !important;
+}
+
+html[data-theme="scholar"] .hero-grid {
+    position: relative !important;
+    z-index: 1 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, .55fr) !important;
+    gap: clamp(34px, 5vw, 78px) !important;
+    align-items: center !important;
+}
+
+html[data-theme="scholar"] .hero-text {
+    max-width: 860px !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+html[data-theme="scholar"] .status {
+    display: inline-flex !important;
+    margin-bottom: 40px !important;
+    background: #050505 !important;
+    color: #ffffff !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 22px 58px rgba(0, 0, 0, .12) !important;
+}
+
+html[data-theme="scholar"] .status-dot {
+    background: #ffc20a !important;
+    box-shadow: 0 0 0 5px rgba(255, 194, 10, .20) !important;
+}
+
+html[data-theme="scholar"] .hero-overline,
+html[data-theme="scholar"] .section-label,
+html[data-theme="scholar"] .project-number,
+html[data-theme="scholar"] .award-year,
+html[data-theme="scholar"] .education-date,
+html[data-theme="scholar"] .about-label,
+html[data-theme="scholar"] .preview-metric strong,
+html[data-theme="scholar"] .project-stat strong,
+html[data-theme="scholar"] .expertise-number {
+    color: #9b6a00 !important;
+}
+
+html[data-theme="scholar"] .gradient-text,
+html[data-theme="scholar"] .hero h1,
+html[data-theme="scholar"] .section-title,
+html[data-theme="scholar"] .project-content h3,
+html[data-theme="scholar"] .education-card h3,
+html[data-theme="scholar"] .award-card h3,
+html[data-theme="scholar"] .about-copy h3,
+html[data-theme="scholar"] .tiger-copy h2,
+html[data-theme="scholar"] .hero-role {
+    font-family: Georgia, "Times New Roman", serif !important;
+    color: #050505 !important;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+}
+
+html[data-theme="scholar"] .hero h1 {
+    font-size: clamp(58px, 6.7vw, 102px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: 0 !important;
+    max-width: 100% !important;
+}
+
+html[data-theme="scholar"] .hero-role {
+    font-size: clamp(30px, 3vw, 46px) !important;
+    line-height: 1.18 !important;
+    margin-top: 36px !important;
+}
+
+html[data-theme="scholar"] .hero-description,
+html[data-theme="scholar"] .section-intro,
+html[data-theme="scholar"] .project-content p,
+html[data-theme="scholar"] .education-card p,
+html[data-theme="scholar"] .award-card p,
+html[data-theme="scholar"] .about-copy p,
+html[data-theme="scholar"] .about-item p,
+html[data-theme="scholar"] .tiger-copy p,
+html[data-theme="scholar"] .contact-copy,
+html[data-theme="scholar"] .contact-card p,
+html[data-theme="scholar"] .idea-form p {
+    color: #1f2937 !important;
+}
+
+html[data-theme="scholar"] .hero-description {
+    max-width: 920px !important;
+    font-size: clamp(18px, 1.7vw, 26px) !important;
+    line-height: 1.6 !important;
+}
+
+html[data-theme="scholar"] .profile-card,
+html[data-theme="scholar"] .command-card,
+html[data-theme="scholar"] .project,
+html[data-theme="scholar"] .expertise-card,
+html[data-theme="scholar"] .education-card,
+html[data-theme="scholar"] .award-card,
+html[data-theme="scholar"] .about-item,
+html[data-theme="scholar"] .tiger-panel,
+html[data-theme="scholar"] .contact-panel,
+html[data-theme="scholar"] .idea-form,
+html[data-theme="scholar"] .contact-card {
+    border-radius: 0 !important;
+    border: 1px solid #d8d8d3 !important;
+    background: #ffffff !important;
+    color: #050505 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="scholar"] .profile-card {
+    border-top: 5px solid #ffc20a !important;
+}
+
+html[data-theme="scholar"] .command-card strong,
+html[data-theme="scholar"] .command-card span,
+html[data-theme="scholar"] .tag,
+html[data-theme="scholar"] .tiger-caption span,
+html[data-theme="scholar"] .contact-content h2,
+html[data-theme="scholar"] .contact-card h3,
+html[data-theme="scholar"] .idea-form h3,
+html[data-theme="scholar"] .contact-card strong {
+    color: #050505 !important;
+}
+
+html[data-theme="scholar"] .command-card:nth-child(4) strong {
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+    font-size: clamp(28px, 3vw, 44px) !important;
+    line-height: 1.05 !important;
+    overflow-wrap: anywhere !important;
+}
+
+html[data-theme="scholar"] .btn-primary,
+html[data-theme="scholar"] .project-link.primary,
+html[data-theme="scholar"] .form-submit,
+html[data-theme="scholar"] .project-type,
+html[data-theme="scholar"] .education-badge {
+    border-radius: 0 !important;
+    background: #050505 !important;
+    color: #ffffff !important;
+    border-color: #050505 !important;
+}
+
+html[data-theme="scholar"] .btn-secondary,
+html[data-theme="scholar"] .project-link:not(.primary),
+html[data-theme="scholar"] .contact-link,
+html[data-theme="scholar"] .tag,
+html[data-theme="scholar"] .tiger-caption span {
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #050505 !important;
+    border-color: #050505 !important;
+}
+
+html[data-theme="scholar"] .btn:hover,
+html[data-theme="scholar"] .btn:focus-visible,
+html[data-theme="scholar"] .project-link:hover,
+html[data-theme="scholar"] .project-link:focus-visible,
+html[data-theme="scholar"] .contact-link:hover,
+html[data-theme="scholar"] .contact-link:focus-visible,
+html[data-theme="scholar"] .form-submit:hover,
+html[data-theme="scholar"] .form-submit:focus-visible {
+    background: #ffc20a !important;
+    border-color: #ffc20a !important;
+    color: #050505 !important;
+    outline: 3px solid rgba(0, 0, 0, .18) !important;
+    outline-offset: 3px !important;
+}
+
+html[data-theme="scholar"] .focus-strip {
+    background: #050505 !important;
+    border-top: 1px solid rgba(255, 194, 10, .40) !important;
+    border-bottom: 4px solid #ffc20a !important;
+}
+
+html[data-theme="scholar"] .focus {
+    color: #ffffff !important;
+    background: #050505 !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="scholar"] input,
+html[data-theme="scholar"] textarea {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, .16) !important;
+    color: #050505 !important;
+}
+
+html[data-theme="scholar"] footer {
+    background: #050505 !important;
+    color: #ffffff !important;
+    border-top: 4px solid #ffc20a !important;
+}
+
+html[data-theme="dark"] .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #5b8cff 45%, #a78bfa 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+@media (max-width: 1180px) {
+    html[data-theme="scholar"] .nav-links {
+        gap: clamp(12px, 1.7vw, 24px) !important;
+    }
+
+    html[data-theme="scholar"] .nav-link {
+        font-size: 13px !important;
+    }
+
+    html[data-theme="scholar"] .brand {
+        min-width: 215px !important;
+    }
+}
+
+@media (min-width: 721px) {
+    html[data-theme="scholar"] .menu-toggle,
+    html[data-theme="dark"] .menu-toggle,
+    html[data-theme="light"] .menu-toggle {
+        display: none !important;
+    }
+}
+
+@media (max-width: 900px) {
+    html[data-theme="scholar"] body::after,
+    html[data-theme="scholar"] .hero::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell {
+        padding-top: 38px !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell::before {
+        height: 38px !important;
+    }
+
+    html[data-theme="scholar"] .navbar {
+        min-height: 76px !important;
+        width: calc(100vw - 22px) !important;
+        max-width: calc(100vw - 22px) !important;
+        padding: 0 10px !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        overflow: visible !important;
+    }
+
+    html[data-theme="scholar"] .navbar::before {
+        left: -34px !important;
+        width: 180px !important;
+        height: 76px !important;
+        opacity: .95 !important;
+    }
+
+    html[data-theme="scholar"] .brand {
+        min-width: 0 !important;
+        min-height: 76px !important;
+        flex: 1 1 auto !important;
+        width: auto !important;
+        gap: 10px !important;
+    }
+
+    html[data-theme="scholar"] .brand-mark {
+        width: 48px !important;
+        height: 48px !important;
+        flex-basis: 48px !important;
+    }
+
+    html[data-theme="scholar"] .brand-name {
+        max-width: min(150px, 36vw) !important;
+        font-size: 16px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    html[data-theme="scholar"] .nav-right {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        gap: 8px !important;
+    }
+
+    html[data-theme="scholar"] .theme-toggle {
+        position: static !important;
+        min-width: 116px !important;
+        max-width: 116px !important;
+        flex: 0 0 116px !important;
+        min-height: 40px !important;
+        border-radius: 999px !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, .14) !important;
+        color: #050505 !important;
+    }
+
+    html[data-theme="scholar"] .theme-label {
+        color: #050505 !important;
+        max-width: 48px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    html[data-theme="scholar"] .menu-toggle {
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        flex: 0 0 42px !important;
+    }
+
+    html[data-theme="scholar"] .nav-links {
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        right: 0 !important;
+        width: min(330px, calc(100vw - 22px)) !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        border: 1px solid rgba(0, 0, 0, .14) !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        box-shadow: 0 22px 58px rgba(0, 0, 0, .18) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-8px) !important;
+        transition: opacity .2s ease, transform .2s ease !important;
+        z-index: 50 !important;
+    }
+
+    html[data-theme="scholar"] .nav-links.open {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    html[data-theme="scholar"] .nav-link {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 48px !important;
+        justify-content: flex-start !important;
+        padding: 13px 16px !important;
+        border: 0 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, .10) !important;
+        background: #ffffff !important;
+        color: #050505 !important;
+        text-align: left !important;
+    }
+
+    html[data-theme="scholar"] .nav-link:hover,
+    html[data-theme="scholar"] .nav-link.active {
+        background: #fff8dc !important;
+        border-bottom-color: rgba(0, 0, 0, .10) !important;
+    }
+
+    html[data-theme="scholar"] .hero {
+        padding: 54px 0 54px !important;
+        text-align: left !important;
+    }
+
+    html[data-theme="scholar"] .hero-grid {
+        display: block !important;
+        grid-template-columns: none !important;
+    }
+
+    html[data-theme="scholar"] .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        text-align: left !important;
+    }
+
+    html[data-theme="scholar"] .hero h1 {
+        font-size: clamp(44px, 14vw, 68px) !important;
+        line-height: 1.02 !important;
+        word-break: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    html[data-theme="scholar"] .hero-role {
+        font-size: clamp(24px, 7vw, 34px) !important;
+        margin-top: 24px !important;
+    }
+
+    html[data-theme="scholar"] .hero-description {
+        font-size: 17px !important;
+        line-height: 1.7 !important;
+    }
+
+    html[data-theme="scholar"] .profile-area {
+        max-width: 430px !important;
+        margin: 28px auto 0 !important;
+    }
+}
+
+@media (max-width: 390px) {
+    html[data-theme="scholar"] .brand-name {
+        max-width: 96px !important;
+        font-size: 15px !important;
+    }
+
+    html[data-theme="scholar"] .theme-toggle {
+        min-width: 102px !important;
+        max-width: 102px !important;
+        flex-basis: 102px !important;
+        padding-left: 8px !important;
+        padding-right: 6px !important;
+    }
+
+    html[data-theme="scholar"] .theme-label {
+        max-width: 38px !important;
+    }
+}
+
 </style>
 
 </head>
@@ -5982,10 +7974,10 @@ html[data-theme="scholar"] .footer-links a:focus-visible {
     type="button"
     class="theme-toggle"
     id="themeToggle"
-    aria-label="Switch website theme: dark, light, scholar"
+    aria-label="Switch website theme: Towson, dark, light"
 >
     <span class="theme-label" id="themeLabel">
-        Dark
+        Towson
     </span>
     <span class="theme-track" aria-hidden="true">
         <span class="theme-option theme-option-light"></span>
@@ -8932,8 +10924,8 @@ const scrollProgress =
 
 const themeModes =
     [
-        "dark",
         "scholar",
+        "dark",
         "light"
     ];
 
@@ -8941,14 +10933,14 @@ const themeModes =
 const themeNames = {
     dark: "Dark",
     light: "Light",
-    scholar: "Scholar"
+    scholar: "Towson"
 };
 
 
 const themeColors = {
     dark: "#070A12",
     light: "#F7F8FC",
-    scholar: "#F7F4EE"
+    scholar: "Towson"
 };
 
 
@@ -8961,7 +10953,7 @@ function normalizeTheme(theme) {
 
     return themeModes.includes(theme)
         ? theme
-        : (systemPreference.matches ? "dark" : "light");
+        : "scholar";
 
 }
 
@@ -8969,9 +10961,7 @@ function normalizeTheme(theme) {
 function getThemeChoice() {
 
     return normalizeTheme(
-        localStorage.getItem(
-            "ek-theme"
-        )
+        localStorage.getItem("ek-theme-towson-default-v2")
     );
 
 }
@@ -8989,8 +10979,7 @@ function setTheme(theme) {
     );
 
 
-    localStorage.setItem(
-        "ek-theme",
+    localStorage.setItem("ek-theme-towson-default-v2",
         actual
     );
 
