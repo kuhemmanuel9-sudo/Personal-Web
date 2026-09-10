@@ -8596,6 +8596,387 @@ html[data-theme="dark"] .gradient-text {
     }
 }
 
+
+
+/* =========================================================
+   FINAL PHONE COMPACTNESS PATCH
+   Phone only. Keeps laptop styling and all content unchanged.
+========================================================= */
+@media (max-width: 600px) {
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    .container {
+        width: calc(100vw - 22px) !important;
+        max-width: calc(100vw - 22px) !important;
+    }
+
+    .nav-shell,
+    html[data-theme="scholar"] .nav-shell,
+    html[data-theme="dark"] .nav-shell,
+    html[data-theme="light"] .nav-shell {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        overflow: visible !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell {
+        padding-top: 28px !important;
+    }
+
+    html[data-theme="scholar"] .nav-shell::before {
+        height: 28px !important;
+        border-bottom-width: 2px !important;
+    }
+
+    .navbar,
+    html[data-theme="scholar"] .navbar,
+    html[data-theme="dark"] .navbar,
+    html[data-theme="light"] .navbar {
+        width: calc(100vw - 16px) !important;
+        max-width: calc(100vw - 16px) !important;
+        min-height: 56px !important;
+        height: auto !important;
+        padding: 7px !important;
+        gap: 6px !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    html[data-theme="scholar"] .navbar {
+        min-height: 62px !important;
+        padding: 0 7px !important;
+    }
+
+    html[data-theme="scholar"] .navbar::before {
+        width: 148px !important;
+        height: 62px !important;
+        left: -30px !important;
+    }
+
+    .brand,
+    html[data-theme="scholar"] .brand,
+    html[data-theme="dark"] .brand,
+    html[data-theme="light"] .brand {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        gap: 8px !important;
+    }
+
+    html[data-theme="scholar"] .brand {
+        min-height: 62px !important;
+    }
+
+    .brand-mark,
+    html[data-theme="scholar"] .brand-mark,
+    html[data-theme="dark"] .brand-mark,
+    html[data-theme="light"] .brand-mark {
+        width: 36px !important;
+        height: 36px !important;
+        flex-basis: 36px !important;
+        font-size: 11px !important;
+    }
+
+    html[data-theme="scholar"] .brand-mark {
+        width: 42px !important;
+        height: 42px !important;
+        flex-basis: 42px !important;
+    }
+
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        display: inline-block !important;
+        max-width: clamp(82px, 28vw, 122px) !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 12px !important;
+        line-height: 1.1 !important;
+    }
+
+    html[data-theme="scholar"] .brand-name {
+        font-size: 13px !important;
+        white-space: normal !important;
+        max-width: clamp(80px, 28vw, 120px) !important;
+    }
+
+    .nav-right,
+    html[data-theme="scholar"] .nav-right,
+    html[data-theme="dark"] .nav-right,
+    html[data-theme="light"] .nav-right {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 6px !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle,
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="light"] .theme-toggle {
+        position: static !important;
+        width: 70px !important;
+        min-width: 70px !important;
+        max-width: 70px !important;
+        flex: 0 0 70px !important;
+        min-height: 38px !important;
+        padding: 0 6px !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .theme-label,
+    html[data-theme="scholar"] .theme-label,
+    html[data-theme="dark"] .theme-label,
+    html[data-theme="light"] .theme-label {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+
+    .theme-track,
+    html[data-theme="scholar"] .theme-track,
+    html[data-theme="dark"] .theme-track,
+    html[data-theme="light"] .theme-track {
+        width: 56px !important;
+        height: 26px !important;
+        flex: 0 0 56px !important;
+        padding: 3px !important;
+        gap: 2px !important;
+    }
+
+    .theme-knob {
+        top: 3px !important;
+        left: 3px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    html[data-theme="scholar"] .theme-knob {
+        transform: translateX(0) !important;
+    }
+
+    html[data-theme="dark"] .theme-knob {
+        transform: translateX(18px) !important;
+    }
+
+    html[data-theme="light"] .theme-knob {
+        transform: translateX(36px) !important;
+    }
+
+    .menu-toggle,
+    html[data-theme="scholar"] .menu-toggle,
+    html[data-theme="dark"] .menu-toggle,
+    html[data-theme="light"] .menu-toggle {
+        display: inline-flex !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-height: 38px !important;
+        flex: 0 0 38px !important;
+    }
+
+    .nav-links,
+    html[data-theme="scholar"] .nav-links,
+    html[data-theme="dark"] .nav-links,
+    html[data-theme="light"] .nav-links {
+        width: min(292px, calc(100vw - 18px)) !important;
+        max-width: calc(100vw - 18px) !important;
+        right: 0 !important;
+    }
+
+    .hero,
+    html[data-theme="scholar"] .hero,
+    html[data-theme="dark"] .hero,
+    html[data-theme="light"] .hero {
+        padding-top: 34px !important;
+        padding-bottom: 34px !important;
+    }
+
+    html[data-theme="scholar"] .status,
+    html[data-theme="dark"] .status,
+    html[data-theme="light"] .status {
+        margin-bottom: 18px !important;
+        padding: 8px 10px !important;
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+    }
+
+    html[data-theme="scholar"] .hero-overline,
+    html[data-theme="dark"] .hero-overline,
+    html[data-theme="light"] .hero-overline {
+        margin-bottom: 14px !important;
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+    }
+
+    html[data-theme="scholar"] .hero h1,
+    html[data-theme="dark"] .hero h1,
+    html[data-theme="light"] .hero h1 {
+        font-size: clamp(36px, 12.8vw, 58px) !important;
+        line-height: .98 !important;
+        margin-bottom: 16px !important;
+    }
+
+    html[data-theme="scholar"] .hero-role,
+    html[data-theme="dark"] .hero-role,
+    html[data-theme="light"] .hero-role {
+        margin-top: 0 !important;
+        margin-bottom: 16px !important;
+        font-size: clamp(20px, 6vw, 28px) !important;
+        line-height: 1.16 !important;
+    }
+
+    html[data-theme="scholar"] .hero-description,
+    html[data-theme="dark"] .hero-description,
+    html[data-theme="light"] .hero-description {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
+    }
+
+    html[data-theme="scholar"] .hero-command,
+    html[data-theme="dark"] .hero-command,
+    html[data-theme="light"] .hero-command {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 18px !important;
+    }
+
+    html[data-theme="scholar"] .command-card,
+    html[data-theme="dark"] .command-card,
+    html[data-theme="light"] .command-card {
+        min-width: 0 !important;
+        min-height: 96px !important;
+        padding: 12px 10px !important;
+    }
+
+    html[data-theme="scholar"] .command-card span,
+    html[data-theme="dark"] .command-card span,
+    html[data-theme="light"] .command-card span {
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        letter-spacing: .08em !important;
+    }
+
+    html[data-theme="scholar"] .command-card strong,
+    html[data-theme="dark"] .command-card strong,
+    html[data-theme="light"] .command-card strong {
+        font-size: clamp(24px, 8vw, 36px) !important;
+        line-height: 1 !important;
+        margin-top: 8px !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    html[data-theme="scholar"] .command-card:nth-child(4) strong,
+    html[data-theme="dark"] .command-card:nth-child(4) strong,
+    html[data-theme="light"] .command-card:nth-child(4) strong {
+        font-size: clamp(20px, 5.7vw, 28px) !important;
+    }
+
+    html[data-theme="scholar"] .command-card em,
+    html[data-theme="dark"] .command-card em,
+    html[data-theme="light"] .command-card em {
+        display: block !important;
+        margin-top: 8px !important;
+        font-size: 10px !important;
+        line-height: 1.28 !important;
+    }
+
+    html[data-theme="scholar"] .actions,
+    html[data-theme="dark"] .actions,
+    html[data-theme="light"] .actions {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 20px !important;
+    }
+
+    html[data-theme="scholar"] .btn,
+    html[data-theme="dark"] .btn,
+    html[data-theme="light"] .btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 44px !important;
+        padding: 10px 8px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        font-size: 12px !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+    }
+
+    .profile-area,
+    html[data-theme="scholar"] .profile-area,
+    html[data-theme="dark"] .profile-area,
+    html[data-theme="light"] .profile-area {
+        margin-top: 20px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .brand-name,
+    html[data-theme="scholar"] .brand-name,
+    html[data-theme="dark"] .brand-name,
+    html[data-theme="light"] .brand-name {
+        display: none !important;
+    }
+
+    .theme-toggle,
+    html[data-theme="scholar"] .theme-toggle,
+    html[data-theme="dark"] .theme-toggle,
+    html[data-theme="light"] .theme-toggle {
+        width: 66px !important;
+        min-width: 66px !important;
+        max-width: 66px !important;
+        flex-basis: 66px !important;
+    }
+
+    .menu-toggle,
+    html[data-theme="scholar"] .menu-toggle,
+    html[data-theme="dark"] .menu-toggle,
+    html[data-theme="light"] .menu-toggle {
+        width: 36px !important;
+        flex-basis: 36px !important;
+    }
+
+    html[data-theme="scholar"] .hero-command,
+    html[data-theme="dark"] .hero-command,
+    html[data-theme="light"] .hero-command,
+    html[data-theme="scholar"] .actions,
+    html[data-theme="dark"] .actions,
+    html[data-theme="light"] .actions {
+        gap: 7px !important;
+    }
+}
+
 </style>
 
 </head>
